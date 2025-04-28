@@ -1,0 +1,71 @@
+
+.comercializacion {
+    background-color: #fff7ff; 
+    padding: 80px 20px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .comercializacion .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .titulo-principal {
+    font-family: 'Great Vibes', cursive;
+    text-align: center;
+    font-size: 3rem;
+    color: #b74c7a; 
+    margin-bottom: 40px;
+  }
+  
+  .intro-texto {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .detalles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+  
+  .detalle-item {
+    background: #ffffff;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .detalle-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .detalle-item h2 {
+    font-size: 1.5rem;
+    color: #b74c7a;
+    margin-bottom: 15px;
+  }
+  
+  .detalle-item p {
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  .whatsapp-button {
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.whatsapp-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
