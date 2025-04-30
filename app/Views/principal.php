@@ -59,6 +59,7 @@
                 <p>Ofrecemos productos de alta calidad para el cuidado diario de tu cabello.</p>
             </div>
         </section>
+        
         <a href="http://wa.me/5493794617433" class="whatsapp-button" target="_blank">
           <img src="/Proyecto_Estetica/public/assets/img/whatsapp.png" alt="Whatsapp" class="whatsapp-icon">
         </a>

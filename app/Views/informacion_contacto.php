@@ -33,22 +33,30 @@
 
         <div class="col-md-6">
           <h5>¿Querés comunicarte con nosotros?</h5>
-          <form method="post" action="#">
+          <form action="https://formsubmit.co/belenjv123@gmail.com" method="POST">
+            <!-- Campos ocultos para configuración -->
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="">
+
             <div class="mb-3">
               <label for="nombre" class="form-label">Nombre y Apellido</label>
-              <input type="text" class="form-control" id="nombre" required>
+              <input type="text" class="form-control" name="nombre" id="nombre" required>
             </div>
+
             <div class="mb-3">
               <label for="email" class="form-label">Correo electrónico</label>
-              <input type="email" class="form-control" id="email" required>
+              <input type="email" class="form-control" name="email" id="email" required>
             </div>
+
             <div class="mb-3">
               <label for="mensaje" class="form-label">Mensaje</label>
-              <textarea class="form-control" id="mensaje" rows="4" required></textarea>
+              <textarea class="form-control" name="mensaje" id="mensaje" rows="4" required></textarea>
             </div>
+
             <button type="submit" class="btn btn-primary">Enviar consulta</button>
           </form>
         </div>
+
       </div>
     </div>
     

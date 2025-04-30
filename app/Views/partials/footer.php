@@ -24,6 +24,7 @@
                   con el objetivo de ofrecerte lo mejor en calidad y precio.
                 </p>
               </div>
+              
               <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                 <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Dejanos Ayudarte</h5>
                 <hr class="mb-4">
@@ -49,11 +50,12 @@
 
                 <!-- 🔽 Botones de redes -->
                 <div class="mt-4">
-                  <a href="https://wa.me/5493799123456" target="_blank" class="btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
+                  <a href="https://www.facebook.com/belen.vera.747606" target="_blank" class="me-2">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" width="35" style="vertical-align: middle;">
                   </a>
-                  <a href="https://www.instagram.com/belenveraestilista/" target="_blank" class="btn-instagram">
-                    <i class="fab fa-instagram"></i> Instagram
+
+                  <a href="https://www.instagram.com/belenveraestilista/" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="35" style="vertical-align: middle;">
                   </a>
                 </div>
               </div>
