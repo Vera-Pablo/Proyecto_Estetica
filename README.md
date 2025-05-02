@@ -1,60 +1,91 @@
-# CodeIgniter 4 Framework
+## Portada
 
-## What is CodeIgniter?
+**Nombre del Proyecto:** Sitio Web para “ **Estética V-B** ”
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+**Estudiante:** González Billordo Abel - Vera Pablo Gabriel
 
-This repository holds the distributable version of the framework.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+**Materia:** Taller de programación I
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+**Profesor:** Alonso Manuel José
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+**Fecha Entrega:**  28 de Abril del 2025
 
-## Important Change with index.php
+---
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+## 1. Introducción
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+Este proyecto consiste en el desarrollo de un sitio web para la Estética V.B., especializada en tratamientos capilares, cortes, peinados, coloraciones, laminados y perfilados, además de la venta de productos de cuidado capilar.
 
-**Please** read the user guide for a better explanation of how CI4 works!
+El objetivo es brindar una plataforma accesible, moderna y profesional para que las clientas conozcan los servicios y productos disponibles.
 
-## Repository Management
+---
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+## 2. Objetivos
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+- Crear un sitio web responsive adaptado a móviles y computadoras, utilizando Bootstrap.
+- Promocionar los servicios y productos de la estética.
+- Facilitar la comunicación con las clientas.
+- Mejorar la imagen profesional de la empresa.
 
-## Contributing
+---
 
-We welcome contributions from the community.
+## 3. Tecnologías Utilizadas
 
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/CONTRIBUTING.md) section in the development repository.
+- HTML5 y CSS3
+- Bootstrap 5
+- PHP 8 con CodeIgniter 4
+- Servidor local XAMPP
+- Visual Studio Code como editor de código
 
-## Server Requirements
+---
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+## 4. Estructura del Proyecto
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+- app/
+    - Controllers/
+        - Views/
+            - principal.php
+            - quienes_somos.php
+            - comercializacion.php
+            - terminos_uso.php
+            - informacion_contacto.php
+            - Partials/
+                - nav_home.php
+                - footer.php
+- public/
+    - assets/
+        - css/
+            - estilos-principal.css
+            - estilos-quienesSomos.css
+            - estilos-comercializacion.css
+            - estilos-terminosUso.php
+            - estilos-navbar.php
+            - estilos-informacionContacto.php
+            - estilo-footer.php
+        - img/
+            - (Imágenes utilizadas en el sitio)
+- writable/
+- index.php
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+---
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+## 5. Páginas del Sitio
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+- **Principal:** Presentación general de la estética.
+- **Quiénes Somos:** Historia, misión, visión y equipo profesional.
+- **Comercialización:** Información sobre formas de pago, envíos y condiciones de compra.
+- **Información de Contactos**: Informacion y formulario para contactarse con la estetica.
+- **Términos y Usos:** Reglas y políticas de uso de los servicios y productos.
+
+---
+
+## 6. Conclusión
+
+El desarrollo de este sitio web permite a la Estética V.B. mejorar su presencia digital, facilitar el acceso a información para sus clientas y posicionarse como una empresa moderna y profesional.
+
+### Mejoras futuras:
+
+- Incorporar reservas de turnos online.
+- Implementar un catálogo con carrito de compras.
+
+Agrega documentación del proyecto Estética V-B al README.
