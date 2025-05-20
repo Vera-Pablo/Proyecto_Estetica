@@ -5,7 +5,7 @@
       <title>Información de Contacto</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
-      <link href="<?= base_url('assets/css/estilos-informacionContacto.css') ?>" rel="stylesheet">
+      <link href="<?= base_url('assets/css/estilos-contactos.css') ?>" rel="stylesheet">
   </head>
 
   <body>
@@ -36,7 +36,7 @@
           <form action="https://formsubmit.co/belenjv123@gmail.com" method="POST">
             <!-- Campos ocultos para configuración -->
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="">
+            <input type="hidden" name="_next" value="<?= base_url("gracias")?>">
 
             <div class="mb-3">
               <label for="nombre" class="form-label">Nombre y Apellido</label>

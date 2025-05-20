@@ -32,10 +32,24 @@ class Home extends BaseController
                 .view("partials/footer.php");
     }
 
+    public function gracias()
+    {
+        return view('gracias.php');
+    }
+
     public function terminos_uso()
     {
         return view('partials/nav_home.php')
                 .view('terminos_uso')
                 .view("partials/footer.php");
     }
+
+    public function consultas()
+    {
+        return view('partials/nav_home.php')
+                .view('consultas')
+                .view("partials/footer.php");
+    }
+
+    
 }

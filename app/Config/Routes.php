@@ -10,4 +10,6 @@ $routes->get('/nav_home', 'Home::nav_home');
 $routes->get('/quienes_somos', 'Home::quienes_somos');
 $routes->get('/comercializacion', 'Home::comercializacion');
 $routes->get('/informacion_contacto', 'Home::informacion_contacto');
+$routes->get('/gracias', 'Home::gracias');
 $routes->get('/terminos_uso', 'Home::terminos_uso');
+$routes->get('/consultas', 'Home::consultas');
