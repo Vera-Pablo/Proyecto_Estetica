@@ -5,73 +5,64 @@ namespace App\Controllers;
 use App\Models\UsuarioModel;
 
 class UsuarioController extends BaseController
-{
-    // Mostrar lista de usuarios
-    public function index()
-    {
-        $modelo = new UsuarioModel();
-        $data['usuarios'] = $modelo->findAll();
-
-        return view('back/usuarios/listarusuarios_view', $data);
+{   
+    //Formulario de registro
+    public function registro(){
+        return view('usuario/registro'); //TODAVIA NO SE HA CREADO
     }
 
-    // Formulario para agregar un usuario
-    public function crear()
-    {
-        return view('back/usuarios/agregausuario_view');
+    //Proceso de registro
+    public function guardarRegistro(){
+       $usuarioModel = new UsuarioModel();
+
+       //Crear un array llamado $data
+       $data = [
+           'nombre' => $this->request->getPost('nombre'),
+           'apellido' => $this->request->getPost('apellido'),
+           'email' => $this->request->getPost('email'),
+           'usuario' => $this->request->getPost('usuario'),
+           'pass' => password_hash($this->request->getPost('pass'), PASSWORD_BCRYPT), // Encriptar contraseña
+           'rol' => 'cliente', // Rol por defecto
+           'estado' => 1, //Activo por defecto
+       ];
+
+       $usuarioModel->insert($data);
+        return redirect()->to('/login')->with('mensaje', 'Usuario registrado correctamente.'); // Redirigir a la página de inicio de sesión TODAVIA NO CREADA
     }
 
-    // Guardar usuario nuevo en base de datos
-    public function guardar()
-    {
-        $modelo = new UsuarioModel();
-
-        $modelo->insert([
-            'nombre' => $this->request->getPost('nombre'),
-            'apellido' => $this->request->getPost('apellido'),
-            'email' => $this->request->getPost('email'),
-            'usuario' => $this->request->getPost('usuario'),
-            'pass' => $this->request->getPost('pass'), // idealmente encriptar
-            'rol' => $this->request->getPost('rol'),
-            'estado' => $this->request->getPost('estado'),
-        ]);
-
-        return redirect()->to('/usuarios');
+    //Formulario de login
+    public function login(){
+       return view('usuario/login'); //TODAVIA NO SE HA CREADO
     }
 
-    // Formulario para editar usuario existente
-    public function editar($id)
+    //Proceso del login
+    public function autenticar()
     {
-        $modelo = new UsuarioModel();
-        $data['usuario'] = $modelo->find($id);
+        $usuarioModel = new UsuarioModel();
+        $email = $this->request->getPost('email');
+        $pass = $this->request->getPost('pass');
 
-        return view('back/usuarios/editarusuario_view', $data);
+        $usuario = $usuarioModel->getUserByEmail($email);
+
+        if ($usuario && password_verify($pass, $usuario['pass'])) {
+            // Iniciar sesión
+            session()->set([
+                'id' => $usuario['id'],
+                'nombre' => $usuario['nombre'],
+                'rol' => $usuario['rol'],
+                'logueado' => true
+            ]);
+
+            return redirect()->to('/'); // Redirigir a la página de inicio o dashboard ELEGIR REDIRECCION
+        } else {
+            return redirect()->back()->with('error', 'Email o contraseña incorrectos.');
+        }
     }
 
-    // Guardar cambios del usuario editado
-    public function actualizar($id)
+    //Cierra sesión
+    public function logout()
     {
-        $modelo = new UsuarioModel();
-
-        $modelo->update($id, [
-            'nombre' => $this->request->getPost('nombre'),
-            'apellido' => $this->request->getPost('apellido'),
-            'email' => $this->request->getPost('email'),
-            'usuario' => $this->request->getPost('usuario'),
-            'pass' => $this->request->getPost('pass'),
-            'rol' => $this->request->getPost('rol'),
-            'estado' => $this->request->getPost('estado'),
-        ]);
-
-        return redirect()->to('/usuarios');
-    }
-
-    // Eliminar un usuario
-    public function eliminar($id)
-    {
-        $modelo = new UsuarioModel();
-        $modelo->delete($id);
-
-        return redirect()->to('/usuarios');
+        session()->destroy();
+        return redirect()->to('/');    // Redirigir a la página de inicio ELEGIR REDIRECCION
     }
 }
