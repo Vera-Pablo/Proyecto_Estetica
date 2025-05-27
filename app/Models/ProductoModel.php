@@ -44,7 +44,24 @@ class ProductoModel extends Model
 
     //FUNCIONES PARA EL ADMINISTRADOR
     //Crea producto
-    
+    // Crear producto
+    public function crearProducto($data)
+    {
+        return $this->insert($data);
+    }
+
+    // Actualizar producto
+    public function actualizarProducto($id, $data)
+    {
+        return $this->update($id, $data);
+    }
+
+    // Eliminar producto
+    public function eliminarProducto($id)
+    {
+        return $this->delete($id);
+    }
+
 }
 
 
