@@ -6,6 +6,14 @@ use App\Models\UsuarioModel;
 
 class UsuarioController extends BaseController
 {   
+     public function index()
+    {
+        if (session('rol') !== 'admin') {
+            return redirect()->to('/')->with('error', 'Acceso no autorizado.');
+        }
+
+        return view('admin/index');
+    }
     //Formulario de registro
     public function registro(){
         return view('usuario/registro'); //TODAVIA NO SE HA CREADO

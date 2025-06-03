@@ -13,3 +13,4 @@ $routes->get('/informacion_contacto', 'Home::informacion_contacto');
 $routes->get('/gracias', 'Home::gracias');
 $routes->get('/terminos_uso', 'Home::terminos_uso');
 $routes->get('/consultas', 'Home::consultas');
+$routes->get('/login', 'UsuarioController::login');

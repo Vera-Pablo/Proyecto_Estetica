@@ -51,7 +51,7 @@
                 </ul>
               </div>
             </div>
-            <!-- botones carrito - favorito - usuario
+            <botones carrito - favorito - usuario
             <div class="style-button ">
               <a href="#" class="carrito-button mx-1">
                 <img src="/Proyecto_Estetica/public/assets/img/carrito.png" alt="carrito">
@@ -62,7 +62,7 @@
               <a href="#" class="login-button mx-1">
                 <img src="/Proyecto_Estetica/public/assets/img/usuario.png" alt="usuario">
               </a>
-            </div> -->
+            </div> 
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
