@@ -1,0 +1,64 @@
+body {
+    background-color: #fdf6f9;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+/*
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    color: #b74c7a;
+}*/
+
+.quienes-somos {
+    padding: 60px 20px;
+}
+
+.titulo {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    color: #b74c7a;   
+}
+
+.descripcion {
+    max-width: 800px;
+    margin: 0 auto 30px;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+.subtitulo {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    color: #b74c7a;
+}
+
+.staff {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.staff-img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.staff p {
+    color: #333;
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
+}

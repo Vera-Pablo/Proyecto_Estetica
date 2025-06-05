@@ -1,0 +1,85 @@
+<?php
+
+namespace App\Controllers;
+
+use App\Models\UsuarioModel;
+
+class UsuarioController extends BaseController
+{   
+    //Formulario de registro
+    public function registro()
+    {
+    $data = [];
+    
+    return view('partials/nav_home')
+           . view('usuario/registro', $data)
+           . view('partials/footer');
+    }
+
+    //Proceso de registro
+    public function guardarRegistro(){
+       $usuarioModel = new UsuarioModel();
+
+       //Crear un array llamado $data
+       $data = [
+           'nombre' => $this->request->getPost('nombre'),
+           'apellido' => $this->request->getPost('apellido'),
+           'email' => $this->request->getPost('email'),
+           'usuario' => $this->request->getPost('usuario'),
+           'pass' => password_hash($this->request->getPost('pass'), PASSWORD_BCRYPT), // Encriptar contraseña
+           'rol' => 'cliente', // Rol por defecto
+           'estado' => 1, //Activo por defecto
+       ];
+
+       $usuarioModel->insert($data);
+        return redirect()->to('/login')->with('mensaje', 'Usuario registrado correctamente.'); // Redirigir a la página de inicio de sesión TODAVIA NO CREADA
+    }
+
+    //Formulario de login
+    public function login()
+    {
+        $data = []; // Para pasar datos si es necesario, como el objeto de validación.
+                    // Aunque con $validation = \Config\Services::validation(); en la vista,
+                    // generalmente no necesitas pasar $validation explícitamente desde aquí
+                    // si usas redirect()->back()->withInput(); en caso de error.
+        
+        return view('partials/nav_home') // Asegúrate de que la ruta sea correcta
+            . view('usuario/login', $data) 
+            . view('partials/footer');   // Asegúrate de que la ruta sea correcta
+        }
+
+    //Proceso del login
+    public function autenticar()
+    {
+        $usuarioModel = new UsuarioModel();
+        $email = $this->request->getPost('email');
+        $pass = $this->request->getPost('pass');
+
+        $usuario = $usuarioModel->getUserByEmail($email);
+
+        if ($usuario && password_verify($pass, $usuario['pass'])) {
+            // Iniciar sesión
+            session()->set([
+                'id' => $usuario['id'],
+                'nombre' => $usuario['nombre'],
+                'rol' => $usuario['rol'],
+                'logueado' => true
+            ]);
+
+            return redirect()->to('/'); // Redirigir a la página de inicio o dashboard ELEGIR REDIRECCION
+        } else {
+            return redirect()->back()->with('error', 'Email o contraseña incorrectos.');
+        }
+    }
+
+    //Cierra sesión
+    public function logout()
+    {
+        session()->destroy();
+        return redirect()->to('/');    // Redirigir a la página de inicio ELEGIR REDIRECCION
+    }
+
+
+
+
+}

@@ -1,0 +1,145 @@
+/* public/assets/css/estilos-productos.css */
+
+/* Estilos para el Catálogo */
+.titulo-catalogo {
+    font-family: 'Great Vibes', cursive;
+    color: #b74c7a;
+    font-size: 3rem;
+}
+
+.subtitulo-catalogo {
+    font-family: 'Poppins', sans-serif;
+    color: #555;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+}
+
+.card-producto {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #f0e6e9; /* Borde suave */
+    border-radius: 12px; /* Bordes más redondeados */
+}
+
+.card-producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(183, 76, 122, 0.15); /* Sombra con tu color principal */
+}
+
+.imagen-catalogo-producto {
+    width: 100%;
+    height: 200px; /* Altura fija para las imágenes del catálogo */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.nombre-producto-catalogo a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #5c3a4e; /* Color de texto oscuro pero suave */
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+.nombre-producto-catalogo a:hover {
+    color: #b74c7a;
+}
+
+.precio-producto-catalogo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #b74c7a; /* Color principal */
+}
+
+.btn-agregar-carrito {
+    background-color: #b9c8ee; /* Azul pastel de tus botones de navbar */
+    color: #333; /* Texto oscuro para contraste */
+    border-color: #b9c8ee;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-agregar-carrito:hover {
+    background-color: #a3b2d3;
+    color: #222;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card-producto .card-footer {
+    background-color: #fff; /* Para que no interfiera con el hover del card */
+}
+
+
+ /*Estilos para la Vista de Detalle */
+.detalle-producto-container {
+     background-color: #fff; 
+     border-radius: 15px; 
+     padding: 30px; 
+     box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+}
+
+.imagen-detalle-producto {
+    max-height: 500px; /* Ajusta según el tamaño deseado */
+    width: auto; /* Mantiene la proporción */
+    max-width: 100%;
+    object-fit: contain; /* Muestra la imagen completa sin cortar */
+    border-radius: 12px;
+}
+
+.nombre-producto-detalle {
+    font-family: 'Great Vibes', cursive;
+    color: #b74c7a;
+    font-size: 2.8rem; /* Más grande para el detalle */
+}
+
+.precio-producto-detalle {
+    color: #a03b66; /* Un tono más oscuro del principal */
+    font-family: 'Montserrat', sans-serif;
+}
+
+.subtitulo-seccion-detalle {
+    font-family: 'Cinzel', serif;
+    color: #5c3a4e;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid #f0e6e9;
+    padding-bottom: 0.5rem;
+}
+
+.descripcion-producto-detalle p {
+    font-family: 'Poppins', sans-serif;
+    color: #555;
+    line-height: 1.7;
+}
+
+.badge.bg-success-light {
+    background-color: rgba(25, 135, 84, 0.1) !important;
+}
+.badge.bg-danger-light {
+    background-color: rgba(220, 53, 69, 0.1) !important;
+}
+
+.form-agregar-detalle .form-control {
+    border-radius: 8px;
+}
+
+.btn-agregar-carrito-detalle {
+    background-color: #b74c7a; /* Color de tu botón CTA principal */
+    border-color: #b74c7a;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    padding: 0.75rem;
+    border-radius: 25px; /* Consistente con .btn-cta */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-agregar-carrito-detalle:hover {
+    background-color: #a03b66; /* Más oscuro al pasar el mouse */
+    color: white;
+    transform: translateY(-2px);
+}
