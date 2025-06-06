@@ -8,7 +8,7 @@ use App\Models\CategoriaModel;
 class ProductoController extends BaseController
 {
     // Mostrar todos los productos
-    public function index()
+    public function catalogo()
     {
         $productoModel = new ProductoModel();
         $categoriaModel = new CategoriaModel();
@@ -59,7 +59,7 @@ class ProductoController extends BaseController
     public function crear()
     {
         $categoriaModel = new CategoriaModel();
-        $categorias = $categoriaModel->obtenerCategorias();
+        $categorias = $categoriaModel->findAll();
 
         return view('productos/crear', ['categorias' => $categorias]);
     }

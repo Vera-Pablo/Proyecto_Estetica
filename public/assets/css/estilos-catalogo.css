@@ -1,0 +1,14 @@
+h1{
+    font-family: 'Great Vibes' , cursive ;
+    color: #b74c7a;
+}
+
+.btn-buscar {
+    background-color: #b74c7a;
+    color: #fff;
+    border: none;
+}
+.btn-buscar:hover {
+    background-color: #a03b66;
+    color: #fff;
+}

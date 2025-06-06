@@ -1,0 +1,22 @@
+body {
+    min-height: 100vh;
+    background: url('../img/bg-panel.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.custom-productos {
+    background-color: #f8c8fc !important; /* Color personalizado */
+    color: #fff;
+}
+.custom-categorias {
+    background-color: #c592e9 !important;
+    color: #fff;
+}
+.custom-ventas {
+    background-color: #ffe5b4 !important;
+    color: #fff;
+}
+.custom-usuarios {
+    background-color: #cfffe5 !important;
+    color: #fff;
+}

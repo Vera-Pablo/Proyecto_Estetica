@@ -50,11 +50,4 @@ class Home extends BaseController
                 .view('consultas')
                 .view("partials/footer.php");
     }
-
-    // public function login()
-    // {
-    //     return view('usuario/login');
-    // }
-
-    
 }

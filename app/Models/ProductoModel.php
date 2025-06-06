@@ -62,6 +62,26 @@ class ProductoModel extends Model
         return $this->delete($id);
     }
 
+
+    public function guardar()
+    {
+        $productoModel = new ProductoModel();
+
+        // Armamos el array con los datos del formulario
+        $data = [
+            'nombre'       => $this->request->getPost('nombre'),
+            'descripcion'  => $this->request->getPost('descripcion'),
+            'precio'       => $this->request->getPost('precio'),
+            'stock'        => 10, // opcional, o podés agregar el campo al formulario
+            'imagen'       => $this->request->getPost('imagen'),
+            'categoria_id' => $this->request->getPost('categoria_id')
+        ];
+
+        // Insertar producto
+        $productoModel->crearProducto($data);
+
+        return redirect()->to('/productos')->with('mensaje', 'Producto creado exitosamente.');
+    }
 }
 
 

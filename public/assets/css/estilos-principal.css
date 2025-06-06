@@ -5,12 +5,6 @@
     box-sizing: border-box;
 }
 
-/*body {
-    font-family: "Montserrat", sans-serif;
-    background-color: #fff7ff;
-    color: #ff2f2f;
-    line-height: 1.6;
-}*/
 
 .background-video {
     position: absolute;
@@ -21,6 +15,7 @@
     object-fit: cover;
     z-index: -1; /* Manda el video al fondo detrás del texto */
 }
+
 /* Hero Section */
 .hero {
     height: 90vh;

@@ -36,6 +36,9 @@
                   <li class="nav-item">
                     <a class="nav-link mx-lg-2" href="<?= base_url("comercializacion")?>">Comercializacion</a>
                   </li>
+                   <li class="nav-item">
+                    <a class="nav-link mx-lg-2" href="<?= base_url("catalogo")?>">Catálogo</a>
+                  </li>
                   <li class="nav-item">
                     <a class="nav-link mx-lg-2" href="<?= base_url("quienes_somos")?>">¿Quienes Somos?</a>
                   </li>
@@ -59,7 +62,7 @@
               <a href="#" class="favorite-button mx-1">
                 <img src="/Proyecto_Estetica/public/assets/img/favorito.png" alt="favorito">
               </a>
-              <a href="#" class="login-button mx-1">
+              <a href="<?= base_url("login")?>" class="login-button mx-1">
                 <img src="/Proyecto_Estetica/public/assets/img/usuario.png" alt="usuario">
               </a>
             </div> 
