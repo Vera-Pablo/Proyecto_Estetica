@@ -18,7 +18,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="card text-white shadow-lg">
                         <div class="card-body custom-productos text-center">
-                            <a href="<?= base_url('/index_producto') ?>" class="btn btn-lg">
+                            <a href="<?= base_url('productos') ?>" class="btn btn-lg">
                                 <h3 class="card-title">Productos</h3>
                                 <h6 class="card-text ">Agregar, editar y eliminar productos.</h6>
                             </a>
@@ -30,7 +30,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="card text-white shadow-lg">
                         <div class="card-body custom-categorias text-center">
-                            <a href="<?= base_url('/categorias') ?>" class="btn  btn-lg">
+                            <a href="<?= base_url('categorias') ?>" class="btn  btn-lg">
                                 <h3 class="card-title">Categorías</h3>
                                 <h6 class="card-text">Gestionar categorías de productos.</h6>
                             </a>
@@ -42,7 +42,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="card text-white shadow-lg">
                         <div class="card-body custom-ventas text-center">
-                            <a href="<?= base_url('/ventas') ?>" class="btn btn-lg">
+                            <a href="<?= base_url('ventas') ?>" class="btn btn-lg">
                                 <h3 class="card-title">Ventas</h3>
                                 <h6 class="card-text">Vistas de ventas y detalles de compras.</h6>
                             </a>
@@ -54,13 +54,17 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="card text-white shadow-lg">
                         <div class="card-body custom-usuarios text-center">                            
-                            <a href="<?= base_url('/admin/usuarios') ?>" class="btn btn-lg">
+                            <a href="<?= base_url('usuarios') ?>" class="btn btn-lg">
                                 <h3 class="card-title">Usuarios</h3>
                                 <h6 class="card-text">Vistas de usuarios activos o inactivos.</h6>
                             </a>
                         </div>
                     </div>
                 </div>
+            </div>
+            
+            <div class="mt-4 text-end">
+                <a href="<?= base_url('/usuario/logout') ?>" class="btn btn-danger">Cerrar sesión</a>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>

@@ -62,9 +62,22 @@
               <a href="#" class="favorite-button mx-1">
                 <img src="/Proyecto_Estetica/public/assets/img/favorito.png" alt="favorito">
               </a>
-              <a href="<?= base_url("login")?>" class="login-button mx-1">
-                <img src="/Proyecto_Estetica/public/assets/img/usuario.png" alt="usuario">
-              </a>
+              <?php if (session()->get('logueado')): ?>
+                <?php if (session()->get('rol') === 'admin'): ?>
+                  <a href="<?= base_url('panel_admin') ?>" class="login-button mx-1" title="Panel Admin">
+                    <img src="/Proyecto_Estetica/public/assets/img/usuario.png" alt="admin">
+                  </a>
+                <?php else: ?>
+                  <a href="<?= base_url('panel') ?>" class="login-button mx-1" title="Mi perfil">
+                    <img src="/Proyecto_Estetica/public/assets/img/usuario.png" alt="perfil">
+                  </a>
+                <?php endif; ?>
+              <?php else: ?>
+                <a href="<?= base_url('login') ?>" class="login-button mx-1" title="Iniciar sesión">
+                  <img src="/Proyecto_Estetica/public/assets/img/usuario.png" alt="login">
+                </a>
+              <?php endif; ?>
+
             </div> 
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -75,3 +88,4 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
   </body>
 </html>
+           

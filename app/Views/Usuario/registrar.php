@@ -27,8 +27,9 @@
 
                 <form action="<?= base_url('/usuario/guardarRegistro') ?>" method="post">
                     <input type="text" placeholder="Nombre" name="nombre" required>
-                    <input type="text" placeholder="Usuario" name="usuario" required>
+                    <input type="text" placeholder="Apellido" name="apellido" required>
                     <input type="email" placeholder="Correo electrónico" name="email" required>
+                    <input type="text" placeholder="Usuario" name="usuario" required>
                     <input type="password" placeholder="Contraseña" name="pass" required>
 
                     <div class="text-center mt-2">

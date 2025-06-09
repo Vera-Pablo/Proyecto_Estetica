@@ -6,7 +6,7 @@ use App\Models\UsuarioModel;
 
 class UsuarioController extends BaseController
 {   
-     public function index(){
+     public function panel_admin(){
         if (session('rol') !== 'admin') {
             return redirect()->to('/')->with('error', 'Acceso no autorizado.');
         }
@@ -84,6 +84,16 @@ class UsuarioController extends BaseController
         } else {
             return redirect()->back()->with('error', 'Email o contraseña incorrectos.');
         }
+    }
+
+    //Panel de usuario logueado
+    public function panel()
+    {
+        if (!session('logueado')) {
+            return redirect()->to('/login');
+        }
+
+        return view('usuario/panel');
     }
 
     //Cierra sesión

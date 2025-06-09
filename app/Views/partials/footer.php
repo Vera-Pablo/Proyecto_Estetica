@@ -28,26 +28,24 @@
               <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                 <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Dejanos Ayudarte</h5>
                 <hr class="mb-4">
-                <p><a href="#!" class="text-dark">Tu Cuenta</a></p>
-                <p><a href="#!" class="text-dark">Tus Órdenes</a></p>
-                <p><a href="#!" class="text-dark">Manejo de cuenta</a></p>
-                <p><a href="#!" class="text-dark">Ayuda</a></p>
+                <p><a href="<?= base_url('login')?>" class="text-dark">Tu Cuenta</a></p>
+                <p><a href="<?= base_url('carrito')?>" class="text-dark">Tus Órdenes</a></p>
+                <p><a href="<?= base_url('')?>" class="text-dark">Manejo de cuenta</a></p>
               </div>
               <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                 <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Soporte</h5>
                 <hr class="mb-4">
                 <p><a href="<?= base_url("terminos_uso")?>" class="text-dark">Términos y Usos</a></p>
                 <p><a href="<?= base_url("quienes_somos")?>" class="text-dark">Quiénes Somos</a></p>
-                <p><a href="http://wa.me/5493794617433" class="text-dark">Ayuda</a></p>
+                <p><a href="<?= base_url('informacion_contacto')?>" class="text-dark">Ayuda</a></p>
               </div>
               <!-- Sección: Contacto -->
               <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                 <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Contacto</h5>
                 <hr class="mb-4">
-                <p><i class="fas fa-home me-3"></i> Riachuelo, Corrientes 3416</p>
-                <p><i class="fas fa-envelope me-3"></i> belenjv123@gmail.com</p>
-                <p><i class="fas fa-phone me-3"></i> 3794 - 617433</p>
-
+                <a href="https://maps.app.goo.gl/AyygmzJQzbNx96HT8"><i class="fas fa-home me-3"></i>Riachuelo, Corrientes 3416</a>
+                <p href="<?= base_url('informacion_contacto')?>"><i class="fas fa-envelope me-3"></i> belenjv123@gmail.com</p>
+          
                 <!-- 🔽 Botones de redes -->
                 <div class="mt-4">
                   <a href="https://www.facebook.com/belen.vera.747606" target="_blank" class="me-2">

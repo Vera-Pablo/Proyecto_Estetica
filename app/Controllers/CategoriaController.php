@@ -12,7 +12,7 @@ class CategoriaController extends BaseController
         $categoriaModel = new CategoriaModel();
         $categorias = $categoriaModel->obtenerCategorias();
 
-        return view('categorias/index', ['categorias' => $categorias]);
+        return view('categorias/index_categoria', ['categorias' => $categorias]);
     }
 
     // Mostrar formulario para crear categoría
@@ -26,12 +26,18 @@ class CategoriaController extends BaseController
     {
         $categoriaModel = new CategoriaModel();
 
-        $data = [
-            'nombre' => $this->request->getPost('nombre')
-        ];
+        $nombre = $this->request->getPost('nombre');
 
-        $categoriaModel->insert($data);
-        return redirect()->to('/categorias')->with('mensaje', 'Categoría agregada.');
+        if (empty($nombre)) {
+            return redirect()->back()->withInput()->with('error', 'El nombre es obligatorio.');
+        }
+
+        $categoriaModel->insert([
+            'nombre' => $nombre,
+            'estado' => 1 
+        ]);
+
+        return redirect()->to('/categorias')->with('mensaje', 'Categoría creada correctamente.');
     }
 
     // Mostrar formulario para editar
@@ -40,6 +46,10 @@ class CategoriaController extends BaseController
         $categoriaModel = new CategoriaModel();
         $categoria = $categoriaModel->find($id);
 
+        if (!$categoria) {
+            return redirect()->to('/categorias')->with('error', 'Categoría no encontrada.');
+        }
+
         return view('categorias/editar', ['categoria' => $categoria]);
     }
 
@@ -47,17 +57,19 @@ class CategoriaController extends BaseController
     public function actualizar($id)
     {
         $categoriaModel = new CategoriaModel();
+        $nombre = $this->request->getPost('nombre');
 
-        $data = [
-            'nombre' => $this->request->getPost('nombre')
-        ];
+        if (empty($nombre)) {
+            return redirect()->back()->withInput()->with('error', 'El nombre es obligatorio.');
+        }
 
-        $categoriaModel->update($id, $data);
-        return redirect()->to('/categorias')->with('mensaje', 'Categoría actualizada.');
+        $categoriaModel->update($id, ['nombre' => $nombre]);
+
+        return redirect()->to('/categorias')->with('mensaje', 'Categoría actualizada correctamente.');
     }
 
     // Eliminar categoría
-    public function eliminar($id)
+    public function desactivar($id)
     {
         $categoriaModel = new CategoriaModel();
         $categoriaModel->delete($id);

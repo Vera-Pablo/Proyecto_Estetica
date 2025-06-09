@@ -50,4 +50,10 @@ class Home extends BaseController
                 .view('consultas')
                 .view("partials/footer.php");
     }
+
+    //encriptacion de contraseñas
+    public function encriptar()
+    {
+        return view('encriptar.php');         
+    }
 }

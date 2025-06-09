@@ -21,7 +21,7 @@
             <?php endif; ?>
 
             <form action="<?= base_url('/productos/guardar') ?>" method="post" enctype="multipart/form-data" class="bg-white p-4 rounded shadow">
-
+                
                 <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre del producto</label>
                     <input type="text" name="nombre" id="nombre" class="form-control" required>
@@ -31,9 +31,13 @@
                     <label for="categoria_id" class="form-label">Categoría</label>
                     <select name="categoria_id" id="categoria_id" class="form-select" required>
                         <option value="">Seleccionar categoría</option>
-                        <?php foreach ($categorias as $categoria): ?>
-                            <option value="<?= $categoria['id'] ?>"><?= esc($categoria['nombre']) ?></option>
-                        <?php endforeach; ?>
+                        <?php if(!empty($categorias)): ?>
+                            <?php foreach ($categorias as $categoria): ?>
+                                <option value="<?= $categoria['id'] ?>"><?= esc($categoria['nombre']) ?></option>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <option value="">No hay categorías disponibles</option>
+                        <?php endif; ?>
                     </select>
                 </div>
 
@@ -48,8 +52,17 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="imagen" class="form-label">Nombre del archivo de imagen</label>
-                    <input type="text" name="imagen" id="imagen" class="form-control" placeholder="ej: producto1.jpg">
+                    <label for="stock" class="form-label">Stock</label>
+                    <input type="number" name="stock" id="stock" class="form-control" step="0.01" min="0" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="imagen" class="form-label">Arrastre la imagen aquí</label>
+                    <input type="file" name="imagen_file" id="imagen_file" class="form-control" accept="image/*" required>
+                </div>
+                <div class="mb-3">
+                    <label for="nombre_imagen" class="form-label">Nombre del archivo de imagen</label>
+                    <input type="text" name="nombre_imagen" id="nombre_imagen" class="form-control" readonly>
                 </div>
 
                 <div class="text-end">
@@ -59,5 +72,14 @@
             </form>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+        <script>
+            document.getElementById('imagen_file').addEventListener('change', function(e) {
+                if (e.target.files.length > 0) {
+                    document.getElementById('nombre_imagen').value = e.target.files[0].name;
+                } else {
+                    document.getElementById('nombre_imagen').value = '';
+                }
+            });
+        </script>
     </body>
 </html>

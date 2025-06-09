@@ -16,8 +16,13 @@
         <div class="container mt-5">
             <h2 class="mb-4 text-center">Gestión de Productos</h2>
 
-            <div class="mb-3 text-end">
-                <a href="<?= base_url('crear') ?>" class="btn btn-primary">Agregar Producto</a>
+            <div class="container mb-2">
+                <div class="row ">
+                    <div class="col text-end">
+                        <a href="<?= base_url('panel_admin') ?>" class="btn btn-success">Panel Principal</a>
+                        <a href="<?= base_url('crear') ?>" class="btn btn-primary">Agregar Producto</a>
+                    </div>
+                </div>
             </div>
 
             <?php if (session()->getFlashdata('mensaje')): ?>
@@ -37,6 +42,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        
                         <?php foreach ($productos as $producto): ?>
                             <tr>
                                 <td><?= $producto['id'] ?></td>
@@ -55,6 +61,7 @@
             <?php else: ?>
                 <p class="text-center">No hay productos cargados.</p>
             <?php endif; ?>
+            
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
     </body>

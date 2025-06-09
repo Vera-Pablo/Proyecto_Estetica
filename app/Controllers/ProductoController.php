@@ -7,6 +7,14 @@ use App\Models\CategoriaModel;
 
 class ProductoController extends BaseController
 {
+    public function index()
+    {
+        $productoModel = new ProductoModel();
+        $productos = $productoModel->obtenerProductos();
+
+        return view('productos/index_producto', ['productos' => $productos]);
+    }
+
     // Mostrar todos los productos
     public function catalogo()
     {
@@ -54,10 +62,9 @@ class ProductoController extends BaseController
         return view('productos/detalle', ['producto' => $producto]);
     }
 
-    // Funciones para el administrador
-    // Mostrar formulario para crear producto
-    public function crear()
-    {
+    // * * * FUNCIONES PARA EL ADMINISTRADOR * * *
+    // Crear producto
+    public function crearProducto(){
         $categoriaModel = new CategoriaModel();
         $categorias = $categoriaModel->findAll();
 
@@ -75,7 +82,7 @@ class ProductoController extends BaseController
             'precio' => $this->request->getPost('precio'),
             'stock' => $this->request->getPost('stock'),
             'categoria_id' => $this->request->getPost('categoria_id'),
-            'imagen' => $this->request->getPost('imagen') // o nombre del archivo subido
+            'imagen' => $nombreImagen = $this->request->getPost('nombre_imagen')
         ];
 
         $productoModel->crearProducto($data);
@@ -111,6 +118,14 @@ class ProductoController extends BaseController
             'imagen' => $this->request->getPost('imagen')
         ];
 
+        // Ver si hay nueva imagen
+        $imagen = $this->request->getFile('imagen');
+        if ($imagen && $imagen->isValid() && !$imagen->hasMoved()) {
+            $nombreImagen = $imagen->getRandomName();
+            $imagen->move('assets/img/', $nombreImagen);
+            $data['imagen'] = $nombreImagen;
+        }
+
         $productoModel->actualizarProducto($id, $data);
         return redirect()->to('/productos')->with('mensaje', 'Producto actualizado.');
     }
@@ -122,6 +137,22 @@ class ProductoController extends BaseController
         $productoModel->eliminarProducto($id);
 
         return redirect()->to('/productos')->with('mensaje', 'Producto eliminado.');
+    }
+
+    // Función para desactivar un producto
+    // (en lugar de eliminarlo, lo marca como inactivo)
+    public function desactivar($id)
+    {
+        $productoModel = new ProductoModel();
+        $producto = $productoModel->find($id);
+
+        if (!$producto) {
+            return redirect()->to('/productos')->with('error', 'Producto no encontrado.');
+        }
+
+        $productoModel->update($id, ['estado' => 0]);
+
+        return redirect()->to('/productos')->with('mensaje', 'Producto desactivado correctamente.');
     }
 
 }

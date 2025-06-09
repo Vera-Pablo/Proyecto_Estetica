@@ -14,24 +14,35 @@ $routes->get('/informacion_contacto', 'Home::informacion_contacto');
 $routes->get('/gracias', 'Home::gracias');
 $routes->get('/terminos_uso', 'Home::terminos_uso');
 $routes->get('/consultas', 'Home::consultas');
+//Ruta para encriptar contraseñas
+$routes->get('/encriptar', 'Home::encriptar');
 
 //Rutas de Usuario
 $routes->get('/login', 'UsuarioController::login');
 $routes->post('/usuario/autenticar', 'UsuarioController::autenticar');
 $routes->get('/registrar', 'UsuarioController::registro');
 $routes->post('/usuario/guardarRegistro', 'UsuarioController::guardarRegistro');
+$routes->get('/panel', 'UsuarioController::panel');
 $routes->get('/usuario/logout', 'UsuarioController::logout');
-$routes->get('/usuario/panel', 'UsuarioController::panel');
 
 //Rutas del Admin
-$routes->get('/admin', 'UsuarioController::adminPanel');
+$routes->get('/panel_admin', 'UsuarioController::panel_admin');
 
 //Rutas de Producto (Admin)
-$routes->get('/productos', 'ProductoController::index'); // index_producto
-$routes->get('/productos/crear', 'ProductoController::crear');
+$routes->get('/productos', 'ProductoController::index'); 
+$routes->get('/crear', 'ProductoController::crearProducto');
 $routes->post('/productos/guardar', 'ProductoController::guardar');
 $routes->get('/productos/editar/(:num)', 'ProductoController::editar/$1');
-$routes->get('/productos/eliminar/(:num)', 'ProductoController::eliminar/$1');
+$routes->post('/productos/actualizar/(:num)', 'ProductoController::actualizar/$1');
+$routes->get('/productos/desactivar/(:num)', 'ProductoController::desactivar/$1');
+
+//Rutas de Categoría (Admin)
+$routes->get('/categorias', 'CategoriaController::index');
+$routes->get('/categorias/crear', 'CategoriaController::crear');
+$routes->post('/categorias/guardar', 'CategoriaController::guardar');
+$routes->get('/categorias/editar/(:num)', 'CategoriaController::editar/$1');
+$routes->post('/categorias/actualizar/(:num)', 'CategoriaController::actualizar/$1');
+$routes->get('/categorias/desactivar/(:num)', 'CategoriaController::desactivar/$1');
 
 //Rutas del Usuario 
 $routes->get('catalogo', 'ProductoController::catalogo');

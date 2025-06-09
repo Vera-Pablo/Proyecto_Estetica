@@ -1,0 +1,805 @@
+DEBUG - 2025-06-07 16:18:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 16:18:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 16:18:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 16:19:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 16:19:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 16:20:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 16:20:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 16:20:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 16:31:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 16:31:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-07 16:31:22 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "/crear.php"
+[Method: GET, Route: crear]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/crear.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('/crear', [], true)
+ 3 APPPATH\Controllers\ProductoController.php(72): view('/crear', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->crear()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-07 16:31:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 16:35:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 16:35:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 16:39:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 16:39:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 16:39:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-07 16:39:59 --> ErrorException: Undefined variable $categorias
+[Method: GET, Route: crear]
+in APPPATH\Views\productos\crear.php on line 34.
+ 1 APPPATH\Views\productos\crear.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $categorias', 'C:\\xampp\\htdocs\\Proyecto_Estetica\\app\\Views\\productos\\crear.php', 34)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\Proyecto_Estetica\\app\\Views\\productos\\crear.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('productos/crear', [], true)
+ 5 APPPATH\Controllers\ProductoController.php(72): view('productos/crear', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->crearProducto()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-07 16:40:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 16:41:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-07 16:41:00 --> ErrorException: Undefined variable $categorias
+[Method: GET, Route: crear]
+in APPPATH\Views\productos\crear.php on line 35.
+ 1 APPPATH\Views\productos\crear.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $categorias', 'C:\\xampp\\htdocs\\Proyecto_Estetica\\app\\Views\\productos\\crear.php', 35)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\Proyecto_Estetica\\app\\Views\\productos\\crear.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('productos/crear', [], true)
+ 5 APPPATH\Controllers\ProductoController.php(72): view('productos/crear', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->crearProducto()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-07 16:41:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 16:41:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 16:41:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 16:42:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 16:42:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 18:50:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:00:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:00:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:00:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:00:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:00:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:00:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:01:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:01:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:01:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:01:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:01:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-07 19:01:21 --> ErrorException: Undefined array key "estado"
+[Method: GET, Route: categorias]
+in APPPATH\Views\categorias\index_categoria.php on line 42.
+ 1 APPPATH\Views\categorias\index_categoria.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "estado"', 'C:\\xampp\\htdocs\\Proyecto_Estetica\\app\\Views\\categorias\\index_categoria.php', 42)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\Proyecto_Estetica\\app\\Views\\categorias\\index_categoria.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('categorias/index_categoria', [], true)
+ 5 APPPATH\Controllers\CategoriaController.php(15): view('categorias/index_categoria', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoriaController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-07 19:07:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:07:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:07:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:07:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:07:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:08:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:10:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-07 19:10:46 --> ErrorException: Undefined array key "estado"
+[Method: GET, Route: categorias]
+in APPPATH\Views\categorias\index_categoria.php on line 42.
+ 1 APPPATH\Views\categorias\index_categoria.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "estado"', 'C:\\xampp\\htdocs\\Proyecto_Estetica\\app\\Views\\categorias\\index_categoria.php', 42)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\Proyecto_Estetica\\app\\Views\\categorias\\index_categoria.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('categorias/index_categoria', [], true)
+ 5 APPPATH\Controllers\CategoriaController.php(15): view('categorias/index_categoria', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoriaController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-07 19:17:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:18:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:18:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:18:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:18:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:19:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:27:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:27:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:28:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:29:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:29:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:29:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:29:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:29:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:29:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:31:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:31:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:31:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:31:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:32:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:32:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-07 19:35:31 --> ParseError: syntax error, unexpected end of file
+[Method: GET, Route: crear]
+in APPPATH\Views\productos\crear.php on line 80.
+ 1 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('productos/crear', [], true)
+ 3 APPPATH\Controllers\ProductoController.php(72): view('productos/crear', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->crearProducto()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-07 19:35:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:35:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-07 19:35:39 --> ParseError: syntax error, unexpected end of file
+[Method: GET, Route: crear]
+in APPPATH\Views\productos\crear.php on line 80.
+ 1 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('productos/crear', [], true)
+ 3 APPPATH\Controllers\ProductoController.php(72): view('productos/crear', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->crearProducto()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-07 19:39:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:39:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:39:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:43:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:43:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:43:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:45:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:45:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:46:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:46:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:46:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:46:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:46:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:46:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:49:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:50:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:50:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 19:50:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 20:20:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 20:20:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 20:21:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 20:22:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 20:22:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 20:22:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 20:24:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 20:24:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 20:24:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 20:24:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-07 21:33:51 --> ErrorException: Undefined variable $categorias
+[Method: GET, Route: crear]
+in APPPATH\Controllers\ProductoController.php on line 72.
+ 1 APPPATH\Controllers\ProductoController.php(72): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $categorias', 'C:\\xampp\\htdocs\\Proyecto_Estetica\\app\\Controllers\\ProductoController.php', 72)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->crearProducto()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-07 21:34:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-07 21:34:05 --> ErrorException: Undefined variable $categorias
+[Method: GET, Route: crear]
+in APPPATH\Controllers\ProductoController.php on line 72.
+ 1 APPPATH\Controllers\ProductoController.php(72): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $categorias', 'C:\\xampp\\htdocs\\Proyecto_Estetica\\app\\Controllers\\ProductoController.php', 72)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->crearProducto()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-07 21:34:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-07 21:34:47 --> ErrorException: Undefined variable $categorias
+[Method: GET, Route: crear]
+in APPPATH\Controllers\ProductoController.php on line 72.
+ 1 APPPATH\Controllers\ProductoController.php(72): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $categorias', 'C:\\xampp\\htdocs\\Proyecto_Estetica\\app\\Controllers\\ProductoController.php', 72)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->crearProducto()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-07 21:45:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 21:45:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 21:45:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 21:50:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-06-07 22:00:57 --> mysqli_sql_exception: Column 'imagen' cannot be null in C:\xampp\htdocs\Proyecto_Estetica\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto_Estetica\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `pr...', 0)
+#1 C:\xampp\htdocs\Proyecto_Estetica\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pr...')
+#2 C:\xampp\htdocs\Proyecto_Estetica\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pr...')
+#3 C:\xampp\htdocs\Proyecto_Estetica\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pr...', Array, false)
+#4 C:\xampp\htdocs\Proyecto_Estetica\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\Proyecto_Estetica\system\BaseModel.php(839): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\Proyecto_Estetica\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\Proyecto_Estetica\app\Models\ProductoModel.php(23): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\Proyecto_Estetica\app\Controllers\ProductoController.php(88): App\Models\ProductoModel->crearProducto(Array)
+#9 C:\xampp\htdocs\Proyecto_Estetica\system\CodeIgniter.php(933): App\Controllers\ProductoController->guardar()
+#10 C:\xampp\htdocs\Proyecto_Estetica\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+#11 C:\xampp\htdocs\Proyecto_Estetica\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\Proyecto_Estetica\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\Proyecto_Estetica\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\Proyecto_Estetica\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 {main}
+CRITICAL - 2025-06-07 22:00:58 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'imagen' cannot be null
+[Method: POST, Route: productos/guardar]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `productos` (`nombre`, `descripcion`, `precio`, `stock`, `categoria_id`, `imagen`) VALUES (:nombre:, :descripcion:, :precio:, :stock:, :categoria_id:, :imagen:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(839): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Models\ProductoModel.php(23): CodeIgniter\Model->insert([...])
+ 6 APPPATH\Controllers\ProductoController.php(88): App\Models\ProductoModel->crearProducto([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->guardar()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-07 22:00:58 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'imagen' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `productos` (`nombre`, `descripcion`, `precio`, `stock`, `categoria_id`, `imagen`) VALUES (\'Keratina Nov Native\', \'La Keratina NOV NATIVE está diseñada para reparar cabellos quebradizos y maltratados, especialmente aquellos que han sido sometidos a procesos químicos como alisados o decoloraciones. Esta línea contiene Keratina Hidrolizada, que ayuda a restaurar la soltura y flexibilidad natural del cabello, suavizando y humectando profundamente. \', \'14.000\', \'30\', \'1\', NULL)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `productos` (`nombre`, `descripcion`, `precio`, `stock`, `categoria_id`, `imagen`) VALUES (\'Keratina Nov Native\', \'La Keratina NOV NATIVE está diseñada para reparar cabellos quebradizos y maltratados, especialmente aquellos que han sido sometidos a procesos químicos como alisados o decoloraciones. Esta línea contiene Keratina Hidrolizada, que ayuda a restaurar la soltura y flexibilidad natural del cabello, suavizando y humectando profundamente. \', \'14.000\', \'30\', \'1\', NULL)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `productos` (`nombre`, `descripcion`, `precio`, `stock`, `categoria_id`, `imagen`) VALUES (:nombre:, :descripcion:, :precio:, :stock:, :categoria_id:, :imagen:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(839): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Models\ProductoModel.php(23): CodeIgniter\Model->insert([...])
+ 8 APPPATH\Controllers\ProductoController.php(88): App\Models\ProductoModel->crearProducto([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->guardar()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-07 22:00:58 --> [Caused by] mysqli_sql_exception: Column 'imagen' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `productos` (`nombre`, `descripcion`, `precio`, `stock`, `categoria_id`, `imagen`) VALUES (\'Keratina Nov Native\', \'La Keratina NOV NATIVE está diseñada para reparar cabellos quebradizos y maltratados, especialmente aquellos que han sido sometidos a procesos químicos como alisados o decoloraciones. Esta línea contiene Keratina Hidrolizada, que ayuda a restaurar la soltura y flexibilidad natural del cabello, suavizando y humectando profundamente. \', \'14.000\', \'30\', \'1\', NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `productos` (`nombre`, `descripcion`, `precio`, `stock`, `categoria_id`, `imagen`) VALUES (\'Keratina Nov Native\', \'La Keratina NOV NATIVE está diseñada para reparar cabellos quebradizos y maltratados, especialmente aquellos que han sido sometidos a procesos químicos como alisados o decoloraciones. Esta línea contiene Keratina Hidrolizada, que ayuda a restaurar la soltura y flexibilidad natural del cabello, suavizando y humectando profundamente. \', \'14.000\', \'30\', \'1\', NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `productos` (`nombre`, `descripcion`, `precio`, `stock`, `categoria_id`, `imagen`) VALUES (\'Keratina Nov Native\', \'La Keratina NOV NATIVE está diseñada para reparar cabellos quebradizos y maltratados, especialmente aquellos que han sido sometidos a procesos químicos como alisados o decoloraciones. Esta línea contiene Keratina Hidrolizada, que ayuda a restaurar la soltura y flexibilidad natural del cabello, suavizando y humectando profundamente. \', \'14.000\', \'30\', \'1\', NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `productos` (`nombre`, `descripcion`, `precio`, `stock`, `categoria_id`, `imagen`) VALUES (:nombre:, :descripcion:, :precio:, :stock:, :categoria_id:, :imagen:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(839): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Models\ProductoModel.php(23): CodeIgniter\Model->insert([...])
+ 9 APPPATH\Controllers\ProductoController.php(88): App\Models\ProductoModel->crearProducto([...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->guardar()
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-07 22:06:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 22:07:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 22:10:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 22:10:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 22:10:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-07 22:10:46 --> ErrorException: Undefined array key "categoria"
+[Method: GET, Route: productos]
+in APPPATH\Views\productos\index_producto.php on line 51.
+ 1 APPPATH\Views\productos\index_producto.php(51): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "categoria"', 'C:\\xampp\\htdocs\\Proyecto_Estetica\\app\\Views\\productos\\index_producto.php', 51)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\Proyecto_Estetica\\app\\Views\\productos\\index_producto.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('productos/index_producto', [], true)
+ 5 APPPATH\Controllers\ProductoController.php(15): view('productos/index_producto', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-07 22:13:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-06-07 22:13:23 --> mysqli_sql_exception: Table 'bd_estetica.categorias' doesn't exist in C:\xampp\htdocs\Proyecto_Estetica\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto_Estetica\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `product...', 0)
+#1 C:\xampp\htdocs\Proyecto_Estetica\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\xampp\htdocs\Proyecto_Estetica\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\xampp\htdocs\Proyecto_Estetica\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\xampp\htdocs\Proyecto_Estetica\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Proyecto_Estetica\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\Proyecto_Estetica\app\Models\ProductoModel.php(69): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\Proyecto_Estetica\app\Controllers\ProductoController.php(13): App\Models\ProductoModel->obtenerProductos()
+#8 C:\xampp\htdocs\Proyecto_Estetica\system\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+#9 C:\xampp\htdocs\Proyecto_Estetica\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+#10 C:\xampp\htdocs\Proyecto_Estetica\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\Proyecto_Estetica\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\Proyecto_Estetica\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\Proyecto_Estetica\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-07 22:13:23 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_estetica.categorias' doesn't exist
+[Method: GET, Route: productos]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\ProductoModel.php(69): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\ProductoController.php(13): App\Models\ProductoModel->obtenerProductos()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-07 22:13:23 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_estetica.categorias' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\ProductoModel.php(69): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\ProductoController.php(13): App\Models\ProductoModel->obtenerProductos()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-07 22:13:23 --> [Caused by] mysqli_sql_exception: Table 'bd_estetica.categorias' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\ProductoModel.php(69): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\ProductoController.php(13): App\Models\ProductoModel->obtenerProductos()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-07 22:13:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-06-07 22:13:28 --> mysqli_sql_exception: Table 'bd_estetica.categorias' doesn't exist in C:\xampp\htdocs\Proyecto_Estetica\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto_Estetica\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `product...', 0)
+#1 C:\xampp\htdocs\Proyecto_Estetica\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\xampp\htdocs\Proyecto_Estetica\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\xampp\htdocs\Proyecto_Estetica\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\xampp\htdocs\Proyecto_Estetica\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Proyecto_Estetica\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\Proyecto_Estetica\app\Models\ProductoModel.php(69): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\Proyecto_Estetica\app\Controllers\ProductoController.php(13): App\Models\ProductoModel->obtenerProductos()
+#8 C:\xampp\htdocs\Proyecto_Estetica\system\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+#9 C:\xampp\htdocs\Proyecto_Estetica\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+#10 C:\xampp\htdocs\Proyecto_Estetica\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\Proyecto_Estetica\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\Proyecto_Estetica\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\Proyecto_Estetica\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-07 22:13:28 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_estetica.categorias' doesn't exist
+[Method: GET, Route: productos]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\ProductoModel.php(69): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\ProductoController.php(13): App\Models\ProductoModel->obtenerProductos()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-07 22:13:28 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_estetica.categorias' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\ProductoModel.php(69): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\ProductoController.php(13): App\Models\ProductoModel->obtenerProductos()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-07 22:13:28 --> [Caused by] mysqli_sql_exception: Table 'bd_estetica.categorias' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\ProductoModel.php(69): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\ProductoController.php(13): App\Models\ProductoModel->obtenerProductos()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-07 22:13:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 22:13:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 22:13:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-06-07 22:13:38 --> mysqli_sql_exception: Table 'bd_estetica.categorias' doesn't exist in C:\xampp\htdocs\Proyecto_Estetica\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto_Estetica\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `product...', 0)
+#1 C:\xampp\htdocs\Proyecto_Estetica\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\xampp\htdocs\Proyecto_Estetica\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\xampp\htdocs\Proyecto_Estetica\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\xampp\htdocs\Proyecto_Estetica\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Proyecto_Estetica\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\Proyecto_Estetica\app\Models\ProductoModel.php(69): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\Proyecto_Estetica\app\Controllers\ProductoController.php(13): App\Models\ProductoModel->obtenerProductos()
+#8 C:\xampp\htdocs\Proyecto_Estetica\system\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+#9 C:\xampp\htdocs\Proyecto_Estetica\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+#10 C:\xampp\htdocs\Proyecto_Estetica\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\Proyecto_Estetica\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\Proyecto_Estetica\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\Proyecto_Estetica\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-07 22:13:38 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_estetica.categorias' doesn't exist
+[Method: GET, Route: productos]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\ProductoModel.php(69): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\ProductoController.php(13): App\Models\ProductoModel->obtenerProductos()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-07 22:13:38 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_estetica.categorias' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\ProductoModel.php(69): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\ProductoController.php(13): App\Models\ProductoModel->obtenerProductos()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-07 22:13:38 --> [Caused by] mysqli_sql_exception: Table 'bd_estetica.categorias' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\ProductoModel.php(69): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\ProductoController.php(13): App\Models\ProductoModel->obtenerProductos()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-06-07 22:13:56 --> mysqli_sql_exception: Table 'bd_estetica.categorias' doesn't exist in C:\xampp\htdocs\Proyecto_Estetica\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto_Estetica\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `product...', 0)
+#1 C:\xampp\htdocs\Proyecto_Estetica\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\xampp\htdocs\Proyecto_Estetica\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\xampp\htdocs\Proyecto_Estetica\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\xampp\htdocs\Proyecto_Estetica\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Proyecto_Estetica\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\Proyecto_Estetica\app\Models\ProductoModel.php(69): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\Proyecto_Estetica\app\Controllers\ProductoController.php(13): App\Models\ProductoModel->obtenerProductos()
+#8 C:\xampp\htdocs\Proyecto_Estetica\system\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+#9 C:\xampp\htdocs\Proyecto_Estetica\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+#10 C:\xampp\htdocs\Proyecto_Estetica\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\Proyecto_Estetica\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\Proyecto_Estetica\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\Proyecto_Estetica\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-07 22:13:56 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_estetica.categorias' doesn't exist
+[Method: GET, Route: productos]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\ProductoModel.php(69): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\ProductoController.php(13): App\Models\ProductoModel->obtenerProductos()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-07 22:13:56 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_estetica.categorias' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\ProductoModel.php(69): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\ProductoController.php(13): App\Models\ProductoModel->obtenerProductos()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-07 22:13:56 --> [Caused by] mysqli_sql_exception: Table 'bd_estetica.categorias' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\ProductoModel.php(69): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\ProductoController.php(13): App\Models\ProductoModel->obtenerProductos()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-07 22:14:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-06-07 22:14:28 --> mysqli_sql_exception: Table 'bd_estetica.categorias' doesn't exist in C:\xampp\htdocs\Proyecto_Estetica\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto_Estetica\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `product...', 0)
+#1 C:\xampp\htdocs\Proyecto_Estetica\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\xampp\htdocs\Proyecto_Estetica\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\xampp\htdocs\Proyecto_Estetica\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\xampp\htdocs\Proyecto_Estetica\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Proyecto_Estetica\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\Proyecto_Estetica\app\Models\ProductoModel.php(69): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\Proyecto_Estetica\app\Controllers\ProductoController.php(13): App\Models\ProductoModel->obtenerProductos()
+#8 C:\xampp\htdocs\Proyecto_Estetica\system\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+#9 C:\xampp\htdocs\Proyecto_Estetica\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+#10 C:\xampp\htdocs\Proyecto_Estetica\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\Proyecto_Estetica\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\Proyecto_Estetica\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\Proyecto_Estetica\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-07 22:14:28 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_estetica.categorias' doesn't exist
+[Method: GET, Route: productos]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\ProductoModel.php(69): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\ProductoController.php(13): App\Models\ProductoModel->obtenerProductos()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-07 22:14:28 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_estetica.categorias' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\ProductoModel.php(69): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\ProductoController.php(13): App\Models\ProductoModel->obtenerProductos()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-07 22:14:28 --> [Caused by] mysqli_sql_exception: Table 'bd_estetica.categorias' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\ProductoModel.php(69): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\ProductoController.php(13): App\Models\ProductoModel->obtenerProductos()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-07 22:14:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 22:14:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-07 22:14:43 --> ErrorException: Undefined array key "categoria"
+[Method: GET, Route: productos]
+in APPPATH\Views\productos\index_producto.php on line 51.
+ 1 APPPATH\Views\productos\index_producto.php(51): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "categoria"', 'C:\\xampp\\htdocs\\Proyecto_Estetica\\app\\Views\\productos\\index_producto.php', 51)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\Proyecto_Estetica\\app\\Views\\productos\\index_producto.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('productos/index_producto', [], true)
+ 5 APPPATH\Controllers\ProductoController.php(15): view('productos/index_producto', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-07 22:21:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 22:21:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-06-07 22:21:07 --> mysqli_sql_exception: Table 'bd_estetica.categorias' doesn't exist in C:\xampp\htdocs\Proyecto_Estetica\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto_Estetica\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `product...', 0)
+#1 C:\xampp\htdocs\Proyecto_Estetica\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\xampp\htdocs\Proyecto_Estetica\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\xampp\htdocs\Proyecto_Estetica\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\xampp\htdocs\Proyecto_Estetica\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Proyecto_Estetica\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\Proyecto_Estetica\app\Models\ProductoModel.php(72): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\Proyecto_Estetica\app\Controllers\ProductoController.php(13): App\Models\ProductoModel->obtenerProductos()
+#8 C:\xampp\htdocs\Proyecto_Estetica\system\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+#9 C:\xampp\htdocs\Proyecto_Estetica\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+#10 C:\xampp\htdocs\Proyecto_Estetica\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\Proyecto_Estetica\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\Proyecto_Estetica\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\Proyecto_Estetica\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-07 22:21:07 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_estetica.categorias' doesn't exist
+[Method: GET, Route: productos]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\ProductoModel.php(72): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\ProductoController.php(13): App\Models\ProductoModel->obtenerProductos()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-07 22:21:07 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_estetica.categorias' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\ProductoModel.php(72): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\ProductoController.php(13): App\Models\ProductoModel->obtenerProductos()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-07 22:21:07 --> [Caused by] mysqli_sql_exception: Table 'bd_estetica.categorias' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `categorias`.`nombre` as `categoria`
+FROM `productos`
+JOIN `categorias` ON `categorias`.`id` = `productos`.`categoria_id`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\ProductoModel.php(72): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\ProductoController.php(13): App\Models\ProductoModel->obtenerProductos()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductoController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-07 22:22:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 22:23:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 22:23:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 22:23:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 22:23:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 22:23:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-07 22:23:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
