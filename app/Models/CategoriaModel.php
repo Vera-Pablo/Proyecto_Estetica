@@ -21,4 +21,8 @@ class CategoriaModel extends Model
     public function obtenerCategorias(){
         return $this->orderBy('nombre', 'ASC')->findAll();
     }
+
+    public function eliminarCategoria($id){
+        return $this->update($id, ['estado' => 0]);
+    }
 }

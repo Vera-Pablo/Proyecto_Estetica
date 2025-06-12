@@ -42,7 +42,7 @@ $routes->get('/categorias/crear', 'CategoriaController::crear');
 $routes->post('/categorias/guardar', 'CategoriaController::guardar');
 $routes->get('/categorias/editar/(:num)', 'CategoriaController::editar/$1');
 $routes->post('/categorias/actualizar/(:num)', 'CategoriaController::actualizar/$1');
-$routes->get('/categorias/desactivar/(:num)', 'CategoriaController::desactivar/$1');
+$routes->get('/categorias/EliminarCategoria/(:num)', 'CategoriaController::EliminarCategoria/$1');
 
 //Rutas del Usuario 
 $routes->get('catalogo', 'ProductoController::catalogo');

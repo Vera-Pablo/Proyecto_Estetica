@@ -131,12 +131,11 @@ class ProductoController extends BaseController
     }
 
     // Eliminar producto
-    public function eliminar($id)
-    {
-        $productoModel = new ProductoModel();
-        $productoModel->eliminarProducto($id);
+    public function eliminarProducto($id){
+        $productoModel = new ProductoModel(); // 1. Instanciar el modelo
+        $productoModel->eliminarProducto($id); // 2. Llamar al método
 
-        return redirect()->to('/productos')->with('mensaje', 'Producto eliminado.');
+        return redirect()->to('/productos')->with('mensaje', 'Producto desactivado correctamente.');
     }
 
     // Función para desactivar un producto

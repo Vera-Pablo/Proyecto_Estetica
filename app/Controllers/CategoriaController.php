@@ -69,10 +69,10 @@ class CategoriaController extends BaseController
     }
 
     // Eliminar categoría
-    public function desactivar($id)
+    public function EliminarCategoria($id)
     {
         $categoriaModel = new CategoriaModel();
-        $categoriaModel->delete($id);
+        $categoriaModel->eliminarCategoria($id);
 
         return redirect()->to('/categorias')->with('mensaje', 'Categoría eliminada.');
     }
