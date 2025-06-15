@@ -72,8 +72,19 @@ class CategoriaController extends BaseController
     public function desactivar($id)
     {
         $categoriaModel = new CategoriaModel();
-        $categoriaModel->delete($id);
+        $categoriaModel->update($id, ['estado' => 0]);
 
-        return redirect()->to('/categorias')->with('mensaje', 'Categoría eliminada.');
+        return redirect()->to('/categorias')->with('mensaje', 'Categoría desactivada.');
+    }
+
+    // Función para activar un Categoria
+    // (lo marca como activo)
+// Activar categoría
+    public function activar($id)
+    {
+        $categoriaModel = new CategoriaModel();
+        $categoriaModel->update($id, ['estado' => 1]); // Cambia el estado a 1 (Activo)
+
+        return redirect()->to('/categorias')->with('mensaje', 'Categoría activada correctamente.');
     }
 }

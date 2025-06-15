@@ -51,9 +51,14 @@
                                 <td><?= esc($producto['categoria']) ?></td>
                                 <td><?= $producto['estado'] == 1 ? 'Activo' : 'Inactivo' ?></td>
                                 <td>
-                                    <a href="<?= base_url('/productos/editar/' . $producto['id']) ?>" class="btn btn-sm btn-warning">Editar</a>
-                                    <a href="<?= base_url('/productos/eliminar/' . $producto['id']) ?>" class="btn btn-sm btn-danger" onclick="return confirm('¿Estás seguro que deseas desactivar este producto?')">Desactivar</a>
-                                </td>
+                                <a href="<?= base_url('/productos/editar/' . $producto['id']) ?>" class="btn btn-sm btn-warning">Editar</a>
+
+                                <?php if ($producto['estado'] == 1): ?>
+                                    <a href="<?= base_url('/productos/desactivar/' . $producto['id']) ?>" class="btn btn-sm btn-danger" onclick="return confirm('¿Estás seguro que deseas desactivar este producto?')">Desactivar</a>
+                                <?php else: ?>
+                                    <a href="<?= base_url('/productos/activar/' . $producto['id']) ?>" class="btn btn-sm btn-success">Activar</a>
+                                <?php endif; ?>
+                            </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

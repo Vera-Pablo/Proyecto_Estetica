@@ -13,6 +13,8 @@
     </head>
         
     <body>
+
+        
         <header class="hero" id="inicio">
             <video autoplay muted loop class="background-video">
                 <source src="/Proyecto_Estetica/public/assets/img/video-V-B.mp4" type="video/mp4">

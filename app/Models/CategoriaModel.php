@@ -9,7 +9,8 @@ class CategoriaModel extends Model
     protected $table = 'categoria';
     protected $primaryKey = 'id';
     protected $allowedFields = [
-        'nombre'
+        'nombre',
+        'estado',
     ];
 
     //Obtener una categoría por ID

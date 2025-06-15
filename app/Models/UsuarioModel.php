@@ -21,7 +21,8 @@ class UsuarioModel extends Model
         'usuario',
         'pass',
         'rol',
-        'estado'
+        'estado',
+        'sexo'
     ];
     
     //Busca un usuario por su email.
@@ -52,5 +53,11 @@ class UsuarioModel extends Model
     public function deleteUser($id)
     {
         return $this->delete($id);
+    }
+
+    public function obtenerTodosLosUsuarios()
+    {
+    // Usamos 'orderBy' para que la lista aparezca ordenada por ID
+    return $this->orderBy('id', 'ASC')->findAll();
     }
 }

@@ -44,10 +44,15 @@
                                 <td><?= $categoria['id'] ?></td>
                                 <td><?= esc($categoria['nombre']) ?></td>
                                 <td><?= $categoria['estado'] == 1 ? 'Activa' : 'Inactiva' ?></td>
-                                <td>
-                                    <a href="<?= base_url('/categorias/editar/' . $categoria['id']) ?>" class="btn btn-sm btn-warning">Editar</a>
+                            <td>
+                                <a href="<?= base_url('/categorias/editar/' . $categoria['id']) ?>" class="btn btn-sm btn-warning">Editar</a>
+
+                                <?php if ($categoria['estado'] == 1): ?>
                                     <a href="<?= base_url('/categorias/desactivar/' . $categoria['id']) ?>" class="btn btn-sm btn-danger" onclick="return confirm('¿Deseás desactivar esta categoría?')">Desactivar</a>
-                                </td>
+                                <?php else: ?>
+                                    <a href="<?= base_url('/categorias/activar/' . $categoria['id']) ?>" class="btn btn-sm btn-success">Activar</a>
+                                <?php endif; ?>
+                            </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

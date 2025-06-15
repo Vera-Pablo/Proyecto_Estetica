@@ -49,11 +49,11 @@
                 <!-- 🔽 Botones de redes -->
                 <div class="mt-4">
                   <a href="https://www.facebook.com/belen.vera.747606" target="_blank" class="me-2">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" width="35" style="vertical-align: middle;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" width="30" style="vertical-align: middle;">
                   </a>
 
                   <a href="https://www.instagram.com/belenveraestilista/" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="35" style="vertical-align: middle;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="30" style="vertical-align: middle;">
                   </a>
                 </div>
               </div>

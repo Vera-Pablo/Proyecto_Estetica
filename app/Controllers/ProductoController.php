@@ -139,7 +139,22 @@ class ProductoController extends BaseController
         return redirect()->to('/productos')->with('mensaje', 'Producto eliminado.');
     }
 
-    // Función para desactivar un producto
+    // Función para activar un producto
+    // (lo marca como activo)
+    public function activar($id)
+    {
+        $productoModel = new \App\Models\ProductoModel();
+        $producto = $productoModel->find($id);
+
+        if (!$producto) {
+            return redirect()->to('/productos')->with('error', 'Producto no encontrado.');
+        }
+
+        $productoModel->update($id, ['estado' => 1]); // Cambia el estado a 1 (Activo)
+
+        return redirect()->to('/productos')->with('mensaje', 'Producto activado correctamente.');
+    }
+        // Función para desactivar un producto
     // (en lugar de eliminarlo, lo marca como inactivo)
     public function desactivar($id)
     {

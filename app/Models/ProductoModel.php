@@ -15,7 +15,8 @@ class ProductoModel extends Model
         'precio',
         'stock',
         'imagen',
-        'categoria_id'
+        'categoria_id',
+        'estado',
     ];
 
     // Crear producto

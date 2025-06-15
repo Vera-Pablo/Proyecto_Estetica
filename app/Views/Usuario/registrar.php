@@ -28,6 +28,12 @@
                 <form action="<?= base_url('/usuario/guardarRegistro') ?>" method="post">
                     <input type="text" placeholder="Nombre" name="nombre" required>
                     <input type="text" placeholder="Apellido" name="apellido" required>
+                    <select name="sexo" required>
+                        <option value="" disabled selected>Selecciona tu sexo</option>
+                        <option value="femenino">Femenino</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="otro">Otro</option>
+                    </select>
                     <input type="email" placeholder="Correo electrónico" name="email" required>
                     <input type="text" placeholder="Usuario" name="usuario" required>
                     <input type="password" placeholder="Contraseña" name="pass" required>

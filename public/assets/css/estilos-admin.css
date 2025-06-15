@@ -20,3 +20,151 @@ body {
     background-color: #cfffe5 !important;
     color: #fff;
 }
+
+:root {
+    --primary-color: #f8c8fc;
+    --secondary-color: #c592e9;
+    --accent-color: #ffe5b4;
+    --success-color: #cfffe5;
+    --text-color: #333;
+    --background-light: #fff;
+    --shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Estilos base modernos */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Cards modernas */
+.card {
+    background: var(--background-light);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Botones modernos */
+.btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    border: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: var(--text-color);
+}
+
+/* Formularios modernos */
+.form-control {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0.8rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(248, 200, 252, 0.2);
+}
+
+/* Tablas responsivas */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Animaciones suaves */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Navegación moderna */
+.navbar {
+    background: var(--background-light);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-link {
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+/* Menú móvil */
+@media (max-width: 768px) {
+    .navbar-collapse {
+        background: var(--background-light);
+        padding: 1rem;
+    }
+}
+
+/* Dashboard cards */
+.dashboard-card {
+    background: var(--background-light);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.dashboard-stat {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Gráficos y estadísticas */
+.chart-container {
+    background: var(--background-light);
+    border-radius: 12px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+/* Mejoras de accesibilidad */
+:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Alto contraste */
+@media (prefers-contrast: high) {
+    :root {
+        --text-color: #000;
+        --background-light: #fff;
+    }
+}
+
+/* Tamaños de texto responsivos */
+html {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
