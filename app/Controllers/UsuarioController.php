@@ -14,7 +14,7 @@ class UsuarioController extends BaseController
         helper(['session', 'url', 'form']);
 
         // Decidimos qué navbar usar para todas las funciones de este controlador
-        if (session()->get('logueado') && session()->get('rol') === 'admin') {
+        if(session()->get('logueado') && session()->get('rol') === 'admin') {
             $this->data['nav_view'] = 'partials/nav_admin';
         } else {
             $this->data['nav_view'] = 'partials/nav_home';
@@ -23,17 +23,13 @@ class UsuarioController extends BaseController
 
     public function panel_admin()
     {
-        // 1. Verifica que el usuario sea administrador
         if (session('rol') !== 'admin') {
             return redirect()->to('/')->with('error', 'Acceso no autorizado.');
         }
-
-        // 2. CORRECCIÓN: Apuntamos a la ruta correcta de la vista.
-        // Suponiendo que tu archivo está en app/Views/usuario/panel_admin.php
-        // Si lo tienes en otra carpeta, solo cambia 'usuario/panel_admin' por la ruta correcta.
+        // Usamos el método de armado de página para mantener la consistencia
         return view($this->data['nav_view'])
-            . view('usuario/panel_admin'); 
-            
+             . view('back/admin/panel_admin') // Asegúrate que la ruta a tu vista sea correcta
+             . view('partials/footer');
     }
 
     public function registro()

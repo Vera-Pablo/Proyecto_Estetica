@@ -49,7 +49,7 @@ class ProductoModel extends Model
 
     // Eliminar producto
     public function eliminarProducto($id){
-        return $this->delete($id);
+        return $this->update($id, ['estado' => 0]);
     }
 
     //Buscar por nombre
