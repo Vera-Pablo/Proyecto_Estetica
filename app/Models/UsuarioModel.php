@@ -119,4 +119,11 @@ class UsuarioModel extends Model
         return $this->where('id', $id)->first();
     }
 
+        public function obtenerTodosLosUsuarios()
+    {
+        // El método findAll() es una función incorporada de CodeIgniter
+        // que obtiene todos los registros de la tabla 'usuarios'.
+        return $this->findAll();
+    }
+       
 }

@@ -21,15 +21,17 @@ class UsuarioController extends BaseController
         }
     }
 
-    public function panel_admin()
-    {
-        if (session('rol') !== 'admin') {
-            return redirect()->to('/')->with('error', 'Acceso no autorizado.');
-        }
-        // Usamos el método de armado de página para mantener la consistencia
-        return view($this->data['nav_view'])
-             . view('back/admin/panel_admin') // Asegúrate que la ruta a tu vista sea correcta
-             . view('partials/footer');
+public function panel_admin()
+{
+    // 1. Verifica que el usuario sea administrador
+    if (session('rol') !== 'admin') {
+        return redirect()->to('/')->with('error', 'Acceso no autorizado.');
+    }
+
+    // 2. --- LÍNEA CORREGIDA ---
+    // La ruta correcta a tu vista es 'usuario/panel_admin', no 'back/admin/panel_admin'.
+    return view($this->data['nav_view'])
+         . view('usuario/panel_admin'); 
     }
 
     public function registro()
@@ -130,8 +132,8 @@ class UsuarioController extends BaseController
         $this->data['usuario'] = $usuarioModel->find($usuarioId);
 
         return view($this->data['nav_view'])
-             . view('usuario/editar_perfil', $this->data)
-             . view('partials/footer');
+             . view('usuario/editar_perfil', $this->data);
+             
     }
 
     public function actualizar()
@@ -171,8 +173,8 @@ class UsuarioController extends BaseController
         $this->data['usuarios'] = $usuarioModel->obtenerTodosLosUsuarios();
 
         return view($this->data['nav_view'])
-             . view('usuario/gestion_usuarios', $this->data)
-             . view('partials/footer');
+             . view('usuario/gestion_usuarios', $this->data);
+             
     }
 
     public function editar_usuario($id)
@@ -189,8 +191,8 @@ class UsuarioController extends BaseController
         }
 
         return view($this->data['nav_view'])
-             . view('usuario/editar_usuario', $this->data)
-             . view('partials/footer');
+             . view('usuario/editar_usuario', $this->data);
+             
     }
 
     public function actualizar_usuario($id)

@@ -95,7 +95,7 @@ class ProductoController extends BaseController
         $productoModel = new ProductoModel();
         $categoriaModel = new CategoriaModel();
 
-        $producto = $productoModel->obtenerProducto($id);
+        $producto = $productoModel->obtenerProductoId($id);
         $categorias = $categoriaModel->obtenerCategorias();
 
         return view('productos/editar', [

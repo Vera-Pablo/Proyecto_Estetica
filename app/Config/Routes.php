@@ -17,7 +17,9 @@ $routes->get('/consultas', 'Home::consultas');
 //Ruta para encriptar contraseñas
 $routes->get('/encriptar', 'Home::encriptar');
 
+
 //Rutas de Usuario
+
 $routes->get('/login', 'UsuarioController::login');
 $routes->post('/usuario/autenticar', 'UsuarioController::autenticar');
 $routes->get('/registrar', 'UsuarioController::registro');
@@ -45,16 +47,21 @@ $routes->get('/productos/desactivar/(:num)', 'ProductoController::desactivar/$1'
 $routes->get('/productos/activar/(:num)', 'ProductoController::activar/$1'); 
 
 //Rutas de Categoría (Admin)
+$routes->get('/usuarios', 'UsuarioController::gestion_usuarios');
 $routes->get('/categorias', 'CategoriaController::index');
 $routes->get('/categorias/crear', 'CategoriaController::crear');
 $routes->post('/categorias/guardar', 'CategoriaController::guardar');
 $routes->get('/categorias/editar/(:num)', 'CategoriaController::editar/$1');
 $routes->post('/categorias/actualizar/(:num)', 'CategoriaController::actualizar/$1');
 $routes->get('/categorias/desactivar/(:num)', 'CategoriaController::desactivar/$1');
+$routes->get('/categorias/activar/(:num)', 'CategoriaController::activar/$1');
 
 //Rutas del Usuario 
 $routes->get('catalogo', 'ProductoController::catalogo');
 $routes->get('detalle/(:num)', 'ProductoController::detalle/$1');
+
+
+
 //Ruta Carrito
 
 //Favorito
@@ -70,4 +77,4 @@ $routes->get('detalle/(:num)', 'ProductoController::detalle/$1');
     // Muestra el panel de gestión de TODAS las ventas para el admin
     $routes->get('/admin/ventas', 'VentaController::gestion_ventas');
 
-$routes->setAutoRoute(true); //permite que CodeIgniter maneje las rutas automáticamente
+$routes->setAutoRoute(false);//permite que CodeIgniter maneje las rutas automáticamente

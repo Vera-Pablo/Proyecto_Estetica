@@ -87,4 +87,12 @@ class CategoriaController extends BaseController
 
         return redirect()->to('/categorias')->with('mensaje', 'Categoría activada correctamente.');
     }
+
+        public function desactivar($id)
+    {
+        $categoriaModel = new CategoriaModel();
+        $categoriaModel->update($id, ['estado' => 0]); // Cambia el estado a 1 (Activo)
+
+        return redirect()->to('/categorias')->with('mensaje', 'Categoría desactivada correctamente.');
+    }
 }
