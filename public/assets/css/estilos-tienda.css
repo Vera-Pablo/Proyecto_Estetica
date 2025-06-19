@@ -1,0 +1,47 @@
+/* --- Estilos para el Historial de Compras --- */
+
+.history-card {
+    border-radius: 15px; /* Bordes más redondeados */
+    border: none;
+    transition: transform 0.2s ease-in-out;
+}
+
+.history-card:hover {
+    transform: translateY(-5px); /* Efecto sutil al pasar el mouse */
+}
+
+.history-card .card-header {
+    background-color: #f8f9fa; /* Un fondo muy suave para la cabecera */
+    border-bottom: 1px solid #e9ecef;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.history-card .order-id {
+    font-family: 'Oswald', sans-serif;
+    color: #343a40;
+    font-size: 1.1rem;
+}
+
+.history-card .total-amount {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #b74c7a; /* Color principal de tu marca */
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.btn-view-detail {
+    background-color: #343a40;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+    border: none;
+}
+
+.btn-view-detail:hover {
+    background-color: #b74c7a;
+    color: white;
+}

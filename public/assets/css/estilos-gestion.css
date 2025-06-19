@@ -1,0 +1,139 @@
+/* Importando la fuente principal para consistencia */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+    background-color: #f4f7f6; /* Un fondo suave */
+    font-family: "Montserrat", sans-serif;
+}
+
+.background-video {
+    position: fixed; /* Usamos fixed para que se mantenga al hacer scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    /* Considera usar un gradiente o una imagen si no tienes video */
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+}
+
+.gestion-container {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.gestion-header {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    color: #b74c7a;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.85); /* Fondo semitransparente como en el hero */
+    backdrop-filter: blur(10px);
+}
+
+/* Botones con estilo principal */
+.btn-cta-gestion {
+    background-color: #b74c7a;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.3s, transform 0.2s;
+    border: none;
+}
+
+.btn-cta-gestion:hover {
+    background-color: #a03b66;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-secondary-custom {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.3s, transform 0.2s;
+    border: none;
+}
+
+.btn-secondary-custom:hover {
+    background-color: #5a6268;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Estilos de la tabla */
+.table-custom {
+    margin-bottom: 0;
+}
+
+.table-custom thead.table-dark-custom {
+    background-color: #b74c7a;
+    color: white;
+    border-radius: 10px; /* Redondea las esquinas del thead */
+}
+
+.table-custom th {
+    border-bottom: none;
+    padding: 15px;
+}
+
+.table-custom td {
+    vertical-align: middle;
+    padding: 15px;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(183, 76, 122, 0.1);
+}
+
+/* Insignias de estado */
+.badge {
+    padding: 0.5em 0.9em;
+    border-radius: 12px;
+    font-size: 0.8rem;
+}
+
+.bg-success-custom { background-color: #28a745; }
+.bg-danger-custom { background-color: #dc3545; }
+
+/* Botones de acción en la tabla */
+.btn-sm {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 3px;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-warning-custom { background-color: #ffc107; color: #333; }
+.btn-warning-custom:hover { background-color: #e0a800; transform: scale(1.1); }
+
+.btn-danger-custom { background-color: #dc3545; color: white; }
+.btn-danger-custom:hover { background-color: #c82333; transform: scale(1.1); }
+
+.btn-success-custom { background-color: #28a745; color: white; }
+.btn-success-custom:hover { background-color: #218838; transform: scale(1.1); }
+
+/* Input de búsqueda */
+.input-group .form-control {
+    border-radius: 0 25px 25px 0;
+}
+.input-group .input-group-text {
+    border-radius: 25px 0 0 25px;
+    background-color: #e9ecef;
+}

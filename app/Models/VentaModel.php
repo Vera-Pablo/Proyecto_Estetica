@@ -3,70 +3,50 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
-use App\Models\DetalleVentaModel; 
 
 class VentaModel extends Model
 {
     protected $table = 'ventas';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['usuario_id', 'total', 'fecha'];
+    protected $allowedFields = ['usuario_id', 'total', 'metodo_pago', 'estado', 'fecha'];
 
-    // Esta función está bien, no se toca
-    public function obtenerVentasPorUsuario($usuarioId){
-        return $this->where('usuario_id', $usuarioId)->orderBy('fecha', 'DESC')->findAll();
-    }
-
-    // Esta función está bien, no se toca
-    public function obtenerVentaPorId($id){
-        return $this->find($id);
-    }
-    
     /**
-     * Registra una venta y sus detalles usando una transacción.
-     * Si algo falla, se revierte toda la operación.
-     * @param array $datosVenta Datos de la tabla 'ventas'.
-     * @param array $itemsDetalle Array con los productos del detalle.
-     * @return int|false El ID de la venta creada o false si falla.
+     * Obtiene todas las ventas y une los datos del usuario.
      */
-    public function crearVentaConDetalles(array $datosVenta, array $itemsDetalle)
+ /**
+     * Obtiene todas las ventas y une los datos del usuario, aplicando filtros opcionales.
+     * @param array $filtros Array asociativo con los filtros (ej. 'fecha_inicio', 'cliente_id')
+     */
+    public function obtenerTodasLasVentasConUsuario($filtros = [])
     {
-        $detalleVentaModel = new DetalleVentaModel();
-        
-        // Iniciamos la transacción
-        $this->db->transStart();
+        $builder = $this->select('ventas.*, usuarios.nombre, usuarios.apellido')
+                        ->join('usuarios', 'usuarios.id = ventas.usuario_id');
 
-        // 1. Insertar la venta principal
-        $this->insert($datosVenta);
-
-        // 2. Obtener el ID de la venta que acabamos de crear
-        $ventaId = $this->getInsertID();
-
-        // 3. Preparar y guardar cada detalle
-        foreach ($itemsDetalle as $item) {
-            $item['venta_id'] = $ventaId; // Añadimos el ID de la venta a cada detalle
-            $detalleVentaModel->insert($item);
-            
-            // Aquí podrías añadir la lógica para descontar el stock del producto
-        }
-        
-        // Finalizamos la transacción
-        $this->db->transComplete();
-
-        // Verificamos si la transacción fue exitosa
-        if ($this->db->transStatus() === false) {
-            return false; // La transacción falló
+        // Aplicar filtro de fecha de inicio
+        if (!empty($filtros['fecha_inicio'])) {
+            $builder->where('ventas.fecha >=', $filtros['fecha_inicio'] . ' 00:00:00');
         }
 
-        return $ventaId; // La transacción fue exitosa, devolvemos el ID de la venta
+        // Aplicar filtro de fecha de fin
+        if (!empty($filtros['fecha_fin'])) {
+            $builder->where('ventas.fecha <=', $filtros['fecha_fin'] . ' 23:59:59');
+        }
+
+        // Aplicar filtro por cliente específico
+        if (!empty($filtros['cliente_id'])) {
+            $builder->where('ventas.usuario_id', $filtros['cliente_id']);
+        }
+
+        return $builder->orderBy('ventas.fecha', 'DESC')->findAll();
     }
 
-    // Pega esta nueva función dentro de tu clase VentaModel en app/Models/VentaModel.php
-
-    public function obtenerTodasLasVentasConUsuario()
+    /**
+     * Obtiene las ventas de un usuario específico.
+     */
+    public function obtenerVentasPorUsuario($usuarioId)
     {
-        return $this->select('ventas.*, usuarios.nombre as nombre_usuario, usuarios.apellido as apellido_usuario')
-                    ->join('usuarios', 'usuarios.id = ventas.usuario_id')
-                    ->orderBy('ventas.fecha', 'DESC')
+        return $this->where('usuario_id', $usuarioId)
+                    ->orderBy('fecha', 'DESC')
                     ->findAll();
     }
 }

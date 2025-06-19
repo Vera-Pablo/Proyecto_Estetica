@@ -37,8 +37,8 @@ public function panel_admin()
     public function registro()
     {
         return view($this->data['nav_view'])
-             . view('usuario/registrar')
-             . view('partials/footer');
+             . view('usuario/registrar');
+             
     }
 
     public function guardarRegistro()

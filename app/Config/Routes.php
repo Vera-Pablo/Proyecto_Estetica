@@ -45,6 +45,7 @@ $routes->get('/productos/editar/(:num)', 'ProductoController::editar/$1');
 $routes->post('/productos/actualizar/(:num)', 'ProductoController::actualizar/$1');
 $routes->get('/productos/desactivar/(:num)', 'ProductoController::desactivar/$1');
 $routes->get('/productos/activar/(:num)', 'ProductoController::activar/$1'); 
+$routes->post('/admin/ventas/actualizar_estado/(:num)', 'VentaController::actualizar_estado/$1');
 
 //Rutas de Categoría (Admin)
 $routes->get('/usuarios', 'UsuarioController::gestion_usuarios');
@@ -62,9 +63,20 @@ $routes->get('detalle/(:num)', 'ProductoController::detalle/$1');
 
 
 
-//Ruta Carrito
+// --- Rutas para el Carrito de Compras ---
+$routes->get('/carrito', 'CarritoController::index');
+$routes->post('/carrito/agregar', 'CarritoController::agregar');
+$routes->post('/carrito/actualizar', 'CarritoController::actualizar'); // Ruta para el botón "Actualizar Cantidades"
+$routes->get('/carrito/eliminar/(:num)', 'CarritoController::eliminar/$1');
 
-//Favorito
+// --- Rutas para Favoritos ---
+$routes->get('/favoritos', 'FavoritoController::index');
+$routes->get('/favoritos/agregar/(:num)', 'FavoritoController::agregar/$1');
+$routes->get('/favoritos/eliminar/(:num)', 'FavoritoController::eliminar/$1');
+
+// --- Rutas para Checkout y Venta ---
+$routes->get('/checkout', 'VentaController::checkout');
+$routes->post('/venta/procesar', 'VentaController::procesar_venta');
 
 // --- Rutas para la sección de Ventas (VERSIÓN CORRECTA) ---
 

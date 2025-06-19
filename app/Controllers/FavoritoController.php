@@ -18,33 +18,20 @@ class FavoritoController extends BaseController
      */
     public function index()
     {
-        // Verificar si el usuario está logueado
         if (!session()->get('logueado')) {
             return redirect()->to('/login')->with('error', 'Debes iniciar sesión para ver tus favoritos.');
         }
 
         $favoritoModel = new FavoritoModel();
         $usuarioId = session()->get('id');
-
+        
+        // Usamos el método que ya tenías para obtener los favoritos con datos del producto
         $data['favoritos'] = $favoritoModel->obtenerFavoritosPorUsuario($usuarioId);
         
-        // Cargar una vista para mostrar los favoritos
-        // return view('frontend/favoritos/index_view', $data); // Ejemplo de vista
-        // Por ahora, solo para probar:
-        echo "<h1>Mis Favoritos</h1>";
-        if (!empty($data['favoritos'])) {
-            echo "<ul>";
-            foreach ($data['favoritos'] as $fav) {
-                echo "<li>{$fav->producto_nombre} - \${$fav->precio} 
-                      <a href='".site_url('/favoritos/eliminar/'.$fav->producto_id)."'>Eliminar</a>
-                      </li>";
-            }
-            echo "</ul>";
-        } else {
-            echo "<p>No tienes productos favoritos.</p>";
-        }
-        // todo: Crear y retornar la vista adecuada, ej:
-        // return view('path/to/your/favoritos_view', $data);
+        // Cargamos las vistas en el orden correcto
+        return view('partials/nav_home')
+            . view('favoritos/index', $data)
+            . view('partials/footer');
     }
 
     /**
@@ -107,7 +94,9 @@ class FavoritoController extends BaseController
         $favoritoModel = new FavoritoModel();
         $usuarioId = session()->get('id');
 
-        if ($favoritoModel->eliminarFavoritoPorProducto($usuarioId, $productoId)) {
+        // CAMBIO: Se ajustó el nombre del método para que coincida con el del Modelo.
+        // Antes era: ->eliminarFavoritoPorProducto(...)
+        if ($favoritoModel->eliminarFavorito($usuarioId, $productoId)) {
             return redirect()->to('/favoritos')->with('mensaje', 'Producto eliminado de tus favoritos.');
         } else {
             return redirect()->to('/favoritos')->with('error', 'No se pudo eliminar el producto de favoritos o no estaba en la lista.');

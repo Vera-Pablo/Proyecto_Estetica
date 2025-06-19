@@ -1,31 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
+<head>
     <meta charset="UTF-8">
-    <title>Consulta enviada</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap CSS -->
+    <title>Gracias por tu Compra</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Tu hoja de estilos personalizada -->
-    <link href="<?= base_url('assets/css/gracias.css') ?>" rel="stylesheet">
-    </head>
+    <link href="<?= base_url('assets/css/estilos-principal.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/estilos-gestion.css') ?>" rel="stylesheet">
+</head>
+<body>
 
-    <body>
+<?php 
+    // Incluimos el nav_home para mantener la consistencia
+    echo view('partials/nav_home'); 
+?>
 
-    <div class="envelope mb-5"></div>
+<div class="gestion-container container mt-5 text-center">
+    
+    <?php if (session()->getFlashdata('mensaje')): ?>
+        <div class="card shadow-lg p-4">
+            <div class="card-body">
+                <h1 class="gestion-header" style="font-size: 3rem;">¡Operación Exitosa!</h1>
+                <p class="lead"><?= session()->getFlashdata('mensaje') ?></p>
+                <hr>
+                <p>Hemos recibido tu pedido correctamente. Puedes ver el detalle en tu historial de compras.</p>
+                <div class="mt-4">
+                    <a href="<?= site_url('/ventas') ?>" class="btn btn-cta-gestion">Ver mi historial de compras</a>
+                    <a href="<?= site_url('/catalogo') ?>" class="btn btn-secondary">Seguir comprando</a>
+                </div>
+            </div>
+        </div>
+    <?php else: ?>
+        <div class="card shadow-lg p-4">
+            <div class="card-body">
+                <h1 class="gestion-header" style="font-size: 3rem;">Gracias</h1>
+                <p class="lead">Tu operación ha sido procesada.</p>
+                <a href="<?= site_url('/') ?>" class="btn btn-primary">Volver a la página principal</a>
+            </div>
+        </div>
+    <?php endif; ?>
+    
+</div>
 
-    <div id="mensaje" class="text-center mensaje-final">
-        <h2 class="mb-3">¡Consulta enviada con éxito!</h2>
-        <p class="mb-4">Muchas gracias por contactarnos. Te responderemos pronto.</p>
-        <a href="<?= base_url("/")?>" class="btn btn-primary">Volver a la página principal</a>
-    </div>
+<?php 
+    // Incluimos el footer
+    echo view('partials/footer'); 
+?>
 
-    <!-- Script para mostrar mensaje después de la animación -->
-    <script>
-        setTimeout(() => {
-        document.getElementById('mensaje').classList.add('mostrar');
-        }, 3000);
-    </script>
-
-    </body>
+</body>
 </html>

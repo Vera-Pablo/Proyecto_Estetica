@@ -60,4 +60,9 @@ class CarritoModel extends Model
     {
         return $this->delete($id);
     }
+
+    public function limpiarCarrito($usuarioId)
+    {
+        return $this->where('usuario_id', $usuarioId)->delete();
+    }
 }

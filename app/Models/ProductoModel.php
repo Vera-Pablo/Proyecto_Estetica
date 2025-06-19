@@ -72,6 +72,13 @@ class ProductoModel extends Model
                 ->join('categoria', 'categoria.id = productos.categoria_id')
                 ->findAll();
     }
+        // Dentro de la clase ProductoModel
+    public function actualizarStock($id, $cantidadComprada)
+    {
+        $this->set('stock', "stock - $cantidadComprada", false);
+        $this->where('id', $id);
+        return $this->update();
+    }   
 
 }
 

@@ -12,13 +12,15 @@ class CategoriaController extends BaseController
         $categoriaModel = new CategoriaModel();
         $categorias = $categoriaModel->obtenerCategorias();
 
-        return view('categorias/index_categoria', ['categorias' => $categorias]);
+        return  view ('partials/nav_admin').
+                view('categorias/index_categoria', ['categorias' => $categorias]);
     }
 
     // Mostrar formulario para crear categoría
     public function crear()
     {
-        return view('categorias/crear');
+        return  view ('partials/nav_admin').
+                view('categorias/crear');
     }
 
     // Guardar nueva categoría
@@ -50,7 +52,8 @@ class CategoriaController extends BaseController
             return redirect()->to('/categorias')->with('error', 'Categoría no encontrada.');
         }
 
-        return view('categorias/editar', ['categoria' => $categoria]);
+        return  view ('partials/nav_admin').
+                view('categorias/editar', ['categoria' => $categoria]);
     }
 
     // Actualizar categoría

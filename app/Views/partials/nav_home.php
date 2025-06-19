@@ -51,15 +51,15 @@
                 <a href="#" class="nav-link">Favoritos</a>
               </li>
               <?php if (session()->get('logueado')): ?>
-                <?php if (session()->get('rol') === 'admin'): ?>
-                  <li class="nav-item d-lg-none">
-                    <a href="<?= base_url('panel_admin') ?>" class="nav-link">Panel Admin</a>
-                  </li>
-                <?php else: ?>
-                  <li class="nav-item d-lg-none">
-                    <a href="<?= base_url('panel') ?>" class="nav-link">Mi Perfil</a>
-                  </li>
-                <?php endif; ?>
+                  <?php if (session()->get('rol') === 'admin'): ?>
+                    <?php else: ?>
+                    <li class="nav-item d-lg-none">
+                      <a href="<?= base_url('panel') ?>" class="nav-link">Mi Perfil</a>
+                    </li>
+                    <li class="nav-item d-lg-none">
+                      <a href="<?= base_url('ventas') ?>" class="nav-link">Mis Compras</a>
+                    </li>
+                  <?php endif; ?>
               <?php else: ?>
                 <li class="nav-item d-lg-none">
                     <a href="<?= base_url('login') ?>" class="nav-link">Iniciar Sesión</a>
@@ -70,17 +70,15 @@
           </div>
         </div>
 
-        <div class="style-button d-none d-lg-flex align-items-center">
-          <a href="#" class="carrito-button mx-1">
+       <div class="style-button d-none d-lg-flex align-items-center">
+          <a href="<?= site_url('carrito') ?>" class="carrito-button mx-1" title="Ver carrito">
             <img src="<?= base_url('assets/img/carrito.png') ?>" alt="carrito">
           </a>
-          <a href="#" class="favorite-button mx-1">
+          <a href="<?= site_url('favoritos') ?>" class="favorite-button mx-1" title="Ver favoritos">
             <img src="<?= base_url('assets/img/favorito.png') ?>" alt="favorito">
           </a>
           <?php if (session()->get('logueado')): ?>
             <?php if (session()->get('rol') === 'admin'): ?>
-              <a href="<?= base_url('panel_admin') ?>" class="login-button mx-1" title="Panel Admin">
-                <img src="<?= base_url('assets/img/usuario.png') ?>" alt="admin">
               </a>
             <?php else: ?>
               <a href="<?= base_url('panel') ?>" class="login-button mx-1" title="Mi perfil">

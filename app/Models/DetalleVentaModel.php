@@ -4,16 +4,12 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class DetalleVentaModel extends Model
+class VentaDetalleModel extends Model
 {
-    protected $table            = 'detalle_venta'; 
-    protected $primaryKey       = 'id';
-    protected $allowedFields    = [
-        'venta_id',
-        'producto_id',
-        'cantidad',
-        'precio_unitario' 
-    ];
+    protected $table = 'venta_detalles';
+    protected $primaryKey = 'id';
+    protected $allowedFields = ['venta_id', 'producto_id', 'cantidad', 'precio_unitario'];
+
 
     public function obtenerDetallesPorVentaId($ventaId){
         return $this->select('detalle_venta.*, p.nombre as producto_nombre, p.imagen as producto_imagen')

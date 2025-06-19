@@ -15,11 +15,14 @@ class FavoritoModel extends Model
     ];
 
     // Obtener todos los favoritos de un usuario
+    // Obtener todos los productos favoritos de un usuario con sus detalles
     public function obtenerFavoritosPorUsuario($usuarioId)
     {
-        return $this->where('usuario_id', $usuarioId)->findAll();
+        return $this->select('productos.id as producto_id, productos.nombre as producto_nombre, productos.precio, productos.imagen')
+                    ->join('productos', 'productos.id = favoritos.producto_id')
+                    ->where('favoritos.usuario_id', $usuarioId)
+                    ->findAll();
     }
-
     // Verificar si un producto ya está marcado como favorito
     public function esFavorito($usuarioId, $productoId)
     {

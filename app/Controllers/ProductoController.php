@@ -12,7 +12,8 @@ class ProductoController extends BaseController
         $productoModel = new ProductoModel();
         $productos = $productoModel->obtenerProductos();
 
-        return view('productos/index_producto', ['productos' => $productos]);
+        return   view('partials/nav_admin')
+                .view('productos/index_producto', ['productos' => $productos]);
     }
 
     // Mostrar todos los productos

@@ -125,5 +125,13 @@ class UsuarioModel extends Model
         // que obtiene todos los registros de la tabla 'usuarios'.
         return $this->findAll();
     }
+
+    /**
+     * Devuelve una lista de todos los usuarios con rol de 'cliente'.
+     */
+    public function obtenerClientes()
+    {
+        return $this->where('rol', 'cliente')->findAll();
+    }
        
 }
