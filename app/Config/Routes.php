@@ -73,6 +73,7 @@ $routes->get('/carrito/eliminar/(:num)', 'CarritoController::eliminar/$1');
 $routes->get('/favoritos', 'FavoritoController::index');
 $routes->get('/favoritos/agregar/(:num)', 'FavoritoController::agregar/$1');
 $routes->get('/favoritos/eliminar/(:num)', 'FavoritoController::eliminar/$1');
+$routes->get('/favoritos/agregar_todo_al_carrito', 'FavoritoController::agregarTodoAlCarrito');
 
 // --- Rutas para Checkout y Venta ---
 $routes->get('/checkout', 'VentaController::checkout');

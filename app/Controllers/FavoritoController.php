@@ -102,4 +102,42 @@ class FavoritoController extends BaseController
             return redirect()->to('/favoritos')->with('error', 'No se pudo eliminar el producto de favoritos o no estaba en la lista.');
         }
     }
+
+        /**
+     * Agrega todos los productos favoritos del usuario al carrito.
+     */
+    public function agregarTodoAlCarrito()
+    {
+        if (!session()->get('logueado')) {
+            return redirect()->to('/login')->with('error', 'Debes iniciar sesión para realizar esta acción.');
+        }
+
+        $usuarioId = session()->get('id');
+        $favoritoModel = new \App\Models\FavoritoModel();
+        $carritoModel = new \App\Models\CarritoModel();
+
+        // 1. Obtener todos los productos favoritos del usuario
+        $favoritos = $favoritoModel->where('usuario_id', $usuarioId)->findAll();
+
+        if (empty($favoritos)) {
+            return redirect()->to('/favoritos')->with('info', 'Tu lista de favoritos ya estaba vacía.');
+        }
+
+        $productosAgregados = 0;
+        // 2. Recorrer cada favorito y agregarlo al carrito
+        foreach ($favoritos as $favorito) {
+            $data = [
+                'usuario_id'  => $usuarioId,
+                'producto_id' => $favorito['producto_id'],
+                'cantidad'    => 1 // Se agrega una unidad por defecto
+            ];
+            // Usamos el método que ya tenías en tu CarritoModel
+            if ($carritoModel->agregarProducto($data)) {
+                $productosAgregados++;
+            }
+        }
+        
+        // 3. Redirigir al carrito con un mensaje de éxito
+        return redirect()->to('/carrito')->with('mensaje', $productosAgregados . ' producto(s) de tu lista de favoritos han sido agregados al carrito.');
+    }
 }

@@ -1,16 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito de Compras</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="<?= base_url('assets/css/estilos-gestion.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('assets/css/estilos-tienda.css') ?>" rel="stylesheet">
-</head>
-<body>
-
 <div class="gestion-container container mt-5">
     <div class="text-center">
         <h1 class="gestion-header">Carrito de Compras</h1>
@@ -66,31 +53,22 @@
                         </table>
                     </div>
 
-                    <div class="cart-summary mt-4">
-                        <div class="row justify-content-end">
-                            <div class="col-md-5">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title mb-3">Resumen del Pedido</h4>
-                                        <div class="d-flex justify-content-between">
-                                            <h5>Subtotal</h5>
-                                            <h5>$<?= number_format($total, 2) ?></h5>
-                                        </div>
-                                        <hr>
-                                        <div class="d-flex justify-content-between">
-                                            <h3>Total</h3>
-                                            <h3>$<?= number_format($total, 2) ?></h3>
-                                        </div>
-                                        <div class="d-grid gap-2 mt-4">
-                                            <a href="<?= site_url('checkout') ?>" class="btn btn-cta-gestion">Proceder al Pago</a>
-                                            <button type="submit" class="btn btn-secondary-custom">Actualizar Cantidades</button>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="cart-summary-bar bg-light p-3 mt-4 border-top">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                                <h4 class="mb-0">Total del Pedido: <span class="fw-bold color-brand">$<?= number_format($total, 2) ?></span></h4>
+                            </div>
+                            <div class="col-md-6 text-center text-md-end">
+                                <button type="submit" class="btn btn-outline-secondary me-2">
+                                    <i class="fas fa-sync-alt me-1"></i> Actualizar Cantidades
+                                </button>
+                                <a href="<?= site_url('checkout') ?>" class="btn btn-success btn-lg">
+                                    Proceder al Pago <i class="fas fa-arrow-right ms-1"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
-                </form>
+                    </form>
             <?php else: ?>
                  <div class="text-center p-5">
                     <h3>Tu carrito de compras está vacío.</h3>
@@ -101,7 +79,3 @@
         </div>
     </div>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>

@@ -80,6 +80,19 @@ class ProductoModel extends Model
         return $this->update();
     }   
 
+        /**
+     * Obtiene solo los productos activos (estado = 1) de categorías activas.
+     * Ideal para el catálogo público.
+     */
+    public function obtenerProductosActivos()
+    {
+        return $this->select('productos.*, categoria.nombre as categoria_nombre, categoria.estado as categoria_estado')
+                    ->join('categoria', 'categoria.id = productos.categoria_id')
+                    ->where('productos.estado', 1) // Condición 1: El producto debe estar activo
+                    ->where('categoria.estado', 1)  // Condición 2: La categoría del producto también debe estar activa
+                    ->findAll();
+    }
+
 }
 
 

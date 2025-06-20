@@ -17,18 +17,18 @@ class ProductoController extends BaseController
     }
 
     // Mostrar todos los productos
+    // Busca la función que muestra el catálogo de productos
     public function catalogo()
     {
-        $productoModel = new ProductoModel();
-        $categoriaModel = new CategoriaModel();
-
-        $productos = $productoModel->obtenerProductos();
-        $categorias = $categoriaModel->obtenerCategorias();
-
-        return view('productos/catalogo', [
-            'productos' => $productos,
-            'categorias' => $categorias
-        ]);
+        $productoModel = new \App\Models\ProductoModel();
+        
+        // CAMBIO IMPORTANTE: Se usa el nuevo método que solo trae productos activos.
+        $data['productos'] = $productoModel->obtenerProductosActivos();
+        
+        // Carga de las vistas (asumiendo tu estructura)
+        echo view('partials/nav_home', $data);
+        echo view('productos/catalogo', $data);
+        echo view('partials/footer', $data);
     }
 
     // Buscar productos por texto (nombre parcial)
@@ -169,5 +169,7 @@ class ProductoController extends BaseController
 
         return redirect()->to('/productos')->with('mensaje', 'Producto desactivado correctamente.');
     }
+
+    
 
 }

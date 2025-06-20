@@ -91,11 +91,26 @@ class CategoriaController extends BaseController
         return redirect()->to('/categorias')->with('mensaje', 'Categoría activada correctamente.');
     }
 
-        public function desactivar($id)
+    public function desactivar($id)
     {
-        $categoriaModel = new CategoriaModel();
-        $categoriaModel->update($id, ['estado' => 0]); // Cambia el estado a 1 (Activo)
+        $categoriaModel = new \App\Models\CategoriaModel();
+        $productoModel = new \App\Models\ProductoModel(); // Instanciamos el modelo de productos
+
+        // --- INICIA VALIDACIÓN ---
+        // Buscamos si existe al menos un producto asociado a esta categoría.
+        $productoAsociado = $productoModel->where('categoria_id', $id)->first();
+
+        // Si se encuentra un producto, mostramos un error y no desactivamos.
+        if ($productoAsociado) {
+            return redirect()->to('/categorias')->with('error', 'No se puede desactivar la categoría porque tiene productos asociados.');
+        }
+        // --- FIN DE LA VALIDACIÓN ---
+
+        // Si no hay productos asociados, procedemos a desactivar normalmente.
+        $categoriaModel->update($id, ['estado' => 0]);
 
         return redirect()->to('/categorias')->with('mensaje', 'Categoría desactivada correctamente.');
     }
+
+    
 }
