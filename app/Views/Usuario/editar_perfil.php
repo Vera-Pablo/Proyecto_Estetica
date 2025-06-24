@@ -24,19 +24,6 @@
                     <label for="apellido" class="form-label">Apellido</label>
                     <input type="text" name="apellido" class="form-control" value="<?= esc($usuario['apellido']) ?>" required>
                 </div>
-                <div class="mb-3">
-                    <label for="sexo" class="form-label">Sexo</label>
-                    <select name="sexo" class="form-select" required>
-                        <option value="femenino" <?= $usuario['sexo'] == 'femenino' ? 'selected' : '' ?>>Femenino</option>
-                        <option value="masculino" <?= $usuario['sexo'] == 'masculino' ? 'selected' : '' ?>>Masculino</option>
-                        <option value="otro" <?= $usuario['sexo'] == 'otro' ? 'selected' : '' ?>>Otro</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="usuario" class="form-label">Usuario</label>
-                    <input type="text" name="usuario" class="form-control" value="<?= esc($usuario['usuario']) ?>" required>
-                </div>
-                
                 <div class="text-end">
                     <a href="<?= base_url('/panel') ?>" class="btn btn-secondary">Cancelar</a>
                     <button type="submit" class="btn btn-primary">Guardar Cambios</button>

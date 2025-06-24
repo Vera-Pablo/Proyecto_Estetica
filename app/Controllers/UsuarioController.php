@@ -6,30 +6,31 @@ use App\Models\UsuarioModel;
 
 class UsuarioController extends BaseController
 {
-
-    public function panel_admin(){
+    
+    public function panel(){
         // 1. Verifica que el usuario sea administrador
         if (session('rol') !== 'admin') {
-            return redirect()->to('/')->with('error', 'Acceso no autorizado.');
+            return view('usuario/panel');
         }
-        
         return view('usuario/panel_admin'); 
     }
     
+    // Método para mostrar el login
     public function login(){
        return view('usuario/login');
     }
 
+    // Método para mostrar el formulario de registro
     public function registro(){
         return view('usuario/registrar');
     }
 
+    // Método para guardar el registro de un nuevo usuario
     public function guardarRegistro(){
         $usuarioModel = new UsuarioModel();
         $data = [
             'nombre'   => $this->request->getPost('nombre'),
             'apellido' => $this->request->getPost('apellido'),
-            'sexo'     => $this->request->getPost('sexo'),
             'email'    => $this->request->getPost('email'),
             'usuario'  => $this->request->getPost('usuario'),
             'pass'     => $this->request->getPost('pass'),
@@ -55,6 +56,7 @@ class UsuarioController extends BaseController
         return redirect()->to('/login')->with('mensaje', 'Usuario registrado correctamente.');
     }
 
+    // Autenticar usuario verifica las credenciales del usuario y establece la sesión
     public function autenticar(){
         $usuarioModel = new UsuarioModel();
         $email = $this->request->getPost('email');
@@ -65,6 +67,8 @@ class UsuarioController extends BaseController
             session()->set([
                 'id' => $usuario['id'],
                 'nombre' => $usuario['nombre'],
+                'usuario' => $usuario['usuario'],
+                'email' => $usuario['email'],
                 'rol' => $usuario['rol'],
                 'logueado' => true
             ]);
@@ -79,12 +83,14 @@ class UsuarioController extends BaseController
         }
     }
     
+    // Cerrar sesión
     public function logout(){
         session()->destroy();
         return redirect()->to('/');
     }
 
-    public function editar(){
+    //Editar perfil del usuario
+    public function editarPerfil(){
         if (!session('logueado')) {
             return redirect()->to('/login');
         }
@@ -94,59 +100,53 @@ class UsuarioController extends BaseController
 
         return view('usuario/editar_perfil', );     
     }
+    
+    // Método editar usuario específico
+    public function editar_usuario($id){
+        $usuarioModel = new UsuarioModel();
+        $usuario = $usuarioModel->find($id);
 
+        return view('usuario/editar_usuario', ['usuario' => $usuario]);  
+    }
+
+    // Muestra el formulario para editar perfil el usuario
+    public function editar(){
+        $usuarioModel = new UsuarioModel();
+        $usuarioId = session()->get('id');
+        $usuario = $usuarioModel->find($usuarioId);
+
+        return view('usuario/editar_perfil', ['usuario' => $usuario]);
+    }
+
+    // Método para actualizar los datos del usuario
     public function actualizar(){
-        if (!session('logueado')) {
-            return redirect()->to('/login');
-        }
-
         $usuarioModel = new UsuarioModel();
         $usuarioId = session()->get('id');
         $data = [
             'nombre'   => $this->request->getPost('nombre'),
             'apellido' => $this->request->getPost('apellido'),
-            'sexo'     => $this->request->getPost('sexo'),
             'usuario'  => $this->request->getPost('usuario'),
         ];
 
         if (empty($data['nombre']) || empty($data['apellido']) || empty($data['usuario'])) {
-            return redirect()->back()->withInput()->with('error', 'Los campos no pueden estar vacíos.');
+            return redirect()->back()->withInput()->with('mensaje', 'Los campos no pueden estar vacíos.');
         }
 
         $usuarioModel->update($usuarioId, $data);
         session()->set('nombre', $data['nombre']);
 
-        return redirect()->to('/panel')->with('mensaje', '¡Datos actualizados con éxito!');
+        return redirect()->to('/ panel')->with('mensaje', '¡Datos actualizados con éxito!');
     }
 
-    // --- MÉTODOS DE GESTIÓN DE ADMIN (CORREGIDOS) ---
+    // Método para mostrar la gestión de usuarios
     public function gestion_usuarios(){
-        if (session()->get('rol') !== 'admin') {
-            return redirect()->to('/')->with('error', 'Acceso no autorizado.');
-        }
+        $usuarioModel = new \App\Models\UsuarioModel();
+        $usuarios = $usuarioModel->findAll();
 
-        $usuarioModel = new UsuarioModel();
-        
-
-        return view('usuario/gestion_usuarios', );
-             
+        return view('Usuario/gestion_usuarios', ['usuarios' => $usuarios]);
     }
 
-    public function editar_usuario($id){
-        if (session()->get('rol') !== 'admin') {
-            return redirect()->to('/')->with('error', 'Acceso no autorizado.');
-        }
-
-        $usuarioModel = new UsuarioModel();
-        
-        if (empty($this->data['usuario'])) {
-            return redirect()->to('/admin/usuarios')->with('error', 'Usuario no encontrado.');
-        }
-
-        return view('usuario/editar_usuario');
-             
-    }
-
+    // Método para actualizar un usuario específico
     public function actualizar_usuario($id){
         if (session()->get('rol') !== 'admin') {
             return redirect()->to('/')->with('error', 'Acceso no autorizado.');
@@ -164,6 +164,7 @@ class UsuarioController extends BaseController
         return redirect()->to('/admin/usuarios')->with('mensaje', 'Usuario actualizado correctamente.');
     }
 
+    // Método para desactivar un usuario específico
     public function desactivar_usuario($id){
         if (session()->get('rol') !== 'admin') {
             return redirect()->to('/')->with('error', 'Acceso no autorizado.');
@@ -173,6 +174,7 @@ class UsuarioController extends BaseController
         return redirect()->to('/admin/usuarios')->with('mensaje', 'Usuario desactivado.');
     }
 
+    // Método para activar un usuario específico
     public function activar_usuario($id){
         if (session()->get('rol') !== 'admin') {
             return redirect()->to('/')->with('error', 'Acceso no autorizado.');

@@ -19,8 +19,10 @@
                 <div class="col-md-6">
                     <h5>Datos de tu cuenta</h5>
                     <ul class="list-group">
+                        <li class="list-group-item"><strong>Usuario:</strong> <?= esc(session()->get('usuario')) ?></li>
                         <li class="list-group-item"><strong>Nombre:</strong> <?= esc(session()->get('nombre')) ?></li>
-                        </ul>
+                        <li class="list-group-item"><strong>Email Asociado:</strong> <?= esc(session()->get('email')) ?></li>
+                    </ul>
                 </div>
                 <div class="col-md-6 text-center">
                     <img src="<?= base_url('assets/img/usuario.png') ?>" alt="Perfil" class="img-thumbnail" style="max-width: 150px;">

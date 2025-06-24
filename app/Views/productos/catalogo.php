@@ -7,9 +7,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="<?= base_url('assets/css/estilos-catalogo.css') ?>" rel="stylesheet">
+    
+    <link href="<?= base_url('assets/css/estilos-producto.css') ?>" rel="stylesheet">
+    
     <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Cedarville+Cursive&family=Great+Vibes&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900&display=swap" rel="stylesheet">
-</head>
+    
+    </head>
 <body>
+    <?php if (session()->get('rol') !== 'admin'): ?>
+        <?php include(APPPATH . 'Views/partials/nav_home.php'); ?>
+    <?php endif; ?>
     <div class="container mt-4">
         <h1 class="text-center">Catálogo de Productos</h1>
 
@@ -18,42 +25,56 @@
                 <input type="text" name="busqueda" class="form-control" placeholder="Buscar por nombre...">
             </div>
             <div class="col-md-2">
-                <button type="submit" class="btn btn-buscar w-100">Buscar</button>
+                <button type="submit" class="btn btn-primary w-100">Buscar</button>
             </div>
         </form>
 
-        <div class="row">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
             <?php if (!empty($productos)): ?>
                 <?php foreach ($productos as $producto): ?>
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100 shadow">
-                            <img src="<?= base_url('assets/img/' . $producto['imagen']) ?>" class="card-img-top" alt="<?= esc($producto['nombre']) ?>">
-                            <div class="card-body">
-                                <h5 class="card-title"><?= esc($producto['nombre']) ?></h5>
-                                <p class="card-text"><?= esc($producto['descripcion']) ?></p>
-                                <p class="card-text fw-bold">$<?= number_format($producto['precio'], 2) ?></p>
+                    <div class="col">
+                        <div class="product-card">
+                            
+                            <div class="product-image-container">
+                                <img src="<?= base_url('assets/img/' . $producto['imagen']) ?>" class="card-img-top" alt="<?= esc($producto['nombre']) ?>">
                             </div>
-                            <div class="card-footer d-flex justify-content-between align-items-center">
-                                <a href="<?= base_url('/productos/detalle/' . $producto['id']) ?>" class="btn btn-sm btn-outline-info">Ver más</a>
+                            
+                            <div class="product-info">
+                                <h6 class="product-name"><?= esc($producto['nombre']) ?></h6>
                                 
-                                <div class="d-flex">
-                                    <a href="<?= site_url('/favoritos/agregar/' . $producto['id']) ?>" class="btn btn-sm btn-danger me-2" title="Añadir a favoritos">
-                                        <i class="fas fa-heart"></i>
-                                    </a>
+                                <div class="d-flex justify-content-center align-items-center mt-auto">
+                                    <p class="product-price mb-0">$<?= number_format($producto['precio'], 2, ',', '.') ?></p>
+                                </div>
+                            </div>
+                            
+                            <div class="product-actions">
+                                <form action="<?= base_url('/carrito/agregar') ?>" method="post">
+                                    <input type="hidden" name="producto_id" value="<?= $producto['id'] ?>">
+                                    <input type="hidden" name="cantidad" value="1"> 
                                     
-                                    <form action="<?= base_url('/carrito/agregar') ?>" method="post" class="mb-0">
-                                        <input type="hidden" name="producto_id" value="<?= $producto['id'] ?>">
-                                        <button type="submit" class="btn btn-sm btn-success" title="Agregar al carrito">
+                                    <div class="d-flex gap-2 mb-2">
+                                        <button type="submit" class="btn btn-add-to-cart w-100">
                                             <i class="fas fa-shopping-cart"></i>
                                         </button>
-                                    </form>
+                                        <a href="<?= site_url('/favoritos/agregar/' . $producto['id']) ?>" class="btn btn-favorites w-100" title="Añadir a favoritos">
+                                            <i class="fas fa-heart"></i>
+                                        </a>
+                                    </div>
+                                </form>
+
+                                <div class="d-grid">
+                                    <a href="<?= base_url('/productos/detalles_productos/' . $producto['id']) ?>" class="btn btn-outline-secondary" title="Ver detalles">
+                                        Ver Detalles
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
-                <p class="text-center">No hay productos para mostrar.</p>
+                <div class="col-12">
+                    <p class="text-center">No hay productos para mostrar.</p>
+                </div>
             <?php endif; ?>
         </div>
     </div>

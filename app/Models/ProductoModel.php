@@ -19,6 +19,9 @@ class ProductoModel extends Model
         'estado',
     ];
 
+    public function obtenerProductoId($id){
+        return $this->find($id);
+    }
 }
 
 

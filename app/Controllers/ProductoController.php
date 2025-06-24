@@ -105,10 +105,24 @@ class ProductoController extends BaseController
         }
     }
 
+    // Muestra el catálogo de productos para los usuarios/administradores
     public function catalogo(){
         $productoModel = new ProductoModel();
         $productos = $productoModel->where('estado', 1)->findAll(); // Solo productos activos
 
         return view('productos/catalogo', ['productos' => $productos]);
     }
+
+    public function detalle($id){
+        $productoModel = new ProductoModel();
+        $producto = $productoModel->obtenerProductoId($id);
+
+        if (!$producto){
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Producto no encontrado");
+        }
+
+        
+        return view('productos/detalle_producto', ['producto' => $producto]);
+    }
+
 }

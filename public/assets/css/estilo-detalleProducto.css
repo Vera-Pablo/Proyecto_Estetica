@@ -1,0 +1,185 @@
+/*
+ * Hoja de estilos profesional para la página de detalle del producto
+ */
+
+body {
+    background-color: #f9f9f9; /* Un fondo muy sutil para dar calidez */
+}
+
+.product-detail-section {
+    padding: 3rem 0;
+}
+
+.product-detail-container {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+}
+
+.product-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 1rem;
+}
+
+.product-image-container img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 500px;
+    border-radius: 8px;
+}
+
+.product-info-main .product-category {
+    font-size: 0.8rem;
+    color: #b74c7a; /* Color de tu paleta */
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.product-info-main .product-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.product-info-main .product-price {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #343a40;
+    margin-bottom: 2rem;
+}
+
+/* --- Selector de Cantidad Profesional --- */
+.quantity-selector-wrapper {
+    margin-bottom: 1.5rem;
+}
+
+.quantity-selector-wrapper .form-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ced4da;
+    border-radius: 50px; /* Bordes completamente redondeados */
+    padding: 5px;
+    max-width: 150px;
+    background-color: #fff;
+}
+
+.quantity-selector .btn {
+    background-color: #f8f9fa;
+    border: none;
+    color: #495057;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.quantity-selector .btn:hover {
+    background-color: #e9ecef;
+}
+
+.quantity-selector .form-control {
+    border: none;
+    text-align: center;
+    box-shadow: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 0 0.5rem;
+    background: transparent;
+}
+
+/* Oculta las flechas del input number */
+.quantity-selector input[type=number]::-webkit-inner-spin-button, 
+.quantity-selector input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.quantity-selector input[type=number] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+/* --- Botones de Acción Rediseñados --- */
+.action-buttons .btn {
+    padding: 0.8rem 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 50px; /* Botones tipo "píldora" */
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-add-to-cart {
+    background-color: #b74c7a; /* Color principal de tu paleta */
+    color: white;
+}
+.btn-add-to-cart:hover {
+    background-color: #a03b66; /* Un tono más oscuro */
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(183, 76, 122, 0.4);
+}
+
+.btn-favorites {
+    background-color: transparent;
+    border-color: #b74c7a;
+    color: #b74c7a;
+}
+.btn-favorites:hover {
+    background-color: #b74c7a;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* --- Sección de Descripción --- */
+.product-description-section {
+    background-color: #ffffff;
+    padding: 3rem 2.5rem;
+    margin-top: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+}
+
+.product-description-section h3 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+/* Línea decorativa debajo del título de descripción */
+.product-description-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #b74c7a;
+}
+
+.product-description-section p {
+    color: #495057;
+    line-height: 1.8;
+}
