@@ -73,18 +73,6 @@
                     </div>
                 </a>
             </div>
-
-            <div class="col-md-6 col-lg-3">
-                <a href="<?= base_url('catalogo') ?>" class="text-decoration-none text-dark card-link">
-                    <div class="card h-100 text-center shadow-sm">
-                        <div class="card-body">
-                            <i class="bi bi-journal-bookmark card-icon icon-catalogo"></i>
-                            <h5 class="card-title">Catalogo</h5>
-                            <p class="card-text text-muted small">Vista del catalogo.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
         </div>
         
     </div>

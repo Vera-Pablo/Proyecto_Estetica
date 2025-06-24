@@ -64,19 +64,21 @@ class CarritoController extends BaseController
         return redirect()->to('/carrito')->with('mensaje', 'Producto eliminado del carrito.');
     }
 
-        public function actualizar()
-    {
-        $carritoModel = new CarritoModel();
+    public function actualizar(){
+        $carritoModel = new \App\Models\CarritoModel();
+        $productoModel = new \App\Models\ProductoModel();
         $cantidades = $this->request->getPost('cantidades');
 
-        if (!empty($cantidades)) {
-            foreach ($cantidades as $carritoId => $cantidad) {
-                // Actualiza la cantidad para cada item del carrito
-                $carritoModel->update($carritoId, ['cantidad' => $cantidad]);
+        foreach ($cantidades as $carritoId => $nuevaCantidad) {
+            $item = $carritoModel->find($carritoId);
+            if ($item) {
+                $producto = $productoModel->find($item['producto_id']);
+                if ($producto && $nuevaCantidad > $producto['stock']) {
+                    return redirect()->back()->with('mensaje', 'Stock insuficiente para ' . esc($producto['nombre']));
+                }
+                $carritoModel->update($carritoId, ['cantidad' => $nuevaCantidad]);
             }
-            return redirect()->to('/carrito')->with('mensaje', 'Carrito actualizado correctamente.');
         }
-
-        return redirect()->to('/carrito')->with('error', 'No se recibieron datos para actualizar.');
+        return redirect()->back()->with('mensaje', 'Carrito actualizado correctamente.');
     }
 }

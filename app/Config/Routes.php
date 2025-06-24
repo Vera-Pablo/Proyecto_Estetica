@@ -31,13 +31,14 @@ $routes->get('/catalogo', 'ProductoController::catalogo');
 $routes->get('/gestion_usuarios', 'UsuarioController::gestion_usuarios');
 
 // Rutas usuarios (Admin) 
-$routes->get('/panel_admin', 'UsuarioController::panel_admin');
+$routes->get('/panel_admin', 'UsuarioController::panel');
 $routes->get('/panel', 'UsuarioController::panel');
 $routes->get('/admin/usuarios', 'UsuarioController::gestion_usuarios');
 $routes->get('/Usuario/editar_usuario/(:num)', 'UsuarioController::editar_usuario/$1');
 $routes->post('/admin/usuarios/actualizar/(:num)', 'UsuarioController::actualizar_usuario/$1');
 $routes->get('/admin/usuarios/activar/(:num)', 'UsuarioController::activar_usuario/$1');
 $routes->get('/admin/usuarios/desactivar/(:num)', 'UsuarioController::desactivar_usuario/$1');
+$routes->get('/admin/ventas', 'VentaController::gestion_ventas');
 
 //Rutas de Categoría (Admin)
 $routes->get('/categorias', 'CategoriaController::index');
@@ -47,6 +48,8 @@ $routes->get('/categorias/editar/(:num)', 'CategoriaController::editar/$1');
 $routes->post('/categorias/actualizar/(:num)', 'CategoriaController::actualizar/$1');
 $routes->get('/categorias/desactivar/(:num)', 'CategoriaController::desactivar/$1');
 $routes->get('/categorias/activar/(:num)', 'CategoriaController::activar/$1');
+// ventas administrador
+$routes->post('/admin/ventas/actualizar_estado/(:num)', 'VentaController::actualizar_estado/$1');
 
 //Rutas de Producto (Admin)
 $routes->get('/index_producto', 'ProductoController::index'); 
@@ -70,9 +73,9 @@ $routes->get('/favoritos/agregar/(:num)', 'FavoritoController::agregar/$1');
 $routes->get('/favoritos/eliminar/(:num)', 'FavoritoController::eliminar/$1');
 $routes->get('/favoritos/agregar_todo_al_carrito', 'FavoritoController::agregarTodoAlCarrito');
 
-// --- Rutas para Ventas ---
-$routes->get('/ventas', 'VentaController::index');
+// --- Rutas para Ventas usuario ---
 $routes->get('/checkout', 'VentaController::checkout');
+$routes->get('/ventas', 'VentaController::index'); // Ruta para el historial de compras del usuario
 $routes->post('/venta/procesar', 'VentaController::procesar_venta');
 
 

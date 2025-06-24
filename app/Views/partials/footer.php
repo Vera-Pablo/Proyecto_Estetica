@@ -28,9 +28,7 @@
               <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                 <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Dejanos Ayudarte</h5>
                 <hr class="mb-4">
-                <p><a href="<?= base_url('login')?>" class="text-dark">Tu Cuenta</a></p>
                 <p><a href="<?= base_url('carrito')?>" class="text-dark">Tus Órdenes</a></p>
-                <p><a href="<?= base_url('')?>" class="text-dark">Manejo de cuenta</a></p>
               </div>
               <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                 <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Soporte</h5>

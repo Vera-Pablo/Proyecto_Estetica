@@ -29,14 +29,13 @@
                 </div>
             </div>
 
-           <div class="mt-4 d-flex justify-content-between">
-            <a href="<?= base_url('/') ?>" class="btn btn-primary">Página Principal</a>
-            <div>
-                <a href="<?= base_url('ventas') ?>" class="btn btn-info">Mis Compras</a> 
-                <a href="<?= base_url('/usuario/editar') ?>" class="btn btn-warning">Editar mis Datos</a>
-                <a href="<?= base_url('/usuario/logout') ?>" class="btn btn-danger">Cerrar Sesión</a>
-            </div>
-            </div>
+                <div class="mt-4 d-flex justify-content-between">
+                    <div>
+                        <a href="<?= base_url('/') ?>" class="btn btn-primary">Página Principal</a>
+                        <a href="<?= base_url('ventas') ?>" class="btn btn-info">Mis Compras</a> 
+                        <a href="<?= base_url('/usuario/logout') ?>" class="btn btn-danger">Cerrar Sesión</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

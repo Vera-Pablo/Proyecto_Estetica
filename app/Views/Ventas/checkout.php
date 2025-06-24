@@ -29,21 +29,6 @@
                             <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="email" value="<?= esc(session('email')) ?>" readonly>
                         </div>
-                        
-                        <h4 class="mt-4">Método de Pago</h4>
-                        <hr>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="metodo_pago" id="mp" value="mercadopago" checked>
-                            <label class="form-check-label" for="mp">
-                                Mercado Pago (Tarjeta de crédito, débito, etc.)
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="metodo_pago" id="transferencia" value="transferencia">
-                            <label class="form-check-label" for="transferencia">
-                                Transferencia Bancaria
-                            </label>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -67,6 +52,7 @@
                         </div>
                         <div class="d-grid mt-4">
                             <button type="submit" class="btn btn-cta-gestion btn-lg">Confirmar y Pagar</button>
+                            <a href="<?= site_url('catalogo') ?>" class="btn btn-secondary btn-lg mt-2">Cancelar</a>
                         </div>
                     </div>
                 </div>

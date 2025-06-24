@@ -1,1 +1,0 @@
-__ci_last_regenerate|i:1750719491;_ci_previous_url|s:52:"http://localhost/Proyecto_Estetica/public/categorias";id|s:1:"1";nombre|s:4:"abel";rol|s:5:"admin";logueado|b:1;error|s:70:"No se puede desactivar la categoría porque tiene productos asociados.";__ci_vars|a:1:{s:5:"error";s:3:"old";}

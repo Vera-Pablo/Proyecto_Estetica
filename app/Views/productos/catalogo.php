@@ -14,9 +14,7 @@
     
     </head>
 <body>
-    <?php if (session()->get('rol') !== 'admin'): ?>
-        <?php include(APPPATH . 'Views/partials/nav_home.php'); ?>
-    <?php endif; ?>
+    <?php include(APPPATH . 'Views/partials/nav_home.php'); ?>
     <div class="container mt-4">
         <h1 class="text-center">Catálogo de Productos</h1>
 
@@ -79,5 +77,6 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <?php include(APPPATH . 'Views/partials/footer.php'); ?>
 </body>
 </html>

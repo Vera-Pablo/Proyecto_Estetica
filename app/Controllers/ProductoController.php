@@ -107,8 +107,16 @@ class ProductoController extends BaseController
 
     // Muestra el catálogo de productos para los usuarios/administradores
     public function catalogo(){
-        $productoModel = new ProductoModel();
-        $productos = $productoModel->where('estado', 1)->findAll(); // Solo productos activos
+        $productoModel = new \App\Models\ProductoModel();
+        $busqueda = $this->request->getGet('busqueda');
+
+        $productoModel->where('estado', 1); // Solo productos activos
+
+        if ($busqueda) {
+            $productoModel->like('nombre', $busqueda);
+        }
+
+        $productos = $productoModel->findAll();
 
         return view('productos/catalogo', ['productos' => $productos]);
     }

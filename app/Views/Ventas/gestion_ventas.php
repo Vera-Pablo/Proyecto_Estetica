@@ -12,36 +12,10 @@
         <div class="text-center">
             <h1 class="gestion-header">Gestión de Ventas</h1>
         </div>
-
-        <div class="card shadow-sm mb-4">
-            <div class="card-body">
-                <h5 class="card-title">Filtrar Ventas</h5>
-                <form action="<?= site_url('admin/ventas') ?>" method="get" class="row g-3 align-items-end">
-                    <div class="col-md-4">
-                        <label for="fecha_inicio" class="form-label">Desde</label>
-                        <input type="date" class="form-control" name="fecha_inicio" id="fecha_inicio" value="<?= esc($filtros_aplicados['fecha_inicio'] ?? '') ?>">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="fecha_fin" class="form-label">Hasta</label>
-                        <input type="date" class="form-control" name="fecha_fin" id="fecha_fin" value="<?= esc($filtros_aplicados['fecha_fin'] ?? '') ?>">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="cliente_id" class="form-label">Cliente</label>
-                        <select name="cliente_id" id="cliente_id" class="form-select">
-                            <option value="">Todos los clientes</option>
-                            <?php foreach ($clientes as $cliente): ?>
-                                <option value="<?= $cliente['id'] ?>" <?= (isset($filtros_aplicados['cliente_id']) && $filtros_aplicados['cliente_id'] == $cliente['id']) ? 'selected' : '' ?>>
-                                    <?= esc($cliente['nombre'] . ' ' . $cliente['apellido']) ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <div class="col-md-12 text-end">
-                        <button type="submit" class="btn btn-primary"><i class="fas fa-filter"></i> Filtrar</button>
-                        <a href="<?= site_url('admin/ventas') ?>" class="btn btn-secondary"><i class="fas fa-eraser"></i> Limpiar</a>
-                    </div>
-                </form>
-            </div>
+        <div class="text-left mb-4">
+            <a href="<?= base_url('panel_admin') ?>" class="btn btn-primary">
+                <i class="fas fa-arrow-left"></i> Volver al Panel Admin
+            </a>
         </div>
         <div class="card shadow-lg">
             <div class="card-body">
@@ -53,7 +27,7 @@
                 <?php endif; ?>
 
                 <?php if (empty($ventas)): ?>
-                    <div class="alert alert-warning text-center">No hay ventas que coincidan con los filtros seleccionados.</div>
+                    <div class="alert alert-warning text-center">No hay ventas registradas.</div>
                 <?php else: ?>
                     <div class="table-responsive">
                         <table class="table table-hover table-custom">
@@ -63,8 +37,7 @@
                                     <th>Fecha</th>
                                     <th>Cliente</th>
                                     <th>Total</th>
-                                    <th style="width: 20%;">Cambiar Estado</th>
-                                    <th>Acción</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -72,25 +45,8 @@
                                     <tr>
                                         <td><?= $venta['id'] ?></td>
                                         <td><?= date('d/m/Y H:i', strtotime($venta['fecha'])) ?></td>
-                                        <td><?= esc($venta['nombre'] . ' ' . $venta['apellido']) ?></td>
+                                        <td><?= esc(($venta['cliente_nombre'] ?? '') . ' ' . ($venta['cliente_apellido'] ?? '')) ?></td>
                                         <td>$<?= number_format($venta['total'], 2) ?></td>
-                                        <td>
-                                            <form action="<?= site_url('admin/ventas/actualizar_estado/' . $venta['id']) ?>" method="post" class="d-flex">
-                                                <select name="estado" class="form-select form-select-sm">
-                                                    <option value="pendiente" <?= $venta['estado'] == 'pendiente' ? 'selected' : '' ?>>Pendiente</option>
-                                                    <option value="pagado" <?= $venta['estado'] == 'pagado' ? 'selected' : '' ?>>Pagado</option>
-                                                    <option value="cancelado" <?= $venta['estado'] == 'cancelado' ? 'selected' : '' ?>>Cancelado</option>
-                                                </select>
-                                                <button type="submit" class="btn btn-sm btn-success ms-2" title="Guardar estado">
-                                                    <i class="fas fa-save"></i>
-                                                </button>
-                                            </form>
-                                        </td>
-                                        <td>
-                                            <a href="<?= site_url('ventas/ver/' . $venta['id']) ?>" class="btn btn-sm btn-info" title="Ver Detalle">
-                                                <i class="fas fa-eye"></i>
-                                            </a>
-                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
