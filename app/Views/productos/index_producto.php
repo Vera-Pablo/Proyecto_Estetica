@@ -61,6 +61,7 @@
                                 <th>Nombre</th>
                                 <th>Precio</th>
                                 <th>Categoría</th>
+                                <th>Stock</th>
                                 <th>Estado</th>
                                 <th class="text-center">Acciones</th>
                             </tr>
@@ -73,6 +74,7 @@
                                         <td class="product-name"><?= esc($producto['nombre']) ?></td>
                                         <td>$<?= esc(number_format($producto['precio'], 2)) ?></td>
                                         <td><?= esc($producto['categoria']) ?></td>
+                                        <td><?= esc($producto['stock']) ?></td>
                                         <td>
                                             <span class="badge <?= $producto['estado'] == 1 ? 'bg-success-custom' : 'bg-danger-custom' ?>">
                                                 <?= $producto['estado'] == 1 ? 'Activo' : 'Inactivo' ?>
@@ -82,7 +84,7 @@
                                             <a href="<?= base_url('/productos/editar/' . $producto['id']) ?>" class="btn btn-sm btn-warning-custom" title="Editar">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>
-                                
+                                            
                                             <?php if ($producto['estado'] == 1): ?>
                                                 <a href="<?= base_url('/productos/desactivar/' . $producto['id']) ?>" class="btn btn-sm btn-danger-custom" title="Desactivar" onclick="return confirm('¿Estás seguro que deseas desactivar este producto?')">
                                                     <i class="fas fa-toggle-on"></i>

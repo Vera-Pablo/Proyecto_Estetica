@@ -10,30 +10,6 @@
     
     <link href="<?= base_url('assets/css/estilos-admin.css') ?>" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900&display=swap" rel="stylesheet">
-
-    <style>
-         
-
-    
-        .card-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            transition: transform 0.2s ease-in-out;
-        }
-        .card-link:hover .card-icon {
-            transform: scale(1.1);
-        }
-        .card-link .card {
-             transition: box-shadow 0.2s ease-in-out;
-        }
-        .card-link:hover .card {
-            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
-        }
-        .icon-productos { color: #e83e8c; } /* Rosa */
-        .icon-categorias { color: #6f42c1; } /* Púrpura */
-        .icon-ventas { color: #fd7e14; } /* Naranja */
-        .icon-usuarios { color: #20c997; } /* Verde menta */
-    </style>
 </head>
 
 <body>
@@ -44,9 +20,6 @@
         </div>
 
         <div class="d-flex justify-content-end mb-4">
-            <a href="<?= base_url('/') ?>" class="btn btn-outline-secondary me-2">
-                <i class="bi bi-house-door-fill"></i> Ver Sitio Principal
-            </a>
             <a href="<?= base_url('/usuario/logout') ?>" class="btn btn-danger">
                 <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
             </a>
@@ -54,7 +27,7 @@
 
         <div class="row g-4">
             <div class="col-md-6 col-lg-3">
-                <a href="<?= base_url('productos') ?>" class="text-decoration-none text-dark card-link">
+                <a href="<?= base_url('index_producto') ?>" class="text-decoration-none text-dark card-link">
                     <div class="card h-100 text-center shadow-sm">
                         <div class="card-body">
                             <i class="bi bi-box-seam card-icon icon-productos"></i>
@@ -90,16 +63,28 @@
             </div>
 
             <div class="col-md-6 col-lg-3">
-            <a href="<?= base_url('/admin/usuarios') ?>" class="text-decoration-none text-dark card-link">
-                <div class="card h-100 text-center shadow-sm">
-                    <div class="card-body">
-                        <i class="bi bi-people card-icon icon-usuarios"></i>
-                        <h5 class="card-title">Usuarios</h5>
-                        <p class="card-text text-muted small">Gestionar usuarios activos e inactivos.</p>
+                <a href="<?= base_url('admin/usuarios') ?>" class="text-decoration-none text-dark card-link">
+                    <div class="card h-100 text-center shadow-sm">
+                        <div class="card-body">
+                            <i class="bi bi-people card-icon icon-usuarios"></i>
+                            <h5 class="card-title">Usuarios</h5>
+                            <p class="card-text text-muted small">Gestionar usuarios activos e inactivos.</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <a href="<?= base_url('catalogo') ?>" class="text-decoration-none text-dark card-link">
+                    <div class="card h-100 text-center shadow-sm">
+                        <div class="card-body">
+                            <i class="bi bi-journal-bookmark card-icon icon-catalogo"></i>
+                            <h5 class="card-title">Catalogo</h5>
+                            <p class="card-text text-muted small">Vista del catalogo.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
         
     </div>

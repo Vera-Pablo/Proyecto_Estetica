@@ -6,43 +6,25 @@ use App\Models\UsuarioModel;
 
 class UsuarioController extends BaseController
 {
-    private $data; // Variable para pasar datos a las vistas
 
-    public function __construct()
-    {
-        // El constructor se ejecuta primero, ideal para cargar helpers y datos comunes
-        helper(['session', 'url', 'form']);
-
-        // Decidimos qué navbar usar para todas las funciones de este controlador
-        if(session()->get('logueado') && session()->get('rol') === 'admin') {
-            $this->data['nav_view'] = 'partials/nav_admin';
-        } else {
-            $this->data['nav_view'] = 'partials/nav_home';
+    public function panel_admin(){
+        // 1. Verifica que el usuario sea administrador
+        if (session('rol') !== 'admin') {
+            return redirect()->to('/')->with('error', 'Acceso no autorizado.');
         }
+        
+        return view('usuario/panel_admin'); 
+    }
+    
+    public function login(){
+       return view('usuario/login');
     }
 
-public function panel_admin()
-{
-    // 1. Verifica que el usuario sea administrador
-    if (session('rol') !== 'admin') {
-        return redirect()->to('/')->with('error', 'Acceso no autorizado.');
+    public function registro(){
+        return view('usuario/registrar');
     }
 
-    // 2. --- LÍNEA CORREGIDA ---
-    // La ruta correcta a tu vista es 'usuario/panel_admin', no 'back/admin/panel_admin'.
-    return view($this->data['nav_view'])
-         . view('usuario/panel_admin'); 
-    }
-
-    public function registro()
-    {
-        return view($this->data['nav_view'])
-             . view('usuario/registrar');
-             
-    }
-
-    public function guardarRegistro()
-    {
+    public function guardarRegistro(){
         $usuarioModel = new UsuarioModel();
         $data = [
             'nombre'   => $this->request->getPost('nombre'),
@@ -73,19 +55,11 @@ public function panel_admin()
         return redirect()->to('/login')->with('mensaje', 'Usuario registrado correctamente.');
     }
 
-    public function login()
-    {
-       return view($this->data['nav_view'])
-            . view('usuario/login')
-            . view('partials/footer');
-    }
-
-    public function autenticar()
-    {
+    public function autenticar(){
         $usuarioModel = new UsuarioModel();
         $email = $this->request->getPost('email');
         $pass = $this->request->getPost('pass');
-        $usuario = $usuarioModel->getUserByEmail($email);
+        $usuario = $usuarioModel->where('email', $email)->first();
 
         if ($usuario && password_verify($pass, $usuario['pass'])) {
             session()->set([
@@ -104,40 +78,24 @@ public function panel_admin()
             return redirect()->back()->with('error', 'Email o contraseña incorrectos.');
         }
     }
-
-    public function panel()
-    {
-        if (!session('logueado')) {
-            return redirect()->to('/login');
-        }
-        return view($this->data['nav_view'])
-             . view('usuario/panel')
-             . view('partials/footer');
-    }
-
-    public function logout()
-    {
+    
+    public function logout(){
         session()->destroy();
         return redirect()->to('/');
     }
 
-    public function editar()
-    {
+    public function editar(){
         if (!session('logueado')) {
             return redirect()->to('/login');
         }
 
         $usuarioModel = new UsuarioModel();
         $usuarioId = session()->get('id');
-        $this->data['usuario'] = $usuarioModel->find($usuarioId);
 
-        return view($this->data['nav_view'])
-             . view('usuario/editar_perfil', $this->data);
-             
+        return view('usuario/editar_perfil', );     
     }
 
-    public function actualizar()
-    {
+    public function actualizar(){
         if (!session('logueado')) {
             return redirect()->to('/login');
         }
@@ -162,41 +120,34 @@ public function panel_admin()
     }
 
     // --- MÉTODOS DE GESTIÓN DE ADMIN (CORREGIDOS) ---
-
-    public function gestion_usuarios()
-    {
+    public function gestion_usuarios(){
         if (session()->get('rol') !== 'admin') {
             return redirect()->to('/')->with('error', 'Acceso no autorizado.');
         }
 
         $usuarioModel = new UsuarioModel();
-        $this->data['usuarios'] = $usuarioModel->obtenerTodosLosUsuarios();
+        
 
-        return view($this->data['nav_view'])
-             . view('usuario/gestion_usuarios', $this->data);
+        return view('usuario/gestion_usuarios', );
              
     }
 
-    public function editar_usuario($id)
-    {
+    public function editar_usuario($id){
         if (session()->get('rol') !== 'admin') {
             return redirect()->to('/')->with('error', 'Acceso no autorizado.');
         }
 
         $usuarioModel = new UsuarioModel();
-        $this->data['usuario'] = $usuarioModel->find($id);
-
+        
         if (empty($this->data['usuario'])) {
             return redirect()->to('/admin/usuarios')->with('error', 'Usuario no encontrado.');
         }
 
-        return view($this->data['nav_view'])
-             . view('usuario/editar_usuario', $this->data);
+        return view('usuario/editar_usuario');
              
     }
 
-    public function actualizar_usuario($id)
-    {
+    public function actualizar_usuario($id){
         if (session()->get('rol') !== 'admin') {
             return redirect()->to('/')->with('error', 'Acceso no autorizado.');
         }
@@ -213,8 +164,7 @@ public function panel_admin()
         return redirect()->to('/admin/usuarios')->with('mensaje', 'Usuario actualizado correctamente.');
     }
 
-    public function desactivar_usuario($id)
-    {
+    public function desactivar_usuario($id){
         if (session()->get('rol') !== 'admin') {
             return redirect()->to('/')->with('error', 'Acceso no autorizado.');
         }
@@ -223,8 +173,7 @@ public function panel_admin()
         return redirect()->to('/admin/usuarios')->with('mensaje', 'Usuario desactivado.');
     }
 
-    public function activar_usuario($id)
-    {
+    public function activar_usuario($id){
         if (session()->get('rol') !== 'admin') {
             return redirect()->to('/')->with('error', 'Acceso no autorizado.');
         }

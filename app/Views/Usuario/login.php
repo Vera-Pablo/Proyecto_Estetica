@@ -35,7 +35,10 @@
 
                     <div class="mb-3">
                         <label for="pass" class="form-label">Contraseña</label>
-                        <input type="password" name="pass" class="form-control" required>
+                        <div class="input-group">
+                            <input type="password" name="pass" id="pass" class="form-control" required>
+                            <button type="button" class="btn btn-outline-secondary" onclick="togglePassword()">👁️</button>
+                        </div>
                     </div>
 
                     <div class="d-grid">
@@ -51,5 +54,11 @@
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+        <script>
+            function togglePassword() {
+                const passInput = document.getElementById('pass');
+                passInput.type = passInput.type === 'password' ? 'text' : 'password';
+            }
+        </script>
     </body>
 </html>

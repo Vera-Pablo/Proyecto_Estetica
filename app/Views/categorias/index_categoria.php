@@ -4,23 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Gestionar Categorías</title>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="<?= base_url('assets/css/estilos-principal.css') ?>" rel="stylesheet">
-
     <link href="<?= base_url('assets/css/estilos-gestion.css') ?>" rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Cedarville+Cursive&family=Great+Vibes&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
 <body>
-
-    <div class="background-video">
-        </div>
-
     <div class="container gestion-container mt-5">
         <div class="text-center">
             <h1 class="gestion-header">Gestión de Categorías</h1>

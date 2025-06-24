@@ -1,21 +1,7 @@
-/* Importando la fuente principal para consistencia */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 body {
-    background-color: #f4f7f6; /* Un fondo suave */
+    background-color: #ffffff; 
     font-family: "Montserrat", sans-serif;
-}
-
-.background-video {
-    position: fixed; /* Usamos fixed para que se mantenga al hacer scroll */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    /* Considera usar un gradiente o una imagen si no tienes video */
-    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
 }
 
 .gestion-container {

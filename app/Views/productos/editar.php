@@ -35,7 +35,12 @@
                     <label for="precio" class="form-label">Precio</label>
                     <input type="number" step="0.01" name="precio" id="precio" value="<?= esc($producto['precio']) ?>" class="form-control" required>
                 </div>
-
+                
+                <div class="mb-3">
+                    <label for="stock" class="form-label">Stock</label>
+                    <input type="number" name="stock" id="stock" value="<?= esc($producto['stock']) ?>" class="form-control" required>
+                </div>
+                
                 <div class="mb-3">
                     <label for="categoria_id" class="form-label">Categoría</label>
                     <select name="categoria_id" id="categoria_id" class="form-select" required>

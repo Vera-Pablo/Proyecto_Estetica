@@ -7,169 +7,108 @@ use App\Models\CategoriaModel;
 
 class ProductoController extends BaseController
 {
-    public function index()
-    {
+    // Muestra el lista de productos con sus respectivas categorías
+    public function index(){
         $productoModel = new ProductoModel();
-        $productos = $productoModel->obtenerProductos();
+        $productos = $productoModel
+            ->select('productos.*, categoria.nombre as categoria')
+            ->join('categoria', 'categoria.id = productos.categoria_id', 'left')
+            ->orderBy('productos.id', 'DESC')
+            ->findAll();
 
-        return   view('partials/nav_admin')
-                .view('productos/index_producto', ['productos' => $productos]);
+        return view('productos/index_producto', ['productos' => $productos]);
     }
 
-    // Mostrar todos los productos
-    // Busca la función que muestra el catálogo de productos
-    public function catalogo()
-    {
-        $productoModel = new \App\Models\ProductoModel();
-        
-        // CAMBIO IMPORTANTE: Se usa el nuevo método que solo trae productos activos.
-        $data['productos'] = $productoModel->obtenerProductosActivos();
-        
-        // Carga de las vistas (asumiendo tu estructura)
-        echo view('partials/nav_home', $data);
-        echo view('productos/catalogo', $data);
-        echo view('partials/footer', $data);
-    }
-
-    // Buscar productos por texto (nombre parcial)
-    public function buscar()
-    {
-        $texto = $this->request->getGet('q'); // del input name="q"
-        $productoModel = new ProductoModel();
-        $resultados = $productoModel->buscarPorNombre($texto);
-
-        return view('productos/catalogo', ['productos' => $resultados]);
-    }
-
-    // Filtrar productos por categoría
-    public function filtrarPorCategoria($categoria_id)
-    {
-        $productoModel = new ProductoModel();
-        $productos = $productoModel->filtrarPorCategoria($categoria_id);
-
-        return view('productos/catalogo', ['productos' => $productos]);
-    }
-
-    // Ver detalle de un producto
-    public function detalle($id)
-    {
-        $productoModel = new ProductoModel();
-        $producto = $productoModel->obtenerProducto($id);
-
-        if (!$producto) {
-            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Producto no encontrado");
-        }
-
-        return view('productos/detalle', ['producto' => $producto]);
-    }
-
-    // * * * FUNCIONES PARA EL ADMINISTRADOR * * *
-    // Crear producto
-    public function crearProducto(){
+    // Muestra el formulario para crear un nuevo producto
+    public function crear(){
         $categoriaModel = new CategoriaModel();
         $categorias = $categoriaModel->findAll();
 
         return view('productos/crear', ['categorias' => $categorias]);
     }
 
-    // Guardar nuevo producto
-    public function guardar()
-    {
+    // Guarda un nuevo producto en la base de datos
+    public function guardar(){
         $productoModel = new ProductoModel();
-
         $data = [
             'nombre' => $this->request->getPost('nombre'),
             'descripcion' => $this->request->getPost('descripcion'),
             'precio' => $this->request->getPost('precio'),
             'stock' => $this->request->getPost('stock'),
             'categoria_id' => $this->request->getPost('categoria_id'),
-            'imagen' => $nombreImagen = $this->request->getPost('nombre_imagen')
+            'estado' => 1, // Por defecto, el producto está activo
         ];
 
-        $productoModel->crearProducto($data);
-        return redirect()->to('/productos')->with('mensaje', 'Producto creado.');
+        // Guardar el producto
+        if ($productoModel->insert($data)) {
+            return redirect()->to('/index_producto')->with('success', 'Producto creado exitosamente.');
+        } else {
+            return redirect()->back()->withInput()->with('errors', $productoModel->errors());
+        }
     }
 
-    // Mostrar formulario para editar producto
-    public function editar($id)
-    {
+    // editar un producto existente
+    public function editar($id){
         $productoModel = new ProductoModel();
+        $producto = $productoModel->find($id);
+
         $categoriaModel = new CategoriaModel();
+        $categorias = $categoriaModel->findAll();
 
-        $producto = $productoModel->obtenerProductoId($id);
-        $categorias = $categoriaModel->obtenerCategorias();
-
-        return view('productos/editar', [
-            'producto' => $producto,
-            'categorias' => $categorias
-        ]);
+        return view('productos/editar', ['producto' => $producto, 'categorias' => $categorias]);
     }
 
-    // Actualizar producto
-    public function actualizar($id)
-    {
+    // Actualiza un producto existente
+    public function actualizar($id){
         $productoModel = new ProductoModel();
-
         $data = [
             'nombre' => $this->request->getPost('nombre'),
             'descripcion' => $this->request->getPost('descripcion'),
             'precio' => $this->request->getPost('precio'),
             'stock' => $this->request->getPost('stock'),
             'categoria_id' => $this->request->getPost('categoria_id'),
-            'imagen' => $this->request->getPost('imagen')
         ];
 
-        // Ver si hay nueva imagen
-        $imagen = $this->request->getFile('imagen');
-        if ($imagen && $imagen->isValid() && !$imagen->hasMoved()) {
-            $nombreImagen = $imagen->getRandomName();
-            $imagen->move('assets/img/', $nombreImagen);
-            $data['imagen'] = $nombreImagen;
+        // Actualizar el producto
+        if ($productoModel->update($id, $data)) {
+            return redirect()->to('/index_producto')->with('mensaje', 'Producto actualizado exitosamente.');
+        } else {
+            return redirect()->back()->withInput()->with('errors', $productoModel->errors());
         }
-
-        $productoModel->actualizarProducto($id, $data);
-        return redirect()->to('/productos')->with('mensaje', 'Producto actualizado.');
     }
 
-    // Eliminar producto
-    public function eliminarProducto($id){
-        $productoModel = new ProductoModel(); // 1. Instanciar el modelo
-        $productoModel->eliminarProducto($id); // 2. Llamar al método
-
-        return redirect()->to('/productos')->with('mensaje', 'Producto desactivado correctamente.');
-    }
-
-    // Función para activar un producto
-    // (lo marca como activo)
-    public function activar($id)
-    {
-        $productoModel = new \App\Models\ProductoModel();
-        $producto = $productoModel->find($id);
-
-        if (!$producto) {
-            return redirect()->to('/productos')->with('error', 'Producto no encontrado.');
-        }
-
-        $productoModel->update($id, ['estado' => 1]); // Cambia el estado a 1 (Activo)
-
-        return redirect()->to('/productos')->with('mensaje', 'Producto activado correctamente.');
-    }
-        // Función para desactivar un producto
-    // (en lugar de eliminarlo, lo marca como inactivo)
-    public function desactivar($id)
-    {
+    // Desactiva un producto
+    public function desactivar($id){
         $productoModel = new ProductoModel();
         $producto = $productoModel->find($id);
 
-        if (!$producto) {
-            return redirect()->to('/productos')->with('error', 'Producto no encontrado.');
+        if ($producto) {
+            $producto['estado'] = 0; // Cambia el estado a inactivo
+            $productoModel->update($id, $producto);
+            return redirect()->to('/index_producto')->with('mensaje', 'Producto desactivado exitosamente.');
+        } else {
+            return redirect()->to('/index_producto')->with('error', 'Producto no encontrado.');
         }
-
-        $productoModel->update($id, ['estado' => 0]);
-
-        return redirect()->to('/productos')->with('mensaje', 'Producto desactivado correctamente.');
     }
 
-    
+    // Activa un producto
+    public function activar($id){
+        $productoModel = new ProductoModel();
+        $producto = $productoModel->find($id);
 
+        if ($producto) {
+            $producto['estado'] = 1; // Cambia el estado a activo
+            $productoModel->update($id, $producto);
+            return redirect()->to('/index_producto')->with('mensaje', 'Producto activado exitosamente.');
+        } else {
+            return redirect()->to('/index_producto')->with('error', 'Producto no encontrado.');
+        }
+    }
+
+    public function catalogo(){
+        $productoModel = new ProductoModel();
+        $productos = $productoModel->where('estado', 1)->findAll(); // Solo productos activos
+
+        return view('productos/catalogo', ['productos' => $productos]);
+    }
 }

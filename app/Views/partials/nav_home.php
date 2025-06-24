@@ -65,7 +65,6 @@
                     <a href="<?= base_url('login') ?>" class="nav-link">Iniciar Sesión</a>
                 </li>
               <?php endif; ?>
-
             </ul>
           </div>
         </div>

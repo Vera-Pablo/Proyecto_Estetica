@@ -19,7 +19,6 @@ $routes->get('/encriptar', 'Home::encriptar');
 
 
 //Rutas de Usuario
-
 $routes->get('/login', 'UsuarioController::login');
 $routes->post('/usuario/autenticar', 'UsuarioController::autenticar');
 $routes->get('/registrar', 'UsuarioController::registro');
@@ -38,8 +37,8 @@ $routes->get('/admin/usuarios/activar/(:num)', 'UsuarioController::activar_usuar
 $routes->get('/admin/usuarios/desactivar/(:num)', 'UsuarioController::desactivar_usuario/$1');
 
 //Rutas de Producto (Admin)
-$routes->get('/productos', 'ProductoController::index'); 
-$routes->get('/crear', 'ProductoController::crearProducto');
+$routes->get('/index_producto', 'ProductoController::index'); 
+$routes->get('/crear', 'ProductoController::crear');
 $routes->post('/productos/guardar', 'ProductoController::guardar');
 $routes->get('/productos/editar/(:num)', 'ProductoController::editar/$1');
 $routes->post('/productos/actualizar/(:num)', 'ProductoController::actualizar/$1');

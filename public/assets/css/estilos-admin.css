@@ -4,22 +4,29 @@ body {
     background-size: cover;
 }
 
-.custom-productos {
-    background-color: #f8c8fc !important; /* Color personalizado */
-    color: #fff;
+.card-icon{
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease-in-out;
 }
-.custom-categorias {
-    background-color: #c592e9 !important;
-    color: #fff;
+
+.card-link:hover .card-icon {
+    transform: scale(1.1);
 }
-.custom-ventas {
-    background-color: #ffe5b4 !important;
-    color: #fff;
+
+.card-link .card {
+    transition: box-shadow 0.2s ease-in-out;
 }
-.custom-usuarios {
-    background-color: #cfffe5 !important;
-    color: #fff;
+
+.card-link:hover .card {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
 }
+
+.icon-productos { color: #e83e8c; } /* Rosa */
+.icon-categorias { color: #6f42c1; } /* Púrpura */
+.icon-ventas { color: #fd7e14; } /* Naranja */
+.icon-usuarios { color: #20c997; } /* Verde menta */
+.icon-catalogo { color: #007bff; } /* Azul */
 
 :root {
     --primary-color: #f8c8fc;
