@@ -1,0 +1,153 @@
+/* assets/css/estilos-consultasAdmin.css */
+
+body {
+    background-color: #f8f9fa; /* Light grey background, similar to the categories page */
+    font-family: 'Roboto Condensed', sans-serif; /* Adopt font from categories if available or suitable */
+}
+
+.container-fluid {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+h1 {
+    color: #000000; /* Main header color from categories page */
+    font-family: 'Great Vibes', cursive; /* Use a script font for elegance, similar to "Quiénes Somos" */
+    font-size: 3.5rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Card styling to match the categories page's card */
+.card {
+    border: none;
+    border-radius: 0.75rem; /* Rounded corners */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Soft shadow */
+    background-color: #ffffff; /* White background for the card */
+    padding: 1.5rem; /* Inner padding for the card content */
+}
+
+/* Back button style */
+.btn-outline-primary {
+    color: #6c757d; /* Grey text */
+    border-color: #6c757d; /* Grey border */
+    background-color: transparent;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+.btn-outline-primary:hover {
+    background-color: #6c757d; /* Grey background on hover */
+    color: #fff;
+    border-color: #6c757d;
+}
+
+/* Table header styling */
+.table thead th {
+    background-color: transparent; /* No specific background for table header */
+    color: #343a40; /* Darker text for headers */
+    border-bottom: 2px solid #e9ecef; /* Subtle bottom border for headers */
+    font-weight: 600;
+    padding: 1rem 0.75rem;
+}
+
+/* Table body rows */
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+.table tbody tr:hover {
+    background-color: #f2f2f2; /* Light hover effect for rows */
+}
+
+.table td {
+    vertical-align: middle;
+    padding: 0.75rem;
+    border-top: 1px solid #e9ecef; /* Light border between rows */
+}
+
+/* Badge styles to match categories page, with clearer backgrounds */
+.badge-abierto {
+    background-color: #1d8b47; /* Clearly visible red for 'Abierto' */
+    color: #fff; /* White text for contrast */
+    padding: 0.4em 0.8em;
+    border-radius: 0.25rem;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.badge-cerrado {
+    background-color: #e65151; /* Clearly visible green for 'Cerrado' */
+    color: #fff; /* White text for contrast */
+    padding: 0.4em 0.8em;
+    border-radius: 0.25rem;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+/* Action buttons */
+.btn-success {
+    background-color: #B6708F; /* Use the main accent color */
+    border-color: #B6708F;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+.btn-success:hover {
+    background-color: #a05a78; /* Slightly darker accent on hover */
+    border-color: #a05a78;
+}
+
+.btn-warning {
+    background-color: #fd7e14; /* Orange for 'Marcar Abierta' */
+    border-color: #fd7e14;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+.btn-warning:hover {
+    background-color: #e66b00;
+    border-color: #e66b00;
+}
+
+.btn-info {
+    background-color: #17a2b8; /* Keep original info color for 'Ver Mensaje' */
+    border-color: #17a2b8;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+.btn-info:hover {
+    background-color: #138496;
+    border-color: #117a8b;
+}
+
+/* Modal styling */
+.modal-content {
+    border-radius: 0.75rem;
+    box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,.15);
+}
+.modal-header {
+    background-color: #B6708F; /* Accent color for modal header */
+    color: white;
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+    border-bottom: none;
+    padding: 1.5rem;
+}
+.modal-title {
+    font-weight: 600;
+}
+.modal-body {
+    padding: 2rem;
+}
+.modal-footer {
+    border-top: none;
+    padding: 1.5rem;
+}
+
+.alert {
+    border-radius: 0.5rem;
+}

@@ -1,0 +1,64 @@
+body {
+  background-color: #f8f9fa;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.envelope {
+  position: relative;
+  width: 150px;
+  height: 100px;
+  background: #007bff;
+  border-radius: 10px;
+  transform: scale(1);
+  animation: flyAway 3s ease-out forwards;
+}
+
+.envelope:before,
+.envelope:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.envelope:before {
+  top: 0;
+  left: 0;
+  border-width: 0 75px 50px 75px;
+  border-color: transparent transparent #0056b3 transparent;
+}
+
+.envelope:after {
+  bottom: 0;
+  left: 0;
+  border-width: 50px 75px 0 75px;
+  border-color: #0056b3 transparent transparent transparent;
+}
+
+@keyframes flyAway {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-300px) scale(0.3);
+    opacity: 0;
+  }
+}
+
+.mensaje-final {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.mensaje-final.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+}

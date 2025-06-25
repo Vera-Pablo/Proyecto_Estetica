@@ -1,0 +1,13 @@
+# Redirige todas las peticiones a la carpeta /public
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+# Desactiva la firma del servidor
+ServerSignature Off
+
+# Evita que se puedan listar los directorios
+Options -Indexes

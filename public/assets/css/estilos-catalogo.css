@@ -1,0 +1,92 @@
+/*
+ * Estilos para las tarjetas de producto del catálogo
+ */
+
+/* Estilos base para la tarjeta de producto */
+.product-card {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+.product-image-container {
+    background-color: #f8f9fa;
+}
+
+.product-card .card-img-top {
+    object-fit: contain;
+    height: 180px; 
+    padding: 10px;
+}
+
+.product-info {
+    padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-name {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.product-price-quantity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.product-price {
+    font-weight: bold;
+    color: #000;
+    font-size: 1.25rem;
+}
+
+.product-price-quantity .form-control {
+    width: 70px;
+}
+
+.product-actions {
+    padding: 0 1rem 1rem 1rem;
+}
+
+/* --- ZONA DE CORRECCIÓN --- */
+
+/* Estilos para los botones personalizados */
+.btn-add-to-cart, .btn-favorites {
+    color: #fff !important; /* Forzar el color blanco del ícono */
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 0;
+}
+
+/* Botón del carrito: Fondo negro */
+.btn-add-to-cart {
+    background-color: #4b4a4a !important; /* <--- CAMBIO IMPORTANTE */
+}
+.btn-add-to-cart:hover {
+    background-color: #4b4a4a !important; /* <--- CAMBIO IMPORTANTE */
+}
+
+/* Botón de favoritos: Fondo rojo */
+.btn-favorites {
+    background-color: #e45261 !important; /* <--- CAMBIO IMPORTANTE */
+}
+.btn-favorites:hover {
+    background-color: #e45261 !important; /* <--- CAMBIO IMPORTANTE */
+}
