@@ -13,7 +13,6 @@ $routes->get('/comercializacion', 'Home::comercializacion');
 $routes->get('/informacion_contacto', 'Home::informacion_contacto');
 $routes->get('/gracias', 'Home::gracias');
 $routes->get('/terminos_uso', 'Home::terminos_uso');
-$routes->get('/consultas', 'Home::consultas');
 //Ruta para encriptar contraseñas
 $routes->get('/encriptar', 'Home::encriptar');
 
@@ -77,6 +76,14 @@ $routes->get('/favoritos/agregar_todo_al_carrito', 'FavoritoController::agregarT
 $routes->get('/checkout', 'VentaController::checkout');
 $routes->get('/ventas', 'VentaController::index'); // Ruta para el historial de compras del usuario
 $routes->post('/venta/procesar', 'VentaController::procesar_venta');
+
+// Rutas para las consultas públicas
+$routes->get('/consultas', 'ConsultaController::index'); // Muestra el formulario
+$routes->post('/consultas/guardar', 'ConsultaController::guardar'); // Procesa el envío del formulario
+
+// Rutas para el panel de administración de consultas (ajustadas a tu estilo existente)
+$routes->get('/admin/consultas', 'ConsultaController::verConsultasAdmin');
+$routes->get('/admin/consultas/cambiar-estado/(:num)', 'ConsultaController::cambiarEstado/$1');
 
 
 $routes->setAutoRoute(false);//permite que CodeIgniter maneje las rutas automáticamente

@@ -35,7 +35,7 @@
                 <a class="nav-link mx-lg-2" href="<?= base_url("quienes_somos")?>">¿Quienes Somos?</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="<?= base_url("consultas")?>">Consultas</a>
+                <a class="nav-link" href="<?= site_url('consultas') ?>">Consultas</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link mx-lg-2" href="<?= base_url("informacion_contacto")?>">Contactos</a>

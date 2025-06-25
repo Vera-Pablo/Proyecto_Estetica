@@ -51,6 +51,18 @@
             </div>
 
             <div class="col-md-6 col-lg-3">
+                <a href="<?= base_url('admin/consultas') ?>" class="text-decoration-none text-dark card-link">
+                    <div class="card h-100 text-center shadow-sm">
+                        <div class="card-body">
+                            <i class="bi bi-chat-dots card-icon icon-consultas"></i>
+                            <h5 class="card-title">Consultas</h5>
+                            <p class="card-text text-muted small">Ver y gestionar consultas de clientes.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
                 <a href="<?= base_url('admin/ventas') ?>" class="text-decoration-none text-dark card-link">
                     <div class="card h-100 text-center shadow-sm">
                         <div class="card-body">
