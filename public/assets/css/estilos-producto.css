@@ -1,0 +1,50 @@
+/* public/assets/css/estilos-favoritos.css */
+
+/* Reutiliza .titulo-seccion-grande si lo definiste globalmente o en otro CSS */
+/* Si no, puedes definirlo aquí: */
+
+.titulo-seccion-grande {
+    font-family: 'Great Vibes', cursive;
+    color: #b74c7a;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+
+.card-favorito .btn-agregar-carrito {
+    font-size: 0.85rem; /* Botones un poco más pequeños en la lista de favoritos */
+    padding: 0.4rem 0.8rem;
+}
+
+.card-favorito .btn-outline-danger {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+}
+
+.card-favorito .btn-outline-danger .fa-heart-broken {
+    color: #dc3545; /* Color del ícono por defecto */
+}
+.card-favorito .btn-outline-danger:hover .fa-heart-broken {
+    color: white; /* Color del ícono al hacer hover en el botón */
+}
+
+
+/* Estilo para el mensaje de "No tienes favoritos" */
+.btn-explorar-productos {
+    background-color: #b9c8ee; /* Color de tu .style-button */
+    border-color: #b9c8ee;
+    color: #333; 
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.btn-explorar-productos:hover {
+    background-color: #a3b2d3;
+    border-color: #a3b2d3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}

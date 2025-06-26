@@ -10,20 +10,31 @@ use App\Models\CarritoModel;
 
 class VentaController extends BaseController
 {
-    //Muestra la vista de historial de compras del usuario
-    public function index(){
-        $ventaModel = new VentaModel();
-        $detalleModel = new VentaDetalleModel();
-        $usuarioId = session()->get('id');
-        $usuarioRol = session()->get('rol');
+   public function index(){
+    $ventaModel = new VentaModel();
+    $detalleModel = new VentaDetalleModel();
+    $usuarioModel = new UsuarioModel();
+    $usuarioId = session()->get('id');
+    $usuarioRol = session()->get('rol');
 
-        if ($usuarioRol === 'admin') {
-            // Vista para admin
-            $usuarioModel = new UsuarioModel();
-            $data['ventas'] = $ventaModel->obtenerTodasLasVentasConUsuario();
-            $data['clientes'] = $usuarioModel->findAll();
-            return view('ventas/gestion_ventas', $data);
-        } else {
+    if ($usuarioRol === 'admin') {
+        if (!session()->get('logueado') || session()->get('rol') !== 'admin') {
+            return redirect()->to('/')->with('error', 'Acceso no autorizado.');
+        }
+        $data['ventas'] = $ventaModel->obtenerTodasLasVentasConUsuario();
+        $data['clientes'] = $usuarioModel->findAll();
+
+        // Agregar detalles de productos a cada venta
+        foreach ($data['ventas'] as &$venta) {
+            $venta['detalles'] = $detalleModel
+                ->select('detalle_venta.*, productos.nombre as producto_nombre, productos.precio')
+                ->join('productos', 'productos.id = detalle_venta.producto_id')
+                ->where('venta_id', $venta['id'])
+                ->findAll();
+        }
+
+        return view('ventas/gestion_ventas', $data);
+    } else {
 
             $ventas = $ventaModel->obtenerVentasPorUsuario($usuarioId);
 
@@ -116,12 +127,26 @@ class VentaController extends BaseController
         return redirect()->to('/ventas')->with('mensaje', '¡Compra realizada con éxito!');
     }
 
-    public function gestion_ventas(){
+   public function gestion_ventas(){
+        // Solo permite acceso a admins
+        if (!session()->get('logueado') || session()->get('rol') !== 'admin') {
+            return redirect()->to('/')->with('error', 'Acceso no autorizado.');
+        }
         $ventaModel = new \App\Models\VentaModel();
+        $detalleModel = new \App\Models\VentaDetalleModel();
         $usuarioModel = new \App\Models\UsuarioModel();
         $filtros = []; 
         $ventas = $ventaModel->obtenerTodasLasVentasConUsuario($filtros);
         $clientes = $usuarioModel->findAll();
+
+        // Agregar detalles de productos a cada venta
+        foreach ($ventas as &$venta) {
+            $venta['detalles'] = $detalleModel
+                ->select('detalle_venta.*, productos.nombre as producto_nombre, productos.precio')
+                ->join('productos', 'productos.id = detalle_venta.producto_id')
+                ->where('venta_id', $venta['id'])
+                ->findAll();
+        }
 
         return view('ventas/gestion_ventas', [
             'ventas' => $ventas,
@@ -129,20 +154,24 @@ class VentaController extends BaseController
         ]);
     }
 
-    public function ver($id){
-        $ventaModel = new \App\Models\VentaModel();
-        $detalleModel = new \App\Models\VentaDetalleModel();
+   public function ver($id){
+    // Solo permite acceso a admins
+    if (!session()->get('logueado') || session()->get('rol') !== 'admin') {
+        return redirect()->to('/')->with('error', 'Acceso no autorizado.');
+    }
+    $ventaModel = new \App\Models\VentaModel();
+    $detalleModel = new \App\Models\VentaDetalleModel();
 
-        $venta = $ventaModel->find($id);
-        $detalles = $detalleModel
-            ->select('detalle_venta.*, productos.nombre as producto_nombre')
-            ->join('productos', 'productos.id = detalle_venta.producto_id')
-            ->where('venta_id', $id)
-            ->findAll();
+    $venta = $ventaModel->find($id);
+    $detalles = $detalleModel
+        ->select('detalle_venta.*, productos.nombre as producto_nombre')
+        ->join('productos', 'productos.id = detalle_venta.producto_id')
+        ->where('venta_id', $id)
+        ->findAll();
 
-        return view('ventas/ver_venta', [
-            'venta' => $venta,
-            'detalles' => $detalles
-        ]);
+    return view('ventas/ver_venta', [
+        'venta' => $venta,
+        'detalles' => $detalles
+     ]);
     }
 }

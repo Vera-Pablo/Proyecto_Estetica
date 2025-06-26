@@ -10,6 +10,7 @@ class ConsultaController extends Controller
     public function index()
     {
         // Muestra el formulario de consulta
+
         $data['validation'] = \Config\Services::validation(); // Para mostrar errores de validación
         return view('consultas/crear_consulta', $data);
     }
@@ -22,7 +23,7 @@ class ConsultaController extends Controller
             $validation->setRules($model->validationRules, $model->validationMessages);
 
             if (!$validation->withRequest($this->request)->run()) {
-                return redirect()->back()->withInput()->with('validation', $validation);
+                return redirect()->back()->withInput()->with('validation', $validation->getErrors());
             }
 
             $data = [
@@ -42,6 +43,11 @@ class ConsultaController extends Controller
 
     public function verConsultasAdmin()
     {
+        // Solo permite acceso a admins
+        if (!session()->get('logueado') || session()->get('rol') !== 'admin') {
+            return redirect()->to('/')->with('error', 'Acceso no autorizado.');
+        }
+
         $model = new \App\Models\ConsultaModel();
         $data['consultas'] = $model->orderBy('created_at', 'DESC')->findAll();
         return view('consultas/admin_consultas', $data);

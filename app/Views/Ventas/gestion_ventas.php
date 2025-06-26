@@ -37,16 +37,29 @@
                                     <th>Fecha</th>
                                     <th>Cliente</th>
                                     <th>Total</th>
-                                    
+                                    <th>Productos</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                              <tbody>
                                 <?php foreach ($ventas as $venta): ?>
                                     <tr>
                                         <td><?= $venta['id'] ?></td>
                                         <td><?= date('d/m/Y H:i', strtotime($venta['fecha'])) ?></td>
-                                        <td><?= esc(($venta['cliente_nombre'] ?? '') . ' ' . ($venta['cliente_apellido'] ?? '')) ?></td>
+                                        <td><?= $venta['cliente_nombre'] . ' ' . $venta['cliente_apellido'] ?></td>
                                         <td>$<?= number_format($venta['total'], 2) ?></td>
+                                        <td>
+                                            <ul>
+                                            <?php if (!empty($venta['detalles'])): ?>
+                                                <?php foreach ($venta['detalles'] as $detalle): ?>
+                                                    <li>
+                                                        <?= esc($detalle['producto_nombre']) ?> - $<?= number_format($detalle['precio'], 2) ?> x <?= $detalle['cantidad'] ?>
+                                                    </li>
+                                                <?php endforeach; ?>
+                                            <?php else: ?>
+                                                <li>No hay productos</li>
+                                            <?php endif; ?>
+                                            </ul>
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>

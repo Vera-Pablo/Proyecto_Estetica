@@ -1,0 +1,67 @@
+/* public/assets/css/estilos-categorias.css */
+
+.titulo-seccion-grande {
+    font-family: 'Great Vibes', cursive;
+    color: #b74c7a; /* Color principal de tu marca */
+    font-size: 3rem; /* O el tamaño que prefieras */
+    margin-bottom: 0.5rem;
+}
+
+.subtitulo-seccion {
+    font-family: 'Poppins', sans-serif;
+    color: #555;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.lista-categorias .categoria-item {
+    border-left: 4px solid transparent; /* Espacio para el borde hover */
+    transition: background-color 0.2s ease-in-out, border-left-color 0.2s ease-in-out;
+    padding: 1rem 1.25rem;
+}
+
+.lista-categorias .categoria-item:hover {
+    background-color: #fdf6f9; /* Un hover muy sutil */
+    border-left-color: #b74c7a; /* Color principal en el borde izquierdo al pasar el mouse */
+}
+
+.nombre-categoria {
+    font-family: 'Cinzel', serif; /* O 'Poppins' si prefieres */
+    font-weight: 600;
+    color: #5c3a4e; /* Un color oscuro pero no negro puro */
+}
+
+.descripcion-categoria {
+    font-size: 0.9rem;
+    font-family: "Montserrat", sans-serif;
+}
+
+.acciones-admin-categoria .btn {
+    padding: 0.25rem 0.5rem; /* Botones más pequeños */
+    font-size: 0.8rem;
+}
+.acciones-admin-categoria .btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-cta-rosa {
+    background-color: #b74c7a;
+    color: white;
+    border-color: #b74c7a;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.btn-cta-rosa:hover {
+    background-color: #a03b66;
+    border-color: #a03b66;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Puedes reusar las clases .form-container-card, .form-title, .btn-form-submit
+   de estilos-usuarios.css si las hiciste globales o las copias aquí */

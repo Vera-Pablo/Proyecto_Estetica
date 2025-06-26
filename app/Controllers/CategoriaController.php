@@ -8,8 +8,12 @@ class CategoriaController extends BaseController
 {
     // Mostrar todas las categorías
     public function index(){
+        // Solo permite acceso a admins
+        if (!session()->get('logueado') || session()->get('rol') !== 'admin') {
+            return redirect()->to('/')->with('error', 'Acceso no autorizado.');
+        }
         $categoriaModel = new CategoriaModel();
-         $categorias = $categoriaModel->orderBy('nombre', 'ASC')->findAll();
+        $categorias = $categoriaModel->orderBy('nombre', 'ASC')->findAll();
 
         return view('categorias/index_categoria', ['categorias' => $categorias]);
     }

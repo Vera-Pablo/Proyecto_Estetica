@@ -103,6 +103,11 @@ class UsuarioController extends BaseController
     
     // Método editar usuario específico
     public function editar_usuario($id){
+        // Solo permite acceso a admins
+        if (!session()->get('logueado') || session()->get('rol') !== 'admin') {
+            return redirect()->to('/')->with('error', 'Acceso no autorizado.');
+        }
+
         $usuarioModel = new UsuarioModel();
         $usuario = $usuarioModel->find($id);
 
@@ -127,7 +132,7 @@ class UsuarioController extends BaseController
             'apellido' => $this->request->getPost('apellido'),
             'usuario'  => $this->request->getPost('usuario'),
         ];
-
+        
         if (empty($data['nombre']) || empty($data['apellido']) || empty($data['usuario'])) {
             return redirect()->back()->withInput()->with('mensaje', 'Los campos no pueden estar vacíos.');
         }
@@ -140,6 +145,11 @@ class UsuarioController extends BaseController
 
     // Método para mostrar la gestión de usuarios
     public function gestion_usuarios(){
+        // Solo permite acceso a admins
+        if (!session()->get('logueado') || session()->get('rol') !== 'admin') {
+            return redirect()->to('/')->with('error', 'Acceso no autorizado.');
+        }
+
         $usuarioModel = new \App\Models\UsuarioModel();
         $usuarios = $usuarioModel->findAll();
 

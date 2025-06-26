@@ -9,6 +9,9 @@ class ProductoController extends BaseController
 {
     // Muestra el lista de productos con sus respectivas categorías
     public function index(){
+        if (!session()->get('logueado') || session()->get('rol') !== 'admin') {
+    return redirect()->to('/')->with('error', 'Acceso no autorizado.');
+        }
         $productoModel = new ProductoModel();
         $productos = $productoModel
             ->select('productos.*, categoria.nombre as categoria')
@@ -17,7 +20,8 @@ class ProductoController extends BaseController
             ->findAll();
 
         return view('productos/index_producto', ['productos' => $productos]);
-    }
+        }
+
 
     // Muestra el formulario para crear un nuevo producto
     public function crear(){
@@ -49,6 +53,9 @@ class ProductoController extends BaseController
 
     // editar un producto existente
     public function editar($id){
+        if (!session()->get('logueado') || session()->get('rol') !== 'admin') {
+        return redirect()->to('/')->with('error', 'Acceso no autorizado.');
+        }
         $productoModel = new ProductoModel();
         $producto = $productoModel->find($id);
 
