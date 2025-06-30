@@ -76,6 +76,7 @@ $routes->get('/favoritos/agregar_todo_al_carrito', 'FavoritoController::agregarT
 $routes->get('/checkout', 'VentaController::checkout');
 $routes->get('/ventas', 'VentaController::index'); // Ruta para el historial de compras del usuario
 $routes->post('/venta/procesar', 'VentaController::procesar_venta');
+$routes->get('ventas/ticket/(:num)', 'VentaController::ticket/$1');
 
 // Rutas para las consultas públicas
 $routes->get('/consultas', 'ConsultaController::index'); // Muestra el formulario

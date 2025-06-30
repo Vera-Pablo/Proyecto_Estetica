@@ -7,6 +7,8 @@ use App\Models\VentaModel;
 use App\Models\VentaDetalleModel;
 use App\Models\ProductoModel;
 use App\Models\CarritoModel;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class VentaController extends BaseController
 {
@@ -174,4 +176,33 @@ class VentaController extends BaseController
         'detalles' => $detalles
      ]);
     }
+
+    public function ticket($ventaId)
+{
+    $ventaModel = new \App\Models\VentaModel();
+    $detalleModel = new \App\Models\VentaDetalleModel();
+
+    $venta = $ventaModel->find( $ventaId);
+    $detalles = $detalleModel
+        ->select('detalle_venta.*, productos.nombre as producto_nombre, productos.precio')
+        ->join('productos', 'productos.id = detalle_venta.producto_id')
+        ->where('venta_id', $ventaId)
+        ->findAll();
+
+    $html = view('ventas/ticket_pdf', [
+        'venta' => $venta,
+        'detalles' => $detalles
+    ]);
+
+    $options = new Options();
+    $options->set('isRemoteEnabled', true);
+
+    $dompdf = new Dompdf($options);
+    $dompdf->loadHtml($html);
+    $dompdf->setPaper('A4', 'portrait');
+    $dompdf->render();
+
+    // Mostrar en el navegador (no descargar automáticamente)
+    $dompdf->stream("ticket_venta_{$ventaId}.pdf", ["Attachment" => false]);
+}
 }

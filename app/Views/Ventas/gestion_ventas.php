@@ -33,14 +33,15 @@
                         <table class="table table-hover table-custom">
                             <thead class="table-dark-custom">
                                 <tr>
-                                    <th>ID Venta</th>
+                                    <th>Venta Nº</th>
                                     <th>Fecha</th>
                                     <th>Cliente</th>
                                     <th>Total</th>
                                     <th>Productos</th>
+                                    <th>Ticket</th> <!-- Nueva columna -->
                                 </tr>
                             </thead>
-                              <tbody>
+                            <tbody>
                                 <?php foreach ($ventas as $venta): ?>
                                     <tr>
                                         <td><?= $venta['id'] ?></td>
@@ -59,6 +60,11 @@
                                                 <li>No hay productos</li>
                                             <?php endif; ?>
                                             </ul>
+                                        </td>
+                                        <td>
+                                            <a href="<?= base_url('ventas/ticket/' . $venta['id']) ?>" target="_blank" class="btn btn-primary btn-sm w-100 btn-rect">
+                                                <i class="fas fa-file-pdf me-2"></i>Ver Ticket
+                                            </a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

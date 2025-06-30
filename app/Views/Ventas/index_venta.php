@@ -51,6 +51,9 @@
                                 <a href="<?= base_url('ventas/ver/' . $venta['id']) ?>" class="btn btn-view-detail">
                                     <i class="fas fa-eye me-2"></i>Ver Detalle
                                 </a>
+                                <a href="<?= base_url('ventas/ticket/' . $venta['id']) ?>" target="_blank" class="btn btn-primary ms-2">
+                                    <i class="fas fa-file-pdf me-2"></i>Mostrar Ticket
+                                </a>
                             </div>
                         </div>
                     </div>
