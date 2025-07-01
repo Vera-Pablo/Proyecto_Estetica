@@ -1,11 +1,3 @@
-/* public/assets/css/estilos-categorias.css */
-
-.titulo-seccion-grande {
-    font-family: 'Great Vibes', cursive;
-    color: #b74c7a; /* Color principal de tu marca */
-    font-size: 3rem; /* O el tamaño que prefieras */
-    margin-bottom: 0.5rem;
-}
 
 .subtitulo-seccion {
     font-family: 'Poppins', sans-serif;
@@ -46,7 +38,7 @@
 }
 
 .btn-cta-rosa {
-    background-color: #b74c7a;
+    background-color: #198754;
     color: white;
     border-color: #b74c7a;
     font-family: 'Poppins', sans-serif;

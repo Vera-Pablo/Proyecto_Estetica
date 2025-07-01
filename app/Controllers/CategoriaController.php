@@ -20,12 +20,16 @@ class CategoriaController extends BaseController
 
     // Mostrar formulario para crear categoría
     public function crear(){
-        return view('categorias/crear');
+        if (!session()->get('logueado') || session()->get('rol') !== 'admin') {
+            return redirect()->to('/')->with('error', 'Acceso no autorizado.');
+        }else{
+            return view('categorias/crear');
+        }
     }
 
     // Guardar nueva categoría
-    public function guardar()
-    {
+    public function guardar(){
+
         $categoriaModel = new CategoriaModel();
 
         $nombre = $this->request->getPost('nombre');
@@ -44,14 +48,18 @@ class CategoriaController extends BaseController
 
     // Mostrar formulario para editar
     public function editar($id){
-        $categoriaModel = new CategoriaModel();
-        $categoria = $categoriaModel->find($id);
+        if (!session()->get('logueado') || session()->get('rol') !== 'admin') {
+            return redirect()->to('/')->with('error', 'Acceso no autorizado.');
+        }else{
+            $categoriaModel = new CategoriaModel();
+            $categoria = $categoriaModel->find($id);
 
-        if (!$categoria) {
-            return redirect()->to('/categorias')->with('error', 'Categoría no encontrada.');
-        }
+            if (!$categoria) {
+                return redirect()->to('/categorias')->with('error', 'Categoría no encontrada.');
+            }
 
-        return  view('categorias/editar', ['categoria' => $categoria]);
+            return  view('categorias/editar', ['categoria' => $categoria]);
+        }   
     }
 
     // Actualizar categoría

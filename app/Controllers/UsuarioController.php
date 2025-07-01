@@ -9,10 +9,14 @@ class UsuarioController extends BaseController
     
     public function panel(){
         // 1. Verifica que el usuario sea administrador
-        if (session('rol') !== 'admin') {
+        if (!session()->get('logueado')) {
+        return redirect()->to('/login');
+        }
+        if (session('rol') === 'admin') {
+            return view('usuario/panel_admin');
+        } else {
             return view('usuario/panel');
         }
-        return view('usuario/panel_admin'); 
     }
     
     // Método para mostrar el login
@@ -62,6 +66,11 @@ class UsuarioController extends BaseController
         $email = $this->request->getPost('email');
         $pass = $this->request->getPost('pass');
         $usuario = $usuarioModel->where('email', $email)->first();
+
+        if ($usuario['estado'] == 0) {
+            // Usuario bloqueado/desactivado
+            return redirect()->back()->withInput()->with('error', 'Usuario bloqueado. Envianos una consulta o contactate con nosotros!.');
+        }
 
         if ($usuario && password_verify($pass, $usuario['pass'])) {
             session()->set([

@@ -62,7 +62,7 @@
 
                 <div class="text-end">
                     <button type="submit" class="btn btn-primary">Actualizar</button>
-                    <a href="<?= base_url('/productos') ?>" class="btn btn-secondary">Cancelar</a>
+                    <a href="<?= base_url('/index_producto') ?>" class="btn btn-secondary">Cancelar</a>
                 </div>
             </form>
         </div>

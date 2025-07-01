@@ -13,7 +13,7 @@
 <body>
     <div class="container gestion-container mt-5">
         <div class="text-center">
-            <h1 class="gestion-header">Gestión de Categorías</h1>
+            <h1 class="gestion-header text-dark">Gestión de Categorías</h1>
         </div>
 
         <div class="card shadow-lg">

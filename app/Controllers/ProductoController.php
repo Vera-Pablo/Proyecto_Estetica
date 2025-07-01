@@ -10,8 +10,9 @@ class ProductoController extends BaseController
     // Muestra el lista de productos con sus respectivas categorías
     public function index(){
         if (!session()->get('logueado') || session()->get('rol') !== 'admin') {
-    return redirect()->to('/')->with('error', 'Acceso no autorizado.');
+            return redirect()->to('/')->with('error', 'Acceso no autorizado.');
         }
+        
         $productoModel = new ProductoModel();
         $productos = $productoModel
             ->select('productos.*, categoria.nombre as categoria')
@@ -20,32 +21,44 @@ class ProductoController extends BaseController
             ->findAll();
 
         return view('productos/index_producto', ['productos' => $productos]);
-        }
+    }
 
 
     // Muestra el formulario para crear un nuevo producto
     public function crear(){
+        if (!session()->get('logueado') || session()->get('rol') !== 'admin') {
+            return redirect()->to('/')->with('error', 'Acceso no autorizado.');
+        }            
         $categoriaModel = new CategoriaModel();
         $categorias = $categoriaModel->findAll();
 
-        return view('productos/crear', ['categorias' => $categorias]);
+        return view('productos/crear', ['categorias' => $categorias]); 
     }
 
     // Guarda un nuevo producto en la base de datos
     public function guardar(){
         $productoModel = new ProductoModel();
+
+        // Procesar imagen
+        $imagen = $this->request->getFile('imagen_file');
+        $nombreImagen = null;
+        if ($imagen && $imagen->isValid() && !$imagen->hasMoved()) {
+            $nombreImagen = $imagen->getRandomName();
+            $imagen->move(ROOTPATH . 'public/assets/img', $nombreImagen);
+        }
+
         $data = [
             'nombre' => $this->request->getPost('nombre'),
             'descripcion' => $this->request->getPost('descripcion'),
             'precio' => $this->request->getPost('precio'),
             'stock' => $this->request->getPost('stock'),
             'categoria_id' => $this->request->getPost('categoria_id'),
-            'estado' => 1, // Por defecto, el producto está activo
+            'imagen' => $nombreImagen, // Guardar el nombre de la imagen
+            'estado' => 1,
         ];
 
-        // Guardar el producto
         if ($productoModel->insert($data)) {
-            return redirect()->to('/index_producto')->with('success', 'Producto creado exitosamente.');
+            return redirect()->to('/index_producto')->with('mensaje', 'Producto creado exitosamente.');
         } else {
             return redirect()->back()->withInput()->with('errors', $productoModel->errors());
         }
@@ -54,7 +67,7 @@ class ProductoController extends BaseController
     // editar un producto existente
     public function editar($id){
         if (!session()->get('logueado') || session()->get('rol') !== 'admin') {
-        return redirect()->to('/')->with('error', 'Acceso no autorizado.');
+        return redirect()->to('/')->with('mensaje', 'Acceso no autorizado.');
         }
         $productoModel = new ProductoModel();
         $producto = $productoModel->find($id);
@@ -68,6 +81,8 @@ class ProductoController extends BaseController
     // Actualiza un producto existente
     public function actualizar($id){
         $productoModel = new ProductoModel();
+        $producto = $productoModel->find($id);
+
         $data = [
             'nombre' => $this->request->getPost('nombre'),
             'descripcion' => $this->request->getPost('descripcion'),
@@ -76,7 +91,14 @@ class ProductoController extends BaseController
             'categoria_id' => $this->request->getPost('categoria_id'),
         ];
 
-        // Actualizar el producto
+        // Procesar nueva imagen si se sube
+        $imagen = $this->request->getFile('imagen');
+        if ($imagen && $imagen->isValid() && !$imagen->hasMoved()) {
+            $nombreImagen = $imagen->getRandomName();
+            $imagen->move(ROOTPATH . 'public/assets/img', $nombreImagen);
+            $data['imagen'] = $nombreImagen;
+        }
+
         if ($productoModel->update($id, $data)) {
             return redirect()->to('/index_producto')->with('mensaje', 'Producto actualizado exitosamente.');
         } else {
@@ -112,8 +134,11 @@ class ProductoController extends BaseController
         }
     }
 
-    // Muestra el catálogo de productos para los usuarios/administradores
+    
     public function catalogo(){
+        if (session()->get('rol') == 'admin') {
+            return redirect()->to('/panel_admin')->with('error', 'Acceso no autorizado.');
+        }
         $productoModel = new \App\Models\ProductoModel();
         $busqueda = $this->request->getGet('busqueda');
 

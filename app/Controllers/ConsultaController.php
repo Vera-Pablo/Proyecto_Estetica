@@ -7,12 +7,14 @@ use CodeIgniter\Controller;
 
 class ConsultaController extends Controller
 {
-    public function index()
-    {
-        // Muestra el formulario de consulta
+    public function index(){
+        if (!session()->get('logueado') || session()->get('rol') !== 'admin') {
+            $data['validation'] = \Config\Services::validation(); // Para mostrar errores de validación
+            return view('consultas/crear_consulta', $data);
+        }
+        return redirect()->to('/panel_admin')->with('error', 'Acceso no autorizado.');
 
-        $data['validation'] = \Config\Services::validation(); // Para mostrar errores de validación
-        return view('consultas/crear_consulta', $data);
+        
     }
 
         public function guardar()
@@ -40,9 +42,7 @@ class ConsultaController extends Controller
         }
 
     // --- Funciones para el panel de administrador ---
-
-    public function verConsultasAdmin()
-    {
+    public function verConsultasAdmin(){
         // Solo permite acceso a admins
         if (!session()->get('logueado') || session()->get('rol') !== 'admin') {
             return redirect()->to('/')->with('error', 'Acceso no autorizado.');
@@ -51,21 +51,5 @@ class ConsultaController extends Controller
         $model = new \App\Models\ConsultaModel();
         $data['consultas'] = $model->orderBy('created_at', 'DESC')->findAll();
         return view('consultas/admin_consultas', $data);
-    }
-
-    // Opcional: Función para cambiar el estado de una consulta (por ejemplo, a "Cerrado" o "En proceso")
-    public function cambiarEstado($id)
-    {
-        $model = new ConsultaModel();
-        $consulta = $model->find($id);
-
-        if ($consulta) {
-            $nuevoEstado = ($consulta['estado'] == 'Abierto') ? 'Cerrado' : 'Abierto'; // Ejemplo simple
-            $model->update($id, ['estado' => $nuevoEstado]);
-            session()->setFlashdata('success', 'Estado de la consulta actualizado.');
-        } else {
-            session()->setFlashdata('error', 'Consulta no encontrada.');
-        }
-        return redirect()->to('/admin/consultas'); // Redirige a la vista de administración
     }
 }

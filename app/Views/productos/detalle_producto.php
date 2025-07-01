@@ -4,14 +4,8 @@
     <meta charset="UTF-8">
     <title><?= esc($producto['nombre'] ?? 'Detalle') ?> - Detalles del producto</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Fuentes de Google -->
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
-
-    <!-- Tu hoja de estilos personalizada -->
     <link rel="stylesheet" href="<?= base_url('assets/css/estilo-detalleProducto.css') ?>">
 </head>
 <body>
@@ -20,12 +14,6 @@
         <div class="row product-detail-container">
             <!-- Imagen del producto -->
             <div class="col-md-6 product-image-container">
-    
-                <!-- 
-                    CORRECCIÓN PRINCIPAL:
-                    La ruta a la imagen no debe incluir "/productos".
-                    La ruta correcta es 'assets/img/' seguido del nombre de la imagen.
-                -->
                 <img src="<?= base_url('assets/img/' . $producto['imagen']) ?>" alt="<?= esc($producto['nombre']) ?>" class="img-fluid">
 
             </div>

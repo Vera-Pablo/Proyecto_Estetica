@@ -40,20 +40,20 @@
                                 <table class="table table-hover table-striped">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
+                                            <!--<th>ID</th>-->                                            
                                             <th>Nombre</th>
                                             <th>Email</th>
                                             <th>Asunto</th>
                                             <th>Mensaje</th>
-                                            <th>Estado</th>
+                                            <!-- th>Estado</th>-->
                                             <th>Fecha</th>
-                                            <th>Acciones</th>
+                                            <!-- <th>Acciones</th>-->
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php foreach ($consultas as $consulta): ?>
                                             <tr>
-                                                <td><?= $consulta['id'] ?></td>
+                                                <!--<td><?= $consulta['id'] ?></td>-->
                                                 <td><?= esc($consulta['nombre']) ?></td>
                                                 <td><?= esc($consulta['email']) ?></td>
                                                 <td><?= esc($consulta['asunto']) ?></td>
@@ -65,7 +65,7 @@
                                                             <div class="modal-dialog modal-dialog-scrollable">
                                                                 <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title" id="mensajeModalLabel<?= $consulta['id'] ?>">Mensaje de <?= esc($consulta['nombre']) ?> (ID: <?= $consulta['id'] ?>)</h5>
+                                                                    <h5 class="modal-title" id="mensajeModalLabel<?= $consulta['id'] ?>">Mensaje de <?= esc($consulta['nombre']) ?></h5>
                                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                 </div>
                                                                 <div class="modal-body">
@@ -79,17 +79,17 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td>
+                                                <!--<td>
                                                     <span class="badge rounded-pill <?= ($consulta['estado'] == 'Abierto') ? 'badge-abierto' : 'badge-cerrado' ?>">
                                                         <?= esc($consulta['estado']) ?>
                                                     </span>
-                                                </td>
+                                                </td>-->
                                                 <td><?= date('d/m/Y H:i', strtotime($consulta['created_at'])) ?></td>
-                                                <td>
+                                                <!-- <td>
                                                     <a href="<?= base_url('admin/consultas/cambiar-estado/' . $consulta['id']) ?>" class="btn btn-sm <?= ($consulta['estado'] == 'Abierto') ? 'btn-success' : 'btn-warning' ?>">
                                                         <?= ($consulta['estado'] == 'Abierto') ? '<i class="bi bi-check-circle"></i> Marcar Cerrada' : '<i class="bi bi-folder2-open"></i> Marcar Abierta' ?>
                                                     </a>
-                                                </td>
+                                                </td>-->
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>

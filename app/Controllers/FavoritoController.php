@@ -7,8 +7,7 @@ use App\Models\ProductoModel; // Para verificar si el producto existe
 
 class FavoritoController extends BaseController
 {
-    public function __construct()
-    {
+    public function __construct(){
         // Cargar helper de sesión o asegurarse que esté autocargado
         helper(['session', 'url']);
     }
@@ -16,8 +15,11 @@ class FavoritoController extends BaseController
     /**
      * Muestra los productos favoritos del usuario logueado.
      */
-    public function index()
-    {
+    public function index(){
+        if (!session()->get('logueado') || session()->get('rol') == 'admin') {
+            return redirect()->to('/panel_admin')->with('error', 'Acceso no autorizado.');
+        }
+        
         if (!session()->get('logueado')) {
             return redirect()->to('/login')->with('error', 'Debes iniciar sesión para ver tus favoritos.');
         }

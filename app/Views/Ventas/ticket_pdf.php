@@ -163,7 +163,7 @@
         <table class="contact-info">
             <tr>
                 <td class="label" width="30%">Nombre y Apellido:</td>
-                <td width="70%"><?= esc($venta['cliente_nombre'] ?? '') . ' ' . esc($venta['cliente_apellido'] ?? '') ?></td>
+                <td width="70%"><?= esc($usuario['nombre'] ?? '') ?> <?= esc($usuario['apellido'] ?? '') ?></td>
             </tr>
              <tr>
                 <td class="label">Fecha:</td>

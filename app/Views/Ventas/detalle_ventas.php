@@ -18,7 +18,7 @@
                                 <div class="row">
                                     <!-- ...datos de la venta... -->
                                 </div>
-                                <h5>Productos de esta venta:</h5>
+                                <h5>Productos comprados:</h5>
                                 <table class="table table-sm">
                                     <thead>
                                         <tr>

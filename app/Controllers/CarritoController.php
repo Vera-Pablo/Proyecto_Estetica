@@ -10,21 +10,21 @@ class CarritoController extends BaseController
     // Ver carrito del usuario actual (logueado o visitante)
 // En app/Controllers/CarritoController.php
 
-    public function index()
-    {
+    public function index(){
+        if (!session()->get('logueado') || session()->get('rol') == 'admin') {
+            return redirect()->to('/panel_admin')->with('error', 'Acceso no autorizado.');
+        }
+        
         $carritoModel = new CarritoModel();
         $productoModel = new ProductoModel();
 
         $usuarioId = session('id');
         
-        // Tu lógica original era para una sesión de visitante, la ajustamos para usuario logueado
-        // Nota: El CarritoModel que me pasaste no tiene método para sesión de visitante.
         $items = $usuarioId ? $carritoModel->obtenerCarritoPorUsuario($usuarioId) : [];
 
         // Cargar datos completos de cada producto en el carrito
         if(!empty($items)){
-            foreach ($items as &$item) { // El & permite modificar el array original
-                // Corregí el nombre de la función aquí
+            foreach ($items as &$item) { 
                 $item['producto'] = $productoModel->obtenerProductoId($item['producto_id']);
             }
         }

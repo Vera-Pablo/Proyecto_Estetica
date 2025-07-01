@@ -20,9 +20,6 @@ class VentaController extends BaseController
     $usuarioRol = session()->get('rol');
 
     if ($usuarioRol === 'admin') {
-        if (!session()->get('logueado') || session()->get('rol') !== 'admin') {
-            return redirect()->to('/')->with('error', 'Acceso no autorizado.');
-        }
         $data['ventas'] = $ventaModel->obtenerTodasLasVentasConUsuario();
         $data['clientes'] = $usuarioModel->findAll();
 
@@ -38,7 +35,7 @@ class VentaController extends BaseController
         return view('ventas/gestion_ventas', $data);
     } else {
 
-            $ventas = $ventaModel->obtenerVentasPorUsuario($usuarioId);
+             $ventas = $ventaModel->where('usuario_id', $usuarioId)->findAll();
 
             foreach ($ventas as &$venta) {
                 $venta['detalles'] = $detalleModel
@@ -53,6 +50,9 @@ class VentaController extends BaseController
     }
 
     public function checkout(){
+        if (!session()->get('logueado') || session()->get('rol') == 'admin') {
+            return redirect()->to('/panel_admin')->with('error', 'Acceso no autorizado.');
+        }
         $carritoModel = new CarritoModel();
         $productoModel = new ProductoModel();
         $usuarioId = session()->get('id');
@@ -177,32 +177,38 @@ class VentaController extends BaseController
      ]);
     }
 
-    public function ticket($ventaId)
-{
-    $ventaModel = new \App\Models\VentaModel();
-    $detalleModel = new \App\Models\VentaDetalleModel();
+    public function ticket($ventaId){
+        $ventaModel = new \App\Models\VentaModel();
+        $detalleModel = new \App\Models\VentaDetalleModel();
+        $usuarioModel = new \App\Models\UsuarioModel();
 
-    $venta = $ventaModel->find( $ventaId);
-    $detalles = $detalleModel
-        ->select('detalle_venta.*, productos.nombre as producto_nombre, productos.precio')
-        ->join('productos', 'productos.id = detalle_venta.producto_id')
-        ->where('venta_id', $ventaId)
-        ->findAll();
+        $venta = $ventaModel->find($ventaId);
+        $detalles = $detalleModel
+            ->select('detalle_venta.*, productos.nombre as producto_nombre, productos.precio')
+            ->join('productos', 'productos.id = detalle_venta.producto_id')
+            ->where('venta_id', $ventaId)
+            ->findAll();
 
-    $html = view('ventas/ticket_pdf', [
-        'venta' => $venta,
-        'detalles' => $detalles
-    ]);
+        // Obtener usuario de la venta
+        $usuario = null;
+        if ($venta && isset($venta['usuario_id'])) {
+            $usuario = $usuarioModel->find($venta['usuario_id']);
+        }
 
-    $options = new Options();
-    $options->set('isRemoteEnabled', true);
+        $html = view('ventas/ticket_pdf', [
+            'venta' => $venta,
+            'detalles' => $detalles,
+            'usuario' => $usuario // <-- pasa el usuario a la vista
+        ]);
 
-    $dompdf = new Dompdf($options);
-    $dompdf->loadHtml($html);
-    $dompdf->setPaper('A4', 'portrait');
-    $dompdf->render();
+        $options = new Options();
+        $options->set('isRemoteEnabled', true);
 
-    // Mostrar en el navegador (no descargar automáticamente)
-    $dompdf->stream("ticket_venta_{$ventaId}.pdf", ["Attachment" => false]);
-}
+        $dompdf = new Dompdf($options);
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+
+        $dompdf->stream("ticket_venta_{$ventaId}.pdf", ["Attachment" => false]);
+    }
 }

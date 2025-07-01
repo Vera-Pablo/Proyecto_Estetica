@@ -62,8 +62,8 @@
                                             </ul>
                                         </td>
                                         <td>
-                                            <a href="<?= base_url('ventas/ticket/' . $venta['id']) ?>" target="_blank" class="btn btn-primary btn-sm w-100 btn-rect">
-                                                <i class="fas fa-file-pdf me-2"></i>Ver Ticket
+                                            <a href="<?= base_url('ventas/ticket/' . $venta['id']) ?>" target="_blank" class="btn btn-primary w-100 ">
+                                                <i class="fas fa-file-pdf me-2"></i>Ticket
                                             </a>
                                         </td>
                                     </tr>
