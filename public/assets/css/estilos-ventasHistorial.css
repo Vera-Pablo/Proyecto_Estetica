@@ -1,0 +1,128 @@
+
+
+body {
+    background: #f8fafc;
+}
+.historial-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.historial-header {
+    color: #c471a1;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    font-size: 2.7rem;
+    letter-spacing: 1px;
+}
+.venta-card {
+    background: #fff6fa;
+    border-radius: 18px;
+    box-shadow: 0 2px 16px 0 rgba(200,113,161,0.07);
+    margin-bottom: 2rem;
+    padding: 2rem 2rem 1.5rem 2rem;
+    border: none;
+}
+.venta-card .venta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+.venta-card .venta-header .order-id {
+    color: #d72660;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.venta-card .venta-header .order-date {
+    color: #a8a8a8;
+    font-size: 1rem;
+}
+.venta-card .venta-estado {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+.venta-card .badge {
+    font-size: 1rem;
+    padding: 0.5em 1.2em;
+    border-radius: 8px;
+}
+.venta-card .venta-total {
+    font-size: 1.1rem;
+    color: #7e57c2;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+}
+.venta-card .productos-table {
+    background: #fff;
+    border-radius: 10px;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+    overflow: hidden;
+}
+.venta-card .productos-table th {
+    background: #ffe6ec;
+    color: #d72660;
+    border: none;
+    font-weight: 600;
+}
+.venta-card .productos-table td {
+    background: #fff;
+    border: none;
+}
+.venta-card .btn-ticket {
+    background: #e0f7fa;
+    color: #00838f;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+    padding: 0.5em 1.5em;
+    transition: background 0.2s;
+}
+.venta-card .btn-ticket:hover {
+    background: #b2ebf2;
+    color: #005662;
+}
+.venta-card .btn-detalle {
+    background: #ffd6e0;
+    color: #d72660;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+    padding: 0.5em 1.5em;
+    margin-right: 0.5em;
+    transition: background 0.2s;
+}
+.venta-card .btn-detalle:hover {
+    background: #ffb3c6;
+    color: #a81d4d;
+}
+.sin-compras {
+    background: #fff6fa;
+    border-radius: 18px;
+    box-shadow: 0 2px 16px 0 rgba(200,113,161,0.07);
+    padding: 3rem 2rem;
+    margin-top: 3rem;
+}
+.btn-explorar {
+    background: #ffd6e0;
+    color: #d72660;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+    padding: 0.7em 2em;
+    margin-top: 1.5rem;
+    transition: background 0.2s;
+}
+.btn-explorar:hover {
+    background: #ffb3c6;
+    color: #a81d4d;
+}
+@media (max-width: 768px) {
+    .venta-card, .sin-compras {
+        padding: 1.2rem 0.5rem;
+    }
+    .historial-header {
+        font-size: 2rem;
+    }
+}

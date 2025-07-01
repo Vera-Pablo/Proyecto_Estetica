@@ -4,43 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Gestionar Productos</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <link href="<?= base_url('assets/css/estilos-principal.css') ?>" rel="stylesheet">
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url('assets/css/estilos-gestion.css') ?>" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Cedarville+Cursive&family=Great+Vibes&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 </head>
 <body>
-
-    <div class="background-video">
-        </div>
-
-    <div class="container gestion-container mt-5">
-        <div class="text-center">
+    <div class="container gestion-container my-5">
+        <div class="text-center mb-4">
             <h1 class="gestion-header">Gestión de Productos</h1>
         </div>
 
-        <div class="card shadow-lg">
+        <div class="card shadow-sm border-0">
             <div class="card-body">
-                <div class="row mb-4">
-                    <div class="col-md-6">
+                <div class="row mb-4 align-items-center">
+                    <div class="col-md-5">
                         <div class="input-group">
-                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
-                            <input type="text" id="searchInput" class="form-control" placeholder="Buscar por nombre de producto...">
+                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            <input type="text" id="searchInput" class="form-control pastel-input" placeholder="Buscar por nombre de producto...">
                         </div>
                     </div>
-                    <div class="col-md-6 text-end">
-                        <a href="<?= base_url('panel_admin') ?>" class="btn btn-secondary-custom">
-                            <i class="fas fa-arrow-left"></i> Panel Principal
+                    <div class="col-md-7 text-md-end mt-3 mt-md-0">
+                        <a href="<?= base_url('panel_admin') ?>" class="btn btn-secondary-custom me-2">
+                            <i class="fas fa-arrow-left me-1"></i> Panel Principal
                         </a>
                         <a href="<?= base_url('crear') ?>" class="btn btn-cta-gestion">
-                            <i class="fas fa-plus"></i> Agregar Producto
+                            <i class="fas fa-plus me-1"></i> Agregar Producto
                         </a>
                     </div>
                 </div>
@@ -54,24 +43,24 @@
 
                 <?php $productos = isset($productos) ? $productos : []; ?>
                 <div class="table-responsive">
-                    <table class="table table-hover table-custom">
+                    <table class="table table-hover table-custom align-middle">
                         <thead class="table-dark-custom">
                             <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Precio</th>
-                                <th>Categoría</th>
-                                <th>Stock</th>
-                                <th>Estado</th>
-                                <th class="text-center">Acciones</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Categoría</th>
+                                <th scope="col">Stock</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col" class="text-center">Acciones</th>
                             </tr>
                         </thead>
                         <tbody id="productsTable">
                             <?php if (!empty($productos)): ?>
                                 <?php foreach ($productos as $producto): ?>
                                     <tr>
-                                        <td><?= esc($producto['id']) ?></td>
-                                        <td class="product-name"><?= esc($producto['nombre']) ?></td>
+                                        <td class="text-muted">#<?= esc($producto['id']) ?></td>
+                                        <td class="product-name fw-medium"><?= esc($producto['nombre']) ?></td>
                                         <td>$<?= esc(number_format($producto['precio'], 2)) ?></td>
                                         <td><?= esc($producto['categoria']) ?></td>
                                         <td><?= esc($producto['stock']) ?></td>
@@ -81,10 +70,9 @@
                                             </span>
                                         </td>
                                         <td class="text-center">
-                                            <a href="<?= base_url('/productos/editar/' . $producto['id']) ?>" class="btn btn-sm btn-warning-custom" title="Editar">
+                                            <a href="<?= base_url('/productos/editar/' . $producto['id']) ?>" class="btn btn-sm btn-edit-custom" title="Editar">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>
-                                            
                                             <?php if ($producto['estado'] == 1): ?>
                                                 <a href="<?= base_url('/productos/desactivar/' . $producto['id']) ?>" class="btn btn-sm btn-danger-custom" title="Desactivar" onclick="return confirm('¿Estás seguro que deseas desactivar este producto?')">
                                                     <i class="fas fa-toggle-on"></i>
@@ -99,7 +87,7 @@
                                 <?php endforeach; ?>
                             <?php else: ?>
                                 <tr>
-                                    <td colspan="6" class="text-center">No hay productos cargados.</td>
+                                    <td colspan="7" class="text-center py-5 text-muted">No hay productos cargados.</td>
                                 </tr>
                             <?php endif; ?>
                         </tbody>
@@ -109,19 +97,16 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Script para la búsqueda en tiempo real
         document.getElementById('searchInput').addEventListener('keyup', function() {
             let filter = this.value.toLowerCase();
             let rows = document.querySelectorAll('#productsTable tr');
-
             rows.forEach(row => {
-                let productName = row.querySelector('.product-name').textContent.toLowerCase();
-                if (productName.includes(filter)) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
+                let productNameCell = row.querySelector('.product-name');
+                if (productNameCell) {
+                    let productName = productNameCell.textContent.toLowerCase();
+                    row.style.display = productName.includes(filter) ? '' : 'none';
                 }
             });
         });
