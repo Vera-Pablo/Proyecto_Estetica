@@ -62,7 +62,7 @@ $routes->get('/productos/activar/(:num)', 'ProductoController::activar/$1');
 
 // --- Rutas para el Carrito de Compras ---
 $routes->get('/carrito', 'CarritoController::index');
-$routes->post('/carrito/agregar', 'CarritoController::agregar');
+$routes->post('carrito/agregar/(:num)', 'CarritoController::agregar/$1');
 $routes->post('/carrito/actualizar', 'CarritoController::actualizar'); // Ruta para el botón "Actualizar Cantidades"
 $routes->get('/carrito/eliminar/(:num)', 'CarritoController::eliminar/$1');
 

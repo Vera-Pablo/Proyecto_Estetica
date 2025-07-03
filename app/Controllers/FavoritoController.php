@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\FavoritoModel;
 use App\Models\ProductoModel; // Para verificar si el producto existe
+use App\Models\CarritoModel;
 
 class FavoritoController extends BaseController
 {
@@ -40,22 +41,27 @@ class FavoritoController extends BaseController
      * Agrega un producto a la lista de favoritos del usuario logueado.
      * @param int $productoId ID del producto a agregar.
      */
-    public function agregar($productoId = null)
-    {
-        if (!session()->get('logueado')) {
-            return redirect()->to('/login')->with('error', 'Debes iniciar sesión para agregar favoritos.');
-        }
+        public function agregar($productoId)
+        {
+            $carritoModel = new CarritoModel();
+            $productoModel = new ProductoModel();
+            $producto = $productoModel->find($productoId);
 
-        if ($productoId === null) {
-            return redirect()->back()->with('error', 'Producto no especificado.');
-        }
+            if (!$producto) {
+                return redirect()->back()->with('error', 'Producto no encontrado.');
+            }
 
-        $productoModel = new ProductoModel();
-        $producto = $productoModel->find($productoId);
+            if ($producto['stock'] <= 0) {
+                log_message('error', 'Intento de agregar producto sin stock: ' . $productoId);
+                return redirect()->back()->with('error', 'No hay stock disponible para este producto.');
+            }
 
-        if (!$producto) {
-            return redirect()->back()->with('error', 'El producto no existe.');
-        }
+            $cantidad = $this->request->getPost('cantidad') ?? 1;
+
+            // Validar que la cantidad no supere el stock
+            if ($cantidad > $producto['stock']) {
+                return redirect()->back()->with('error', 'No hay suficiente stock disponible.');
+            }
 
         $favoritoModel = new FavoritoModel();
         $usuarioId = session()->get('id');
@@ -72,7 +78,6 @@ class FavoritoController extends BaseController
         if ($favoritoModel->insert($data)) {
             return redirect()->back()->with('mensaje', 'Producto agregado a favoritos.');
         } else {
-            // Log errors: log_message('error', json_encode($favoritoModel->errors()));
             return redirect()->back()->with('error', 'No se pudo agregar el producto a favoritos.');
         }
     }
@@ -110,36 +115,83 @@ class FavoritoController extends BaseController
      */
     public function agregarTodoAlCarrito()
     {
-        if (!session()->get('logueado')) {
-            return redirect()->to('/login')->with('error', 'Debes iniciar sesión para realizar esta acción.');
-        }
-
-        $usuarioId = session()->get('id');
         $favoritoModel = new \App\Models\FavoritoModel();
+        $productoModel = new \App\Models\ProductoModel();
         $carritoModel = new \App\Models\CarritoModel();
 
-        // 1. Obtener todos los productos favoritos del usuario
+        $usuarioId = session('id');
+        $sessionId = session_id();
+
+        // Trae todos los favoritos del usuario
         $favoritos = $favoritoModel->where('usuario_id', $usuarioId)->findAll();
 
-        if (empty($favoritos)) {
-            return redirect()->to('/favoritos')->with('info', 'Tu lista de favoritos ya estaba vacía.');
-        }
+        $agregados = 0;
+        $sinStock = [];
+        $yaAlMaximo = [];
 
-        $productosAgregados = 0;
-        // 2. Recorrer cada favorito y agregarlo al carrito
-        foreach ($favoritos as $favorito) {
-            $data = [
-                'usuario_id'  => $usuarioId,
-                'producto_id' => $favorito['producto_id'],
-                'cantidad'    => 1 // Se agrega una unidad por defecto
-            ];
-            // Usamos el método que ya tenías en tu CarritoModel
-            if ($carritoModel->agregarProducto($data)) {
-                $productosAgregados++;
+        foreach ($favoritos as $fav) {
+            $producto = $productoModel->find($fav['producto_id']);
+            if ($producto && $producto['stock'] > 0) {
+                // Verificar cantidad actual en el carrito
+                $itemCarrito = $carritoModel
+                    ->where('producto_id', $producto['id'])
+                    ->where('usuario_id', $usuarioId)
+                    ->first();
+
+                $cantidadEnCarrito = $itemCarrito['cantidad'] ?? 0;
+
+                // Solo agregar si no supera el stock
+                if ($cantidadEnCarrito + 1 > $producto['stock']) {
+                    $yaAlMaximo[] = $producto['nombre'] ?? 'Producto ID ' . $fav['producto_id'];
+                    continue;
+                }
+
+                $data = [
+                    'usuario_id' => $usuarioId ?? null,
+                    'session_id' => $usuarioId ? null : $sessionId,
+                    'producto_id' => $producto['id'],
+                    'cantidad' => 1
+                ];
+                $carritoModel->agregarProducto($data);
+                $agregados++;
+            } else {
+                $sinStock[] = $producto['nombre'] ?? 'Producto ID ' . $fav['producto_id'];
             }
         }
-        
-        // 3. Redirigir al carrito con un mensaje de éxito
-        return redirect()->to('/carrito')->with('mensaje', $productosAgregados . ' producto(s) de tu lista de favoritos han sido agregados al carrito.');
+
+        $mensaje = [];
+        if ($agregados > 0) {
+            $mensaje[] = 'Se agregaron los productos con stock al carrito.';
+        }
+        if (count($sinStock) > 0) {
+            $mensaje[] = 'Sin stock: ' . implode(', ', $sinStock);
+        }
+        if (count($yaAlMaximo) > 0) {
+            $mensaje[] = 'Ya tienes la cantidad máxima en el carrito de: ' . implode(', ', $yaAlMaximo);
+        }
+        if (empty($mensaje)) {
+            $mensaje[] = 'Ningún producto fue agregado porque no hay stock o ya tienes la cantidad máxima en el carrito.';
+        }
+
+        return redirect()->to('/favoritos')->with('mensaje', implode(' ', $mensaje));
+    }
+
+    /**
+     * Elimina todos los productos favoritos del usuario.
+     */
+    public function eliminarTodo()
+    {
+        if (!session()->get('logueado')) {
+            return redirect()->to('/login')->with('error', 'Debes iniciar sesión para eliminar favoritos.');
+        }
+
+        $favoritoModel = new FavoritoModel();
+        $usuarioId = session()->get('id');
+
+        if ($favoritoModel->eliminarFavoritosPorUsuario($usuarioId)) {
+            return redirect()->to('/favoritos')->with('mensaje', 'Todos los productos han sido eliminados de tus favoritos.');
+        } else {
+            return redirect()->to('/favoritos')->with('error', 'No se pudieron eliminar los favoritos.');
+        }
     }
 }

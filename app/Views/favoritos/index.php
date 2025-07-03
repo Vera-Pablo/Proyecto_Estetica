@@ -40,12 +40,17 @@
                                         <a href="<?= site_url('/favoritos/eliminar/' . $item['producto_id']) ?>" class="btn btn-sm btn-danger-custom" title="Eliminar de favoritos">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
-                                        <form action="<?= base_url('/carrito/agregar') ?>" method="post" class="d-inline">
-                                            <input type="hidden" name="producto_id" value="<?= $item['producto_id'] ?>">
-                                            <button type="submit" class="btn btn-sm btn-success-custom" title="Agregar al carrito">
+                                        <form action="<?= base_url('carrito/agregar/' . $item['producto_id']) ?>" method="post" class="d-inline">
+                                            <input type="hidden" name="cantidad" value="1">
+                                            <button type="submit" class="btn btn-sm btn-success-custom"
+                                                title="<?= ($item['stock'] ?? 0) <= 0 ? 'Sin stock disponible' : 'Agregar al carrito' ?>"
+                                                <?= ($item['stock'] ?? 0) <= 0 ? 'disabled' : '' ?>>
                                                 <i class="fas fa-shopping-cart"></i>
                                             </button>
                                         </form>
+                                        <?php if (($item['stock'] ?? 0) <= 0): ?>
+                                            <span class="badge bg-danger-custom ms-2">Sin stock</span>
+                                        <?php endif; ?>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

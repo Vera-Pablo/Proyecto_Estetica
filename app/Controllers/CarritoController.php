@@ -37,23 +37,46 @@ class CarritoController extends BaseController
     }
 
     // Agregar producto al carrito
-    public function agregar()
+    public function agregar($productoId)
     {
         $carritoModel = new CarritoModel();
+        $productoModel = new ProductoModel();
+        $producto = $productoModel->find($productoId);
+
+        if (!$producto) {
+            return redirect()->back()->with('error', 'Producto no encontrado.');
+        }
 
         $usuarioId = session('id');
         $sessionId = session_id();
 
+        $cantidadSolicitada = $this->request->getPost('cantidad') ?? 1;
+
+        // Obtener la cantidad actual en el carrito
+        $itemCarrito = $carritoModel
+            ->where('producto_id', $productoId)
+            ->where('usuario_id', $usuarioId)
+            ->first();
+
+        $cantidadEnCarrito = $itemCarrito['cantidad'] ?? 0;
+
+        // Validar stock total
+        if ($cantidadSolicitada + $cantidadEnCarrito > $producto['stock']) {
+            return redirect()->back()->with('error', 'No hay suficiente stock disponible.');
+        }
+
         $data = [
             'usuario_id' => $usuarioId ?? null,
             'session_id' => $usuarioId ? null : $sessionId,
-            'producto_id' => $this->request->getPost('producto_id'),
-            'cantidad' => $this->request->getPost('cantidad') ?? 1
+            'producto_id' => $productoId,
+            'cantidad' => $cantidadSolicitada
         ];
 
         $carritoModel->agregarProducto($data);
         return redirect()->to('/carrito')->with('mensaje', 'Producto agregado al carrito.');
     }
+
+        
 
     // Quitar producto del carrito
     public function eliminar($id)
@@ -81,4 +104,5 @@ class CarritoController extends BaseController
         }
         return redirect()->back()->with('mensaje', 'Carrito actualizado correctamente.');
     }
+
 }

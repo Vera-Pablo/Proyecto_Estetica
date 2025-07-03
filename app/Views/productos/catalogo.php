@@ -46,19 +46,26 @@
                             </div>
                             
                             <div class="product-actions">
-                                <form action="<?= base_url('/carrito/agregar') ?>" method="post">
-                                    <input type="hidden" name="producto_id" value="<?= $producto['id'] ?>">
-                                    <input type="hidden" name="cantidad" value="1"> 
-                                    
-                                    <div class="d-flex gap-2 mb-2">
-                                        <button type="submit" class="btn btn-add-to-cart w-100">
-                                            <i class="fas fa-shopping-cart"></i>
-                                        </button>
-                                        <a href="<?= site_url('/favoritos/agregar/' . $producto['id']) ?>" class="btn btn-favorites w-100" title="Añadir a favoritos">
-                                            <i class="fas fa-heart"></i>
-                                        </a>
-                                    </div>
-                                </form>
+                                <form action="<?= base_url('carrito/agregar/' . $producto['id']) ?>" method="post">
+                                <div class="d-flex gap-2 mb-2 align-items-center">
+                                    <input
+                                        type="number"
+                                        name="cantidad"
+                                        value="1"
+                                        min="1"
+                                        max="<?= $producto['stock'] ?>"
+                                        class="form-control pastel-input"
+                                        style="width: 60px; padding: 0.25rem 0.5rem; font-size: 1rem;"
+                                        <?= $producto['stock'] <= 0 ? 'disabled' : '' ?>
+                                    >
+                                    <button type="submit" class="btn btn-add-to-cart w-100" <?= $producto['stock'] <= 0 ? 'disabled' : '' ?>>
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                    <a href="<?= site_url('/favoritos/agregar/' . $producto['id']) ?>" class="btn btn-favorites w-100" title="Añadir a favoritos">
+                                        <i class="fas fa-heart"></i>
+                                    </a>
+                                </div>
+                            </form>
 
                                 <div class="d-grid">
                                     <a href="<?= base_url('/productos/detalles_productos/' . $producto['id']) ?>" class="btn btn-outline-secondary" title="Ver detalles">
